@@ -1,0 +1,19 @@
+Research Interests
+
+I am mainly interested in Genetic Programming (GP) and related techniques. In this respect I proposed two GP variants that use a linear representation of the chromosome. 
+
+The first one is called Multi Expression Programming (MEP) and is similar to the way in which C or Pascal compilers translate mathematical expressions into machine code. A unique feature of MEP is its ability to encode multiple solutions of a problem in a single chromosome. I used this method for solving several well known problems such as symbolic regression, classification, even-parity, multiplexer, digital circuits, etc. MEP is very easy to implement and its multi expression ability provide a significant advantage over other methods (such as GP, Gene Expression Programming, Grammatical Evolution, Linear Genetic Programming, Cartesian Genetic Programming etc).
+
+Another method that I proposed is Infix Form Genetic Programming (IFGP), which uses a very natural (human readable) representation of the mathematical expressions. Each IFGP chromosome is a string of numbers encoding a mathematical expression in Infix form. I applied IFGP for some classification problems and I obtained better results than those obtained using Neural Networks and Linear Genetic Programming.
+
+Another field of interest is the applicability of evolutionary techniques for evolving digital circuits. In this respect I applied MEP for evolving digital circuits. I have shown how multiple digital circuits may be efficiently encoded in a single chromosome. I obtained very good results, significantly better than those obtained by Julian Miller with Cartesian Genetic Programming. 
+
+I also applied evolutionary algorithms for obtaining other evolutionary algorithms. The idea is to try evolving an evolutionary algorithm instead of writing it by hand. Using this new technique one should not be concerned about the structure and parameters of the obtained evolutionary algorithms. The structure and the parameters will be evolved by an evolutionary algorithm. I proposed two techniques for evolving evolutionary algorithms. The first one is based on Multi Expression Programming and it is used for evolving non-generational evolutionary algorithms. The second one is based on Linear Genetic Programming and evolves generational evolutionary algorithms. I evolved several algorithms for function optimization and TSP. Results have shown that the evolved evolutionary algorithms performed better that a standard Genetic Algorithm.
+
+I also used evolutionary algorithms to evolve heuristics for the TSP problem. The evolved heuristic is a function that takes as input some information about the path already build and then outputs the next node of the path. I compared the evolved heuristic to Nearest Neighbor Heuristic and Minimum Spanning Tree Heuristic and I found that the evolved one performs significantly better than the others.
+
+I am also interested in automatic theorem proving. In this respect I proposed an evolutionary model based on Genetic Programming for proving theorems in the Lukasiewick logic system.
+
+Another field of interest is related to Optimization and Search where I proposed several algorithms for multi and single objective function optimization.
+
+Oltean Mihai

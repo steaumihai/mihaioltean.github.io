@@ -1,0 +1,878 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=windows-1252"/>
+<meta http-equiv="Content-Language" content="en-us"/>
+<title>Description of an optical device for a the Hamiltonian path problem</title>
+<meta name="keywords" content="Optical solutions NP Complete problems, Hamiltonian path, Exact cover, subset sum, unbounded subset sum, Diophantine equations, analog computer, light based computer"/>
+<meta name="description" content="An optical device (solution) for a NP-complete problem (the Hamiltonian path)"/>
+</head>
+
+<body>
+
+<center>
+<h1>The idea ...</h1>
+</center>
+		<table  cellpadding="8" width="800" align="center">
+	<tr>
+		<td valign="top">
+		<table  cellspacing="4" width="210">
+					<tr><td><a href="index.htm">Home</a></td></tr>
+					<tr><td><strong>Description</strong></td></tr>
+					<tr><td><a href="papers_optical_solutions_np_complete.htm">Papers</a></td></tr>
+					<tr><td><a href="conferences.htm">Conferences</a></td></tr>
+					<tr><td><a href="people.htm">People</a></td></tr>
+					<tr><td><a href="links.htm">Videos</a></td></tr>
+		</table>
+		</td>
+		<td>
+		
+		<h1>A light-based device for solving the 
+		Hamiltonian path problem</h1>
+		<p>
+		Department of Computer Science,<br/>
+		Faculty of Mathematics and Computer Science,<br/>
+		Babes-Bolyai University, Kogalniceanu 1<br/>
+		Cluj-Napoca, 400084, Romania.<br/>
+		moltean@cs.ubbcluj.ro </p>
+		<p align="center"><font size="4">Unconventional Computation (UC' 06)</font></p>
+		<p align="center"><font size="4">LNCS 4135, pp. 217-227, Springer-Verlag, 
+		2006</font></p>
+		<p align="center"><font size="7">[</font><font size="5"><a href="uc_oltean.pdf">PDF 
+		version here</a></font><font size="7">]</font><br/>
+&nbsp;</p>
+		<table class="title" id="table1">
+			<tr>
+				<td>&nbsp;</td>
+			</tr>
+		</table>
+		<blockquote class="abstract">
+			&nbsp;
+			<h2>Abstract: </h2>
+			<p>
+			In this paper we suggest the use of light for performing useful 
+			computations. Namely, we propose a special device which uses light 
+			rays for solving the Hamiltonian path problem on a directed graph. 
+			The device has a graph-like representation and the light is 
+			traversing it following the routes given by the connections between 
+			nodes. In each node the rays are uniquely marked so that they can be 
+			easily identified. At the destination node we will search only for 
+			particular rays that have passed only once through each node. We 
+			show that the proposed device can solve small and medium instances 
+			of the problem in reasonable time.</p>
+		</blockquote>
+		<h2 class="section"><a name="htoc1">1</a>&nbsp;&nbsp;Introduction</h2>
+		<p>
+		Using the light to perform computations is an exciting idea whose 
+		applications can be already seen on the market.</p>
+		<br/>
+		An important step was made by Intel researchers who have developed the 
+		first continuous wave all-silicon laser using a physical property called 
+		the Raman Effect [<a href="#Faist"><cite>7</cite></a><cite>, </cite>
+		<a href="#Paniccia"><cite>16</cite></a><cite>, </cite><a href="#rong1">
+		<cite>17</cite></a><cite>, </cite><a href="#rong2"><cite>18</cite></a>]. 
+		The device could lead to such practical applications as optical 
+		amplifiers, lasers, wavelength converters, and new kinds of lossless 
+		optical devices.<br/>
+		<br/>
+		Another solution comes from Lenslet [<a href="#lenslet"><cite>13</cite></a>] 
+		which has created a very fast processor for vector-matrix 
+		multiplications. This processor can perform up to 8000 Giga 
+		Multiple-Accumulate instructions per second. Lenslet technology has 
+		already been applied to data analysis using k-mean algorithm [<a href="#kmean"><cite>15</cite></a>] 
+		and video compression.<br/>
+		<br/>
+		In this paper we suggest a new way of performing computations by using 
+		some properties of light waves. The idea may be used within a special 
+		device for solving the Hamiltonian path problem.<br/>
+		<br/>
+		We are not taking into account the quantum properties of light which 
+		have been used for solving the Traveling Salesman Problem [<a href="#cerny"><cite>4</cite></a><cite>,
+		</cite><a href="#greenwood"><cite>10</cite></a>].<br/>
+		<br/>
+		The paper is organized as follows: The Hamiltonian path problem is 
+		briefly described in section <a href="#HP">2</a>. The proposed device is 
+		presented in section <a href="#proposed">3</a>. Mathematical background 
+		of the labeling system is described in section <a href="#math">3.2</a>. 
+		The way in which the proposed device works is given in section
+		<a href="#howorks">3.3</a>. A list of components required by the 
+		proposed device is given in section <a href="#hard">3.4</a>. Complexity 
+		is discussed in section <a href="#complexity">3.5</a>. Suggestions for 
+		improving the device are given in sections <a href="#speed_reduce">3.8</a> 
+		and <a href="#particular_graphs">3.9</a>. Further work directions are 
+		suggested in section <a href="#further">4</a>.<br/>
+		<br/>
+&nbsp;<h2 class="section"><a name="htoc2">2</a>&nbsp;&nbsp;The Hamiltonian path problem</h2>
+		The description of the Hamiltonian Path (HP) problem for a direct graph 
+		is the following:<br/>
+		<br/>
+		Given a directed graph <i>G</i> = (<i>V</i>, <i>E</i>) with |<i>V</i>| =
+		<i>n</i> nodes and a start node (<i>v</i><sub><i>start</i></sub>) and a 
+		stop node (<i>v</i><sub><i>stop</i></sub>), the problem asks to compute 
+		is there is a simple path, beginning with node <i>v</i><sub><i>start</i></sub> 
+		and ending with node <i>v</i><sub><i>stop</i></sub>, containing all 
+		nodes exactly once. The output for this decision problem is either YES 
+		or NO depending on whether the Hamiltonian path does exist or not.<br/>
+		<br/>
+		The Hamiltonian path problem arises in many real-word applications [<a href="#Ascheuer"><cite>3</cite></a><cite>,
+		</cite><a href="#Doniach"><cite>6</cite></a>].<br/>
+		<br/>
+		The problem belongs to the class of NP-complete problems [<a href="#garey"><cite>9</cite></a>]. 
+		No polynomial time algorithm is known for it. <br/>
+		<br/>
+		A small instance of this problem was also the first problem solved using 
+		a DNA computer [<a href="#adleman"><cite>1</cite></a>].<br/>
+		<br/>
+&nbsp;<h2 class="section"><a name="htoc3">3</a>&nbsp;&nbsp;The proposed device</h2>
+		Our idea is based on two properties of light: 
+		<ul class="itemize">
+			<li class="li-itemize">The speed of light has a limit. The value of 
+			the limit is not very important at this stage of explanation. What 
+			is important is the fact that we can delay the ray by forcing it to 
+			pass through an optical fiber cable of a certain length.<br/>
+			<br/>
+&nbsp;</li>
+			<li class="li-itemize">The ray can be easily divided into multiple 
+			rays of smaller intensity/power.</li>
+		</ul>
+		Initially a light ray is sent to the start node. Generally speaking two 
+		operations must be performed when a ray passes through a node : 
+		<ul class="itemize">
+			<li class="li-itemize">The light ray is marked uniquely so that we 
+			know that it has passed through that node.<br/>
+			<br/>
+&nbsp;</li>
+			<li class="li-itemize">The ray is divided into a number of rays 
+			equal to the external degree of that node. Each obtained ray is 
+			directed toward one of the nodes connected to the current node.</li>
+		</ul>
+		At the destination node we will search only for particular rays that 
+		have passed only once through each node.<br/>
+		<br/>
+		This section deeply describes the proposed system. First step is to find 
+		a way to mark the signals which passes through nodes such that the 
+		interesting signals can be easily identified at the destination node. 
+		The mathematical background required for this operation is described in 
+		section <a href="#math">3.2</a> and the hardware implementation of the 
+		labeling system is described in section <a href="#hard">3.4</a>.<br/>
+		<br/>
+&nbsp;<h3 class="subsection"><a name="htoc4">3.1</a>&nbsp;&nbsp;Labeling system</h3>
+		At the destination node we will wait for a particular ray which has 
+		passed through all nodes of the graph exactly once. This is why we need 
+		to find a way to label that particular ray so that it could be easily 
+		identified. <br/>
+		<br/>
+		Actually we are interested in marking all rays which pass through a 
+		particular node with a unique label, such that Hamiltonian path is 
+		uniquely identified at the destination node (<i>v</i><sub><i>stop</i></sub>).<br/>
+		<br/>
+		In the solution proposed in this paper, the rays passing through a node 
+		are marked by delaying them with a certain amount of time. This delay 
+		can be easily obtained by forcing the rays to pass through an optical 
+		fiber of a certain length. Roughly speaking, we will know if a certain 
+		ray has traversed a Hamiltonian path only if its delay (at the 
+		destination node) is equal to the sum of delays of all nodes in that 
+		graph. We will also know the particular moment when the expected ray 
+		(the one which has completed a Hamiltonian path) will arrive. In this 
+		case the only thing that we have to do is to &quot;listen&quot; if there is a 
+		fluctuation in the intensity of the signal at that particular moment. 
+		Due to the special properties of the proposed system we know that no 
+		other ray will arrive, at the destination node, at the moment when the 
+		Hamiltonian path ray has arrived.<br/>
+		<br/>
+		The delays, which are introduced by each node, cannot take any values. 
+		If we would put random values for delays we might have different rays 
+		(which are not Hamiltonian paths) arriving, at the destination node, in 
+		the same time with a ray representing a Hamiltonian path.<br/>
+		<br/>
+		We need only the ray, which has traversed a Hamiltonian path, to arrive 
+		in the destination node at the moment equal to the sum of delays of each 
+		node (the moment when the ray has entered in the start node is 
+		considered moment 0). Thus, the delaying system must have the following 
+		property:<br/>
+		<b>Property of the delaying system</b><br/>
+		<br/>
+		Let us denote by <i>d</i><sub>1</sub>, <i>d</i><sub>2</sub>, ..., <i>d</i><sub><i>n</i></sub> 
+		the delays introduced by each node of the graph. A correct set of values 
+		for this system must satisfy the condition:<br/>
+		<br/>
+		<i>d</i><sub>1</sub>+<i>d</i><sub>2</sub>+...+<i>d</i><sub><i>n</i></sub> 
+		&#8800; <i>a</i><sub>1</sub> * <i>d</i><sub>1</sub>+<i>a</i><sub>2</sub> * <i>
+		d</i><sub>2</sub>+...+<i>a</i><sub><i>n</i></sub> * <i>d</i><sub><i>n</i></sub>,<br/>
+		<br/>
+		where <i>a</i><sub><i>i</i></sub> (1 &#8804; <i>i</i> &#8804; <i>n</i>) are natural 
+		numbers and cannot be all 1 in the same time. <br/>
+		<br/>
+		If a given value <i>a</i><sub><i>i</i></sub> is strictly greater than 1 
+		it means that the ray has passed at least twice through node 1.<br/>
+		<br/>
+&nbsp;<h3 class="subsection"><a name="htoc5">3.2</a>&nbsp;&nbsp;Mathematical background 
+		for the labeling system</h3>
+		Finding the appropriate labeling system was two steps process. First of 
+		all we have written a computer program which generates this numbers by 
+		using a backtracking procedure [<a href="#cormen1"><cite>5</cite></a>]. 
+		We also wanted to generate numbers such that the highest number in a 
+		system is the smallest possible. This will ensure that the network is 
+		constructed in an efficient way. The labeling systems generated by our 
+		computer programs are given in Table <a href="#tab_labeling_system">1</a>. 
+		<blockquote class="table">
+			<div class="center">
+				<hr width="80%" SIZE="2"></div>
+			<div class="center">
+				<br/>
+				<br/>
+&nbsp;<div class="center">
+					Table 1: The labeling system generated by our backtracking 
+					procedure. First column contains the number of nodes of the 
+					graph. The second column represents the labels applied to 
+					nodes.</div>
+				<br/>
+				<br/>
+&nbsp;<table cellSpacing="2" cellPadding="0" style="margin-left: inherit; margin-right: inherit" id="table2">
+					<tr>
+						<td bgColor="black" colSpan="2">
+						<table cellSpacing="0" cellPadding="1" width="100%" border="0" style="margin-left: inherit; margin-right: inherit" id="table3">
+							<tr>
+								<td>&nbsp;</td>
+							</tr>
+						</table>
+						</td>
+					</tr>
+					<tr>
+						<td vAlign="top" align="left">n</td>
+						<td vAlign="top" align="left">Labels (delays)</td>
+					</tr>
+					<tr>
+						<td bgColor="black" colSpan="2">
+						<table cellSpacing="0" cellPadding="1" width="100%" border="0" style="margin-left: inherit; margin-right: inherit" id="table4">
+							<tr>
+								<td>&nbsp;</td>
+							</tr>
+						</table>
+						</td>
+					</tr>
+					<tr>
+						<td vAlign="top" align="left">1</td>
+						<td vAlign="top" align="left">1</td>
+					</tr>
+					<tr>
+						<td vAlign="top" align="left">2</td>
+						<td vAlign="top" align="left">2, 3</td>
+					</tr>
+					<tr>
+						<td vAlign="top" align="left">3</td>
+						<td vAlign="top" align="left">4, 6, 7</td>
+					</tr>
+					<tr>
+						<td vAlign="top" align="left">4</td>
+						<td vAlign="top" align="left">8, 12, 14, 15</td>
+					</tr>
+					<tr>
+						<td vAlign="top" align="left">5</td>
+						<td vAlign="top" align="left">16, 24, 28, 30, 31</td>
+					</tr>
+					<tr>
+						<td vAlign="top" align="left">6</td>
+						<td vAlign="top" align="left">32, 48, 56, 60, 62, 63</td>
+					</tr>
+					<tr>
+						<td bgColor="black" colSpan="2">
+						<table cellSpacing="0" cellPadding="1" width="100%" border="0" style="margin-left: inherit; margin-right: inherit" id="table5">
+							<tr>
+								<td>&nbsp;</td>
+							</tr>
+						</table>
+						</td>
+					</tr>
+				</table>
+			</div>
+			<div class="center">
+				<hr width="80%" SIZE="2"></div>
+		</blockquote>
+		From Table <a href="#tab_labeling_system">1</a> it can easily seen these 
+		numbers follow a general rule:<br/>
+		<br/>
+		For a graph with <i>n</i> nodes one of the possible labeling systems is:<br/>
+		2<sup><i>n</i></sup>&#8722;2<sup><i>n</i>&#8722;1</sup>, <br/>
+		<br/>
+		2<sup><i>n</i></sup>&#8722;2<sup><i>n</i>&#8722;2</sup>, <br/>
+		<br/>
+		2<sup><i>n</i></sup>&#8722;2<sup><i>n</i>&#8722;3</sup>, <br/>
+		<br/>
+		... ,<br/>
+		<br/>
+		2<sup><i>n</i></sup>&#8722;2<sup>0</sup>. <br/>
+		As the second step we have to prove that the property of delaying system 
+		(see section <a href="#labeling">3.1</a>) holds for this sequence of 
+		numbers.<br/>
+		<br/>
+		Actually we have to prove that the equality:<br/>
+&nbsp;<div class="center">
+			<table cellSpacing="0" cellPadding="0" style="margin-left: inherit; margin-right: inherit" id="table6">
+				<tr vAlign="center">
+					<td noWrap>&nbsp;</td>
+					<td noWrap>
+					<table cellSpacing="2" cellPadding="0" style="margin-left: inherit; margin-right: inherit" id="table7">
+						<tr>
+							<td noWrap align="right">2<sup><i>n</i></sup>&#8722;2<sup><i>n</i>&#8722;1</sup> 
+							+ 2<sup><i>n</i></sup>&#8722;2<sup><i>n</i>&#8722;2</sup> + 2<sup><i>n</i></sup>&#8722;2<sup><i>n</i>&#8722;3</sup> 
+							+ ... + 2<sup><i>n</i></sup>&#8722;2<sup>0</sup> =</td>
+						</tr>
+						<tr>
+							<td noWrap align="right"><i>a</i><sub>1</sub> * (2<sup><i>n</i></sup>&#8722;2<sup><i>n</i>&#8722;1</sup>) 
+							+ <i>a</i><sub>2</sub> * (2<sup><i>n</i></sup>&#8722;2<sup><i>n</i>&#8722;2</sup>) 
+							+ <i>a</i><sub>3</sub> * (2<sup><i>n</i></sup>&#8722;2<sup><i>n</i>&#8722;3</sup>) 
+							+ ... + <i>a</i><sub><i>n</i></sub> * (2<sup><i>n</i></sup>&#8722;2<sup>0</sup>)</td>
+						</tr>
+					</table>
+					</td>
+					<td noWrap>&nbsp;&nbsp;&nbsp;&nbsp;(1)</td>
+				</tr>
+			</table>
+		</div>
+		<br/>
+		is not possible unless all <i>a</i><sub><i>i</i></sub> are equal to 1.<br/>
+		The left part of the equality is:<br/>
+		2<sup><i>n</i></sup>&#8722;2<sup><i>n</i>&#8722;1</sup> + 2<sup><i>n</i></sup>&#8722;2<sup><i>n</i>&#8722;2</sup> 
+		+ 2<sup><i>n</i></sup>&#8722;2<sup><i>n</i>&#8722;3</sup> + ... + 2<sup><i>n</i></sup>&#8722;2<sup>0</sup> 
+		=<br/>
+		<i>n</i> * 2<sup><i>n</i></sup> &#8722; (2<sup><i>n</i>&#8722;1</sup> + 2<sup><i>n</i>&#8722;2</sup> 
+		+ 2<sup><i>n</i>&#8722;3</sup> + ... + 2<sup>0</sup>) =<br/>
+		<i>n</i> * 2<sup><i>n</i></sup> &#8722; 2<sup><i>n</i></sup> + 1 =<br/>
+		(<i>n</i> &#8722; 1) * 2<sup><i>n</i></sup> + 1.<br/>
+		First of all we have to see that the equality does not hold if all <i>a</i><sub><i>i</i></sub> 
+		numbers are at least 1 and at least one number is strictly greater than 
+		1. If this happens the 2<sup><i>n</i></sup> term will be represented at 
+		least <i>n</i> times. But, it must be represented only <i>n</i>&#8722;1 times 
+		(see above).<br/>
+		<br/>
+		Thus, if at least one number <i>a</i><sub><i>i</i></sub> is strictly 
+		greater than 1, it means that other numbers <i>a</i><sub><i>j</i></sub> 
+		must be 0. We will prove that the equality (1) does not hold in this 
+		case too.<br/>
+		<br/>
+		As discussed above, if one of the coefficients is 0, at least one of the 
+		other coefficients must be strictly greater than 1. For instance, if <i>
+		a</i><sub>1</sub> is set to 0, it means that <i>a</i><sub>2</sub> must 
+		be set to 3 in order to compensate the missing 2<sup><i>n</i>&#8722;1</sup> 
+		term. This is a direct consequence of the fact that 2<sup><i>n</i>&#8722;1</sup> 
+		= 2 &#8901; 2<sup><i>n</i>&#8722;2</sup>. Of course, we also have to take into 
+		account that 2<sup><i>n</i>&#8722;2</sup> must be represented once. This is 
+		why we have to set <i>a</i><sub>2</sub> to value 3.<br/>
+		<br/>
+		If <i>a</i><sub>2</sub> is also 0 we have to set <i>a</i><sub>3</sub> to 
+		value 7 (we need 4 * 2<sup><i>n</i>&#8722;3</sup> in order to compensate the 
+		missing term 2<sup><i>n</i>&#8722;1</sup>, we also need 2 * 2<sup><i>n</i>&#8722;3</sup> 
+		to compensate the missing term 2<sup><i>n</i>&#8722;2</sup> and, of course, 
+		the term 2<sup><i>n</i>&#8722;3</sup> must be represented 1 time).<br/>
+		<br/>
+		As a general idea: if a particular term (2<sup><i>n</i>&#8722;<i>j</i></sup>) 
+		is missing (the corresponding coefficient <i>a</i><sub><i>j</i></sub> is 
+		set to 0), it can be compensate by setting one of the next coefficients 
+		to a value of at least 3. But, a coefficient set to 0 means that the 
+		term 2<sup><i>n</i></sup> is missing once, and by setting another 
+		coefficient to at least 3 we will get at least 2 extra representations 
+		for 2<sup><i>n</i></sup>. This will mean that right part of the equation 
+		(1) will be at least (<i>n</i>+1) * 2<sup><i>n</i></sup> + 1. But, the 
+		left part of the equation is only (<i>n</i>&#8722;1) * 2<sup><i>n</i></sup> + 
+		1.<br/>
+		<br/>
+		With this we have shown that all <i>a</i><sub><i>i</i></sub> (1 &#8804; <i>i</i> 
+		&#8804; <i>n</i>) must be 1 in order to have equality in equation (1). For any 
+		other values of <i>a</i><sub><i>i</i></sub> the equality (1) does not 
+		hold.<br/>
+		<br/>
+		An important question is whether this system is the minimal possible 
+		(the biggest number is the minimal possible). A partial answer to this 
+		question is given in section <a href="#complexity">3.5</a>. 
+		<p>&nbsp;</p>
+		<blockquote class="figure">
+			<p style="text-align: center"><br/>
+			<br/>
+			<img border="0" src="hamiltonian_graph.JPG" width="584" height="503"></p>
+			<div class="center">
+				Figure 1: A directed graph with 5 nodes. Start node is 1 and the 
+				destination node is 4. The list of arcs is: (1,3), (1, 5), (2, 
+				1), (2, 3), (2, 4), (3, 4), (5, 2)</div>
+			<br/>
+			<br/>
+&nbsp;<div class="center">
+				<hr width="80%" SIZE="2"></div>
+		</blockquote>
+		<h3 class="subsection"><a name="htoc6">3.3</a>&nbsp;&nbsp;How the system works</h3>
+		An schematic example of a graph-like system is given in Figure
+		<a href="#graph_fig">1</a>.<br/>
+		<br/>
+		In the graph depicted in Figure <a href="#graph_fig">1</a> the light 
+		will enter in node 1. It will be delayed with a certain amount of time 
+		and then it will be divided into 2 rays which will be sent to the nodes 
+		3 and 5. In node 3 the ray will be delayed (with the amount of time 
+		corresponding to node 3) and then it will be sent to node 4. However, 
+		this is not a Hamiltonian path because it has visited only the nodes 1, 
+		3 and 4. The other ray which was sent to node 5 (from node 1) can 
+		generate a Hamiltonian path by following the route 1, 5, 2, 3 4.<br/>
+		<br/>
+		Note that there is also a cycle in the graph: 1, 5, 2. The cycle will 
+		make that some particular rays to be trapped within the system. The rays 
+		which have passed once through the previously described cycle are not 
+		considered Hamiltonian paths because the moments when they arrive at the 
+		destination node are greater than the sum of delays introduced by each 
+		node.<br/>
+		<br/>
+		The partial paths traversed by rays are given below:<br/>
+		1<br/>
+		<br/>
+		&nbsp; 1, 3<br/>
+		<br/>
+		&nbsp; 1, 3, 4<br/>
+		<br/>
+		&nbsp; 1, 5<br/>
+		<br/>
+		&nbsp; 1, 5, 2<br/>
+		<br/>
+		&nbsp;&nbsp; 1, 5, 2, 1<br/>
+		<br/>
+		&nbsp;&nbsp;.............{paths starting with 1, 5, 2, 1}<br/>
+		<br/>
+		&nbsp;&nbsp; 1, 5, 2, 3<br/>
+		<br/>
+		&nbsp;&nbsp;&nbsp; 1, 5, 2, 3, 4<br/>
+		<br/>
+		&nbsp;&nbsp; 1, 5, 2, 4<br/>
+		<br/>
+&nbsp;<h3 class="subsection"><a name="htoc7">3.4</a>&nbsp;&nbsp;Hardware implementation of 
+		the labeling system</h3>
+		For implementing the proposed device we need the following components: 
+		<ul class="itemize">
+			<li class="li-itemize">a source of light (laser),<br/>
+			<br/>
+&nbsp;</li>
+			<li class="li-itemize">Several beam-splitters for dividing light 
+			rays into multiple subrays. A standard beam-splitter is designed 
+			using a half-silvered mirror. For dividing a ray into <i>k</i> 
+			subrays we need <i>k</i>&#8722;1 beam-splitters.<br/>
+			<br/>
+&nbsp;</li>
+			<li class="li-itemize">A high speed photodiode for converting light 
+			rays into electrical power. The photodiode is placed in the 
+			destination node.<br/>
+			<br/>
+&nbsp;</li>
+			<li class="li-itemize">A tool for detecting fluctuations in the 
+			intensity of electric power generated by the photodiode 
+			(oscilloscope),<br/>
+			<br/>
+&nbsp;</li>
+			<li class="li-itemize">A set of optical fiber cables having certain 
+			lengths. These cables are used for connecting nodes and for delaying 
+			the signals within nodes. The length of the cables must obey the 
+			rules described in section <a href="#labeling">3.1</a>. A practical 
+			example is given in section <a href="#psize">3.6</a>.</li>
+		</ul>
+		<h3 class="subsection"><a name="htoc8">3.5</a>&nbsp;&nbsp;Complexity</h3>
+		This section answers a very important question: <i>Why the proposed 
+		approach is not a polynomial-time solution for the HP problem?</i><br/>
+		<br/>
+		At the first sight one may be tempted to say that the proposed approach 
+		provides a solution in polynomial time to any instance of the HP 
+		problem. The reason behind such claim is given by the ability of the 
+		proposed device to provide output to any instance by traversing only 
+		once all nodes (O(<i>n</i>) complexity). This could mean that we have 
+		found a polynomial-time algorithm for the HP problem. A direct 
+		consequence is obtaining solutions, in polynomial time, for all other 
+		NP-Complete problems - since there is a polynomial reduction between 
+		them [<a href="#garey"><cite>9</cite></a>].<br/>
+		<br/>
+		However, this is not our case. As can be seen from Table
+		<a href="#tab_labeling_system">1</a> the delay time increases 
+		exponentially with the number of nodes. Even if the ray has to traverse 
+		only <i>n</i> nodes (resulting a complexity of O(<i>n</i>)), the total 
+		time required by the ray to reach the destination node increases 
+		exponentially with the number of nodes.<br/>
+		<br/>
+		There are two direct consequences which are derived from here: 
+		<ul class="itemize">
+			<li class="li-itemize">The length of the optical fibers, used for 
+			delaying the signals, increases exponentially with the number of 
+			nodes,<br/>
+			<br/>
+&nbsp;</li>
+			<li class="li-itemize">The intensity of the signal decreases 
+			exponentially with the number of nodes that are traversed.</li>
+		</ul>
+		These two issues are discussed in sections <a href="#psize">3.6</a> and
+		<a href="#amplify">3.7</a>.<br/>
+		<br/>
+&nbsp;<h3 class="subsection"><a name="htoc9">3.6</a>&nbsp;&nbsp;Problem size</h3>
+		We are interested in computing the size of the cables required to solve 
+		a certain instance of the problem in a small amount of time. This will 
+		give as a rough indication on the size of the graphs that can be solved 
+		using our system in reasonable time.<br/>
+		<br/>
+		This size heavily depends on the accuracy of the measurement tools. The 
+		rise-time of the best oscilloscope available on the market is in the 
+		range of picoseconds (10<sup>&#8722;12</sup> seconds). This means that we 
+		should not have two signals that arrive at 2 consecutive moments at a 
+		difference smaller than 10<sup>&#8722;12</sup> seconds.<br/>
+		<br/>
+		Knowing that the speed of light is 3 * 10<sup>8</sup> <i>m</i>/<i>s</i> 
+		we can easily compute the minimal cable length that should be traversed 
+		by the ray in order to be delayed with 10<sup>&#8722;12</sup> seconds. This is 
+		obviously 0.0003 meters.<br/>
+		<br/>
+		This value is the minimal delay that should be introduced by a node in 
+		order to ensure that the difference between the moments when two 
+		consecutive signals arrive at the destination node is greater or equal 
+		to the measurable unit of 10<sup>&#8722;12</sup> seconds. This will also 
+		ensure that we will be able to correctly identify whether the signal has 
+		arrived in the destination node at a moment equal to the sum of delays 
+		introduced by each node. No other signals will arrive within a range of 
+		10<sup>&#8722;12</sup> seconds around that particular moment.<br/>
+		<br/>
+		Once we have the length for that minimal delay is quite easy to compute 
+		the length of the other cables that are used in order to induce a 
+		certain delay.<br/>
+		<br/>
+		Recall from section <a href="#math">3.2</a>, Table
+		<a href="#tab_labeling_system">1</a> that a graph with 5 nodes has the 
+		following delaying system:<br/>
+		16, 24, 28, 30, 31.<p>From the previous reasoning line we have deduced 
+		that the smaller indivisible unit is 0.0003. So, we have to multiply 
+		these numbers by 0.0003. We obtain: <br/>
+		0.00048, 0.00072, 0.00084, 0.0009, 0.00093.<br/>
+&nbsp;</p>
+		<p>These numbers represent the length of the cables that must be used in 
+		graph's nodes in order to induce a certain delay.<br/>
+		<br/>
+		Note that the delay introduced by the cables connecting the nodes was 
+		not taken into account in this example. This is not a limitation of our 
+		system. The cables connecting nodes can be set to have some length which 
+		must obey the property of delaying system (see section
+		<a href="#labeling">3.1</a>). Note that all cables must have the same 
+		length. In this case if we have a graph with 4 nodes the length of every 
+		cable connecting the nodes must be set to 16 units (the shortest 
+		possible - in order to reduce the costs). The length of cables within 
+		the nodes should be 24, 28, 30 and 31 units.<br/>
+		<br/>
+		The largest length in this sequence is 0.00093 meters. This length is 
+		not very big, but for larger graphs the length of the cables within 
+		nodes can be a problem.<br/>
+		<br/>
+		Once we have the length for that minimal delay is quite easy to compute 
+		the maximal number of nodes that a graph can have in order to find the 
+		Hamiltonian path in one second. We know the facts: </p>
+		<ul class="itemize">
+			<li class="li-itemize">the largest delay has the form 2<sup><i>n</i></sup> 
+			&#8722; 1 (see equation <a href="#eq1">1</a>), 
+			</li>
+			<li class="li-itemize">the distance traversed by light in 1 second 
+			is 3 * 10<sup>8</sup> meters,<br/>
+			<br/>
+&nbsp;</li>
+			<li class="li-itemize">the shortest delay possible is 0.0003 meters.</li>
+		</ul>
+		We simply have to solve the equation:<br/>
+		<br/>
+&nbsp;<div class="center">
+			2<sup><i>n</i></sup> * 0.0003 = 3 * 10<sup>8</sup> &nbsp;&nbsp;&nbsp;&nbsp;(2)</div>
+		<br/>
+		<br/>
+		This number is about 40 nodes. However, the length of the optic fibers 
+		used for inducing the largest delay for this graph is huge: about 8 * 10<sup>8</sup> 
+		meters. We cannot expect to have such long cables for our experiments.<br/>
+		<br/>
+		However, shorter cables (of several hundreds of kilometers) are already 
+		available in the internet networks. They can be easily used for our 
+		purpose. Assuming that the longest cable that we have is about 300 
+		kilometers we may solve instances with about 26 nodes. The amount of 
+		time required to obtain a solution is about 10<sup>&#8722;6</sup> seconds. <br/>
+		<br/>
+		Note that the maximal number of nodes can be increased when the 
+		precision of our measurement instruments (oscilloscope and photodiode) 
+		is increased. <br/>
+		<br/>
+		Also note that this difficulty is not specific to our system only. Other 
+		major unconventional computation paradigms, trying to solve NP-complete 
+		problems share the same fate. For instance, a quantity of DNA equal to 
+		the mass of Earth is required to solve HP instances of 200 cities using 
+		DNA computers [<a href="#Hartmanis"><cite>11</cite></a>].<br/>
+		<br/>
+&nbsp;<h3 class="subsection"><a name="htoc10">3.7</a>&nbsp;&nbsp;Amplifying the signal</h3>
+		Beam splitters are used in our approach for dividing a ray in two or 
+		more subrays. Because of that, the intensity of the signal is 
+		decreasing. In the worst case we have an exponential decrease of the 
+		intensity. For instance, in a graph with <i>n</i> nodes, each signal is 
+		divided (within each node) into <i>n</i> &#8722; 1 signals. Roughly speaking, 
+		the intensity of the signal will decrease <i>n</i><sup><i>n</i></sup> 
+		times.<br/>
+		<br/>
+		This means that, at the destination node, we have to be able to detect 
+		very small fluctuations in the intensity of the signal. For this purpose 
+		we will use a photomultiplier [<a href="#Flyckt"><cite>8</cite></a>] 
+		which is an extremely sensitive detector of light in the ultraviolet, 
+		visible and near infrared range. This detector multiplies the signal 
+		produced by incident light by as much as 10<sup>8</sup>, from which even 
+		single photons can be detected.<br/>
+		<br/>
+&nbsp;<h3 class="subsection"><a name="htoc11">3.8</a>&nbsp;&nbsp;Improving the device by 
+		reducing the speed of the signal</h3>
+		The speed of the light in optic fibers is an important parameter in our 
+		device. The problem is that the light is too fast for our measurement 
+		tools. We have either to increase the precision of our measurement tools 
+		or to decrease the speed of light.<br/>
+		<br/>
+		It is known that the speed of light traversing a cable is significantly 
+		smaller than the speed of light in the void space. Commercially 
+		available cables have limit the speed of the ray wave up to 60% from the 
+		original speed of light. This means that we can obtain the same delay by 
+		using a shorter cable.<br/>
+		<br/>
+		However, this method for reducing the speed of light is not enough. The 
+		order of magnitude is still the same. This is why we have the search for 
+		other methods for reducing that speed. A very interesting solution was 
+		proposed in [<a href="#Hau"><cite>12</cite></a><cite>, </cite>
+		<a href="#Liu"><cite>14</cite></a>] which is able to reduce the speed of 
+		light by 7 orders of magnitude. This could help our mechanism 
+		significantly. However, is still a question how to use this idea for our 
+		device because of the complex equipment involved in those experiments [<a href="#Hau"><cite>12</cite></a><cite>,
+		</cite><a href="#Liu"><cite>14</cite></a>].<br/>
+		<br/>
+		By reducing the speed of light by 7 orders of magnitude we can reduce 
+		the size of the involved cables by a similar order. This will help us to 
+		solve larger instances of the problem.<br/>
+		<br/>
+&nbsp;<h3 class="subsection"><a name="htoc12">3.9</a>&nbsp;&nbsp;Improving the performance 
+		of the device for particular graphs</h3>
+		The labeling system proposed in section <a href="#labeling">3.1</a> is a 
+		general one. It can be used for any kind of graph (with any number of 
+		nodes and arcs). We have shown that this system has a big problem: the 
+		value of the involved numbers increase exponentially with the number of 
+		nodes in the graph being solved.<br/>
+		<br/>
+		But, for particular graphs we can find other labeling systems which are 
+		not exponential. For example, the linear graph (see Figure
+		<a href="#fig_linear_graph">2</a> can be solved by our device by using 
+		virtually no delays. In this case the moment when the signal arrives in 
+		the destination node is equal to sum of delays introduced by the cables 
+		connecting the nodes. 
+		<blockquote class="figure">
+			<p style="text-align: center">
+			<img border="0" src="chain.JPG" width="333" height="56"><br/>
+&nbsp;</p>
+			<div class="center">
+				Figure 2: A linear graph with 7 nodes. No delays are required 
+				for the nodes of this graph in order to find an Hamiltonian path</div>
+			<br/>
+			<br/>
+&nbsp;</blockquote>
+		Finding the optimal labeling system for a particular graph is an 
+		interesting problem which will be investigated in the near future.<br/>
+		<br/>
+&nbsp;<h3 class="subsection"><a name="htoc13">3.10</a>&nbsp;&nbsp;Technical challenges</h3>
+		There are many technical challenges that must be solved when 
+		implementing the proposed device. Some of them are: 
+		<ul class="itemize">
+			<li class="li-itemize">Cutting the optic fibers to an exact length 
+			with high precision. Failing to accomplish this task can lead to 
+			errors in detecting a ray which has passed through each node once.<br/>
+			<br/>
+&nbsp;</li>
+			<li class="li-itemize">Finding a high precision oscilloscope. This 
+			is an essential step for solving larger instances of the problem 
+			(see section <a href="#psize">3.6</a>),<br/>
+			<br/>
+&nbsp;</li>
+			<li class="li-itemize">Finding cables long enough so that larger 
+			instances of the problem could be solve. This problem might have a 
+			simple solution: the internet networks connecting the world cities. 
+			It is easy to find cables of hundreds of kilometers connecting 
+			distant cities. This will help us to solve instance of more than 10 
+			nodes. However, this solution introduces a difficulty too: cables of 
+			certain lengths must be found or the system must be rescaled in 
+			order to fit the existing lengths.</li>
+		</ul>
+		<h2 class="section"><a name="htoc14">4</a>&nbsp;&nbsp;Conclusions and further work</h2>
+		The way in which light can be used for performing useful computations 
+		has been suggested in this paper. The techniques are based on the 
+		massive parallelism of the light ray.<br/>
+		<br/>
+		It has been shown the way in which a light-based device can be used for 
+		solving the Hamiltonian path problem. Using the today technology we can 
+		build a light-based device which can solve small and medium size 
+		instances in several seconds.<br/>
+		<br/>
+		Further work directions will be focused on: 
+		<ul class="itemize">
+			<li class="li-itemize">Implementing the proposed hardware,<br/>
+			<br/>
+&nbsp;</li>
+			<li class="li-itemize">Finding optimal labeling systems for 
+			particular graphs. This will reduce the length of the involved 
+			cables significantly,<br/>
+			<br/>
+&nbsp;</li>
+			<li class="li-itemize">Finding other non-trivial problems which can 
+			be solved by using the proposed device,<br/>
+			<br/>
+&nbsp;</li>
+			<li class="li-itemize">Finding other ways to introduce delays in the 
+			system. The current solution requires cables that are too long and 
+			too expensive,<br/>
+			<br/>
+&nbsp;</li>
+			<li class="li-itemize">Using other type of signals instead of light. 
+			A possible candidate would be electric power,<br/>
+			<br/>
+&nbsp;</li>
+			<li class="li-itemize">Finding other ways to implement the system of 
+			marking the signals which pass through a particular node. This will 
+			be very useful because the currently suggested system, based on 
+			delays, is too time consuming.</li>
+		</ul>
+		<h2 class="section">References</h2>
+		<dl class="list" compact>
+			<dt class="dt-list"><a name="adleman"><font color="purple">[1]</font></a>
+			</dt>
+			<dd class="dd-list">Adleman, L.: Molecular computation of solutions 
+			to combinatorial problems, Science, Vol. 266, (1994) 1021-1024<br/>
+			<br/>
+&nbsp;</dd>
+			<dt class="dt-list"><a name="Agrawal"><font color="purple">[2]</font></a>
+			</dt>
+			<dd class="dd-list">Agrawal, G.P.: Fiber-optic communication 
+			systems, Wiley-Interscience; 3<sup><i>rd</i></sup> edition, (2002)<br/>
+			<br/>
+&nbsp;</dd>
+			<dt class="dt-list"><a name="Ascheuer"><font color="purple">[3]</font></a>
+			</dt>
+			<dd class="dd-list">Ascheuer, N.: Hamiltonian path problems in the 
+			on-line optimization of flexible manufacturing systems. PhD thesis, 
+			TU Berlin, (1995)<br/>
+			<br/>
+&nbsp;</dd>
+			<dt class="dt-list"><a name="cerny"><font color="purple">[4]</font></a>
+			</dt>
+			<dd class="dd-list">Cerný, V.: Quantum computers and intractable 
+			(NP-Complete) computing problems. Phys. Rev. A, Vol. 48, (1993) 
+			116-119<br/>
+			<br/>
+&nbsp;</dd>
+			<dt class="dt-list"><a name="cormen1"><font color="purple">[5]</font></a>
+			</dt>
+			<dd class="dd-list">Cormen, T.H., Leiserson, C.E., Rivest R.R.: 
+			Introduction to algorithms, MIT Press, (1990)<br/>
+			<br/>
+&nbsp;</dd>
+			<dt class="dt-list"><a name="Doniach"><font color="purple">[6]</font></a>
+			</dt>
+			<dd class="dd-list">Doniach, S., Garel, H., Orland, H.: Phase 
+			diagram of a semiflexible polymer chain in a &#952; solvent: Application 
+			to protein folding, Journal Of Chemical Physics, Vol. 105, (1996) 
+			1601-1608<br/>
+			<br/>
+&nbsp;</dd>
+			<dt class="dt-list"><a name="Faist"><font color="purple">[7]</font></a>
+			</dt>
+			<dd class="dd-list">Faist, J.: Optoelectronics: silicon shines on, 
+			Nature, Vol. 433, (2005) 691-692<br/>
+			<br/>
+&nbsp;</dd>
+			<dt class="dt-list"><a name="Flyckt"><font color="purple">[8]</font></a>
+			</dt>
+			<dd class="dd-list">Flyckt, S.O., Marmonier, C.: Photomultiplier 
+			Tubes: Principles and Applications, Photonis, Brive, France, (2002)<br/>
+			<br/>
+&nbsp;</dd>
+			<dt class="dt-list"><a name="garey"><font color="purple">[9]</font></a>
+			</dt>
+			<dd class="dd-list">Garey, M.R., Johnson, D.S.: Computers and 
+			intractability: A guide to NP-Completeness, Freeman &amp; Co, San 
+			Francisco, CA, (1979)<br/>
+			<br/>
+&nbsp;</dd>
+			<dt class="dt-list"><a name="greenwood"><font color="purple">[10]</font></a>
+			</dt>
+			<dd class="dd-list">Greenwood, G.W.: Finding solutions to NP 
+			problems: Philosophical differences between quantum and evolutionary 
+			search algorithms, in Proceedings CEC'2001 (2001) 815-822<br/>
+			<br/>
+&nbsp;</dd>
+			<dt class="dt-list"><a name="Hartmanis"><font color="purple">[11]</font></a>
+			</dt>
+			<dd class="dd-list">Hartmanis, J.: On the weight of computations, 
+			Bulletin of the EATCS 55, (1995) 136-138<br/>
+			<br/>
+&nbsp;</dd>
+			<dt class="dt-list"><a name="Hau"><font color="purple">[12]</font></a>
+			</dt>
+			<dd class="dd-list">Hau L.V., (et al.): Light speed reduction to 17 
+			meters per second in an ultracold atomic gas, Nature, Vol. 397, 
+			(1999) 594-598<br/>
+			<br/>
+&nbsp;</dd>
+			<dt class="dt-list"><a name="lenslet"><font color="purple">[13]</font></a>
+			</dt>
+			<dd class="dd-list">Lenslet website, www.lenslet.com<br/>
+			<br/>
+&nbsp;</dd>
+			<dt class="dt-list"><a name="Liu"><font color="purple">[14]</font></a>
+			</dt>
+			<dd class="dd-list">Liu C., (et al.): Observation of coherent 
+			optical information storage in an atomic medium using halted light 
+			pulses, Nature, Vol. 409, (2001) 490-493<br/>
+			<br/>
+&nbsp;</dd>
+			<dt class="dt-list"><a name="kmean"><font color="purple">[15]</font></a>
+			</dt>
+			<dd class="dd-list">MacQueen, J.: Some methods for classification 
+			and analysis of multivariate observations, In LeCam, L. M., Neyman, 
+			J., (eds.) Proceedings of the Fifth Berkeley Symposium on 
+			Mathematical Statistics and Probability. University of California 
+			press, Berkeley, (1967) 281-297<br/>
+			<br/>
+&nbsp;</dd>
+			<dt class="dt-list"><a name="Paniccia"><font color="purple">[16]</font></a>
+			</dt>
+			<dd class="dd-list">Paniccia, M., Koehl, S.: The silicon solution, 
+			IEEE Spectrum, IEEE Press, October (2005)<br/>
+			<br/>
+&nbsp;</dd>
+			<dt class="dt-list"><a name="rong1"><font color="purple">[17]</font></a>
+			</dt>
+			<dd class="dd-list">Rong, H., (et al.): A continuous-wave Raman 
+			silicon laser, Nature, Vol 433, (2005) 725-728<br/>
+			<br/>
+&nbsp;</dd>
+			<dt class="dt-list"><a name="rong2"><font color="purple">[18]</font></a>
+			</dt>
+			<dd class="dd-list">Rong, H., (et al.), An all-silicon Raman laser, 
+			Nature, Vol. 433, (2005) 292-294</dd>
+		</dl>
+
+&nbsp;</td>
+	</tr>
+</table>
+
+
+<!-- Start of StatCounter Code for Default Guide -->
+<script type="text/javascript">
+var sc_project=10584096; 
+var sc_invisible=1; 
+var sc_security="c1c0e652"; 
+var scJsHost = (("https:" == document.location.protocol) ?
+"https://secure." : "http://www.");
+document.write("<sc"+"ript type='text/javascript' src='" +
+scJsHost+
+"statcounter.com/counter/counter.js'></"+"script>");
+</script>
+<noscript><div class="statcounter"><a title="shopify visitor
+statistics" href="http://statcounter.com/shopify/"
+target="_blank"><img class="statcounter"
+src="http://c.statcounter.com/10584096/0/c1c0e652/1/"
+alt="shopify visitor statistics"></a></div></noscript>
+<!-- End of StatCounter Code for Default Guide -->
+
+</body>
+
+</html>

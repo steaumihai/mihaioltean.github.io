@@ -1,0 +1,58 @@
+Papers
+
+
+A. Published (available for download at www.cs.ubbcluj.ro/~moltean)
+
+1.	M. Oltean, "Evolving Evolutionary Algorithms for Function Optimization", Proceedings of the 5th International Workshop on Frontiers in Evolutionary Algorithms, The 7th Joint Conference on Information Sciences, September 26-30, 2003, Research Triangle Park, North Carolina, Edited by Ken Chen (et. al), pp. 295-298, 2003.
+
+2.	M. Oltean, "Solving Even-Parity Problems using Multi Expression Programming", Proceedings of the 5th International Workshop on Frontiers in Evolutionary Algorithms, The 7th Joint Conference on Information Sciences, September 26-30, 2003, Research Triangle Park, North Carolina, Edited by Ken Chen (et. al), pp. 315-318, 2003. 
+
+3.	M. Oltean, C. Grosan, "Evolving Evolutionary Algorithms using Multi Expression Programming", The 7th European Conference on Artificial Life, September 14-17, 2003, Dortmund, Edited by W. Banzhaf (et al), LNAI 2801, pp. 651-658, Springer Berlin, 2003.
+
+4.	M. Oltean, C. Grosan, "Solving Classification Problems using Infix Form Genetic Programming", The 5th International Symposium on Intelligent Data Analysis, August 28-30, 2003, Berlin, Edited by M. Berthold (et al), LNCS 2810, pp. 242-252, Springer Berlin, 2003.
+
+5.	C. Grosan and M. Oltean, "Adaptive Representation for Single Objective Optimization", First Balkan Conference on Informatics, 17-20 November 2003, Tesalonik, Greece, edited by Y. Manoulopulus (et al), pp. 345-355.
+
+B. Accepted for publication
+
+1.	M. Oltean and C. Grosan, "A comparison of several Linear GP techniques", Complex Systems, 2004.
+
+2.	M. Oltean, C. Grosan and D. Dumitrescu, "Detecting Pareto Continous Regions", edited by A. Abraham, Springer, 2004.
+
+3.	M. Oltean, A practical evidence for the No Free Lunch Theorems, Bio-Adit, Laussane, Elvetia, 29-30 January, 2004.
+
+4.	M. Oltean, Biologically Inspired Mechanisms for Designing Digital Circuits, Bionik, Hannover, Germany, 22-24 April, 2004.
+
+5.	M. Oltean and D. Dumitrescu, A Permutation Based Approach for the 2-D cutting stock problem, Bionik, Hannover, Germany, 22-24 April, 2004.
+
+
+C. In review
+
+1.	M. Oltean, D. Dumitrescu, "Multi Expression Programming", second tour of review, Journal of Genetic Programming and Evolvable Machines, Kluwer (available at www.mep.cs.ubbcluj.ro).
+
+2.	M. Oltean "Evolving Digital Circuits using Multi Expression Programming", submitted to The First International Workshop on BioInspired Approaches to Advance Information Technology, 28-30 January 2004, Laussane, Switzerland.
+
+3.	M. Oltean "Multi Expression Programming and Automatically Defined Functions for Even-Parity Problems", submitted to The First International Workshop on BioInspired Approaches to Advance Information Technology, 28-30 January 2004, Laussane, Switzerland.
+
+4.	M. Oltean, "Evolving Evolutionary Algorithms using Linear Genetic Programming", submitted to the Evolutionary Computation Journal, MIT Press.
+
+5.	M. Oltean, D. Dumitrescu, "Evolving Multi Expression Programming Heuristics for a class of TSP". 
+
+
+D. To be submitted (in the next 2 months)
+
+1.	M. Oltean, "Improving Multi Expression Programming: An ascending trail from the Sea-Level Even-3-Parity Problem to Alpine Even-22-Parity Problem". 25 pages.
+
+2.	M. Oltean, "Improving the quality of Search by encoding multiple solutions in a chromosome", 27 pages.
+
+3.	M. Oltean, "Designing Digital Circuits through Evolution", 20-pages.
+
+4.	M. Oltean and D. Dumitrescu, "Proving theorems with Evolutionary Algorithms" - 33 pages.
+
+5.	M. Oltean, "Generalized functions in Multi Expression Programming" - 8 pages.
+
+6. 	M. Oltean, "Infix Form Genetic Programming" - 28 pages.
+
+7. 	M. Oltean, "Evolving Evolutionary Algorithms for the Quadratic Assignment Problem" - 9 pages.
+
+8.	M. Oltean, "Evolving the recurence relations for Dynamic Programming" - 8 pages.

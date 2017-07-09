@@ -1,0 +1,261 @@
+<html xmlns:v="urn:schemas-microsoft-com:vml" xmlns:o="urn:schemas-microsoft-com:office:office" xmlns="http://www.w3.org/TR/REC-html40">
+
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=windows-1252">
+<meta http-equiv="Content-Language" content="en-us">
+<title>TGP description</title>
+<meta name="GENERATOR" content="Microsoft FrontPage 5.0">
+<meta name="ProgId" content="FrontPage.Editor.Document">
+<link rel="File-List" href="About_files/filelist.xml">
+
+<!--[if !mso]>
+<style>
+v\:*         { behavior: url(#default#VML) }
+o\:*         { behavior: url(#default#VML) }
+.shape       { behavior: url(#default#VML) }
+</style>
+<![endif]-->
+<!--[if gte mso 9]>
+<xml><o:shapedefaults v:ext="edit" spidmax="1027"/>
+</xml><![endif]-->
+<meta name="Microsoft Theme" content="blends 0111, default">
+<meta name="Microsoft Border" content="tlb, default">
+</head>
+
+<body background="_themes/blends/blegtext.gif" bgcolor="#FFFFFF" text="#000000" link="#993300" vlink="#0000FF" alink="#FF9900"><!--msnavigation--><table border="0" cellpadding="0" cellspacing="0" width="100%"><tr><td><!--mstheme--><font face="trebuchet ms,arial,helvetica">
+
+<center>
+<h1><!--mstheme--><b><font face="Trebuchet MS" color="#000080">Traceless Genetic Programming</font><!--mstheme--></b></h1>
+<!--msthemeseparator--><p align="center"><img src="_themes/blends/blesepa.gif" width="600" height="10" alt="horizontal rule"></p></center>
+
+<!--mstheme--></font></td></tr><!--msnavigation--></table><!--msnavigation--><table dir="ltr" border="0" cellpadding="0" cellspacing="0" width="100%"><tr><td valign="top" width="1%"><!--mstheme--><font face="trebuchet ms,arial,helvetica">
+
+<p>
+<a href="index.html"><img src="_derived/home_cmp_technolo000_vbtn.gif" width="140" height="40" border="0" alt="Home"></a><br><a href="members.htm"><img src="_derived/members.htm_cmp_technolo000_vbtn.gif" width="140" height="40" border="0" alt="People"></a><br><img src="_derived/About.htm_cmp_technolo000_vbtn_p.gif" width="140" height="40" border="0" alt="TGP description"><br><a href="papers.htm"><img src="_derived/papers.htm_cmp_technolo000_vbtn.gif" width="140" height="40" border="0" alt="Papers"></a><br><a href="Source%20Code.htm"><img src="_derived/Source%20Code.htm_cmp_technolo000_vbtn.gif" width="140" height="40" border="0" alt="Source Code"></a><br><a href="Links.htm"><img src="_derived/Links.htm_cmp_technolo000_vbtn.gif" width="140" height="40" border="0" alt="Links"></a>
+</p>
+
+<!--mstheme--></font></td><td valign="top" width="24"></td><!--msnavigation--><td valign="top"><!--mstheme--><font face="trebuchet ms,arial,helvetica">
+<p class="MsoNormal" style="text-align:justify">Structure</p>
+<p class="MsoNormal" style="text-align:justify; margin-top:0; margin-bottom:0">&nbsp;&nbsp;&nbsp;
+<a href="#Prerequisite">Prerequisite</a></p>
+<p class="MsoNormal" style="text-align:justify; margin-top:0; margin-bottom:0">&nbsp;&nbsp;&nbsp;
+<a href="#Individual representation">Representation</a></p>
+<p class="MsoNormal" style="text-align:justify; margin-top:0; margin-bottom:0">&nbsp;&nbsp;&nbsp;
+<a href="#Initial population">Initial population</a></p>
+<p class="MsoNormal" style="text-align:justify; margin-top:0; margin-bottom:0">&nbsp;&nbsp;&nbsp;
+<a href="#Crossover">Crossover</a></p>
+<p class="MsoNormal" style="text-align:justify; margin-top:0; margin-bottom:0">&nbsp;&nbsp;&nbsp;
+<a href="#Insertion">Insertion</a></p>
+<p class="MsoNormal" style="text-align:justify; margin-top:0; margin-bottom:0">&nbsp;&nbsp;&nbsp;
+<a href="#TGP Algorithm">TGP Algorithm</a></p>
+<p class="MsoNormal" style="text-align:justify">&nbsp;</p>
+<p class="MsoNormal" style="text-align:justify"><b>1.&nbsp;&nbsp;&nbsp; 
+<a name="Prerequisite">Prerequisite</a></b></p>
+<p class="MsoNormal" style="text-align:justify">&nbsp;&nbsp;&nbsp; The aim of symbolic regression is to find a mathematical expression that 
+satisfies best a set of fitness cases. Each fitness case is given as a (<i>n</i>+1) 
+dimensional array of real values:</p>
+<p class="MsoNormal" style="text-align:justify"><i>x</i><sub>1</sub>, <i>x</i><sub>2</sub>,
+<i>x</i><sub>3</sub>, …, <i>x<sub>n</sub></i>, <i>f</i><sub>1</sub></p>
+<p class="MsoNormal" style="text-align:justify">where <i>x</i><sub>1</sub>, <i>x</i><sub>2</sub>,
+<i>x</i><sub>3</sub>, …, <i>x<sub>n</sub></i> are the values of the problem's 
+attributes and <i>f</i> is the target value.</p>
+<p class="MsoNormal" style="text-align:justify">&nbsp;&nbsp;&nbsp; Usually more fitness cases are given (let us denote by <i>m</i> this number) and 
+the task is to find the expression that satisfies best all these fitness cases. 
+This is usually done by minimizing the quantity:</p>
+<p class="MsoNormal" style="text-align:justify"><!--[if gte vml 1]><v:shapetype id="_x0000_t75"
+ coordsize="21600,21600" o:spt="75" o:preferrelative="t" path="m@4@5l@4@11@9@11@9@5xe"
+ filled="f" stroked="f">
+ <v:stroke joinstyle="miter"/>
+ <v:formulas>
+  <v:f eqn="if lineDrawn pixelLineWidth 0"/>
+  <v:f eqn="sum @0 1 0"/>
+  <v:f eqn="sum 0 0 @1"/>
+  <v:f eqn="prod @2 1 2"/>
+  <v:f eqn="prod @3 21600 pixelWidth"/>
+  <v:f eqn="prod @3 21600 pixelHeight"/>
+  <v:f eqn="sum @0 0 1"/>
+  <v:f eqn="prod @6 1 2"/>
+  <v:f eqn="prod @7 21600 pixelWidth"/>
+  <v:f eqn="sum @8 21600 0"/>
+  <v:f eqn="prod @7 21600 pixelHeight"/>
+  <v:f eqn="sum @10 21600 0"/>
+ </v:formulas>
+ <v:path o:extrusionok="f" gradientshapeok="t" o:connecttype="rect"/>
+ <o:lock v:ext="edit" aspectratio="t"/>
+</v:shapetype><v:shape id="_x0000_s1025" type="#_x0000_t75" style='position:absolute;
+ margin-left:0;margin-top:0;width:63.75pt;height:39.75pt;z-index:1'
+ o:allowincell="f">
+ <v:imagedata src="About_files/image001.wmz" o:title=""/>
+</v:shape><![endif]--><![if !vml]><span style='mso-ignore:vglayout;position:
+absolute;z-index:1;left:176px;top:661px;width:85px;height:53px'><img width=85
+height=53 src="About_files/image002.gif" v:shapes="_x0000_s1025"></span><![endif]><br clear="ALL">
+&nbsp;</p>
+<p class="MsoNormal" style="text-align:justify">where <i>f<sub>k</sub></i> is 
+the target value for the <i>k</i><sup>th</sup> fitness case and <i>o<sub>k</sub></i> 
+is the actual (obtained) value for the <i>k</i><sup>th</sup> fitness case.</p>
+<p class="MsoNormal" style="text-align:justify"><b>2.&nbsp;&nbsp;&nbsp; 
+<a name="Individual representation">Individual representation</a></b></p>
+<p class="MsoNormal" style="text-align:justify">&nbsp;&nbsp;&nbsp; 
+Each TGP individual represents a mathematical expression evolved so far, but the 
+TGP individual does not explicitly store this expression. Each TGP individual 
+stores only the obtained value so far for each fitness case. Thus a TGP 
+individual is:</p>
+<p class="MsoNormal" style="text-align:justify">&nbsp;(<i>o</i><sub>1</sub>, <i>o</i><sub>2</sub>,
+<i>o</i><sub>3</sub>, …, <i>o<sub>m</sub></i>)<sup>T</sup>,</p>
+<p class="MsoNormal" style="text-align:justify">where <i>o<sub>k</sub></i> is 
+the current value for the <i>k</i><sup>th</sup> fitness case. Each position in 
+this array (a value <i>o<sub>k</sub></i>) is a gene. As we said it before behind 
+these values is a mathematical expression whose evaluation has generated these 
+values. However, we do not store this expression. We store only the values <i>o<sub>k</sub></i>.</p>
+<p class="MsoNormal" style="text-align:justify"><b>3.&nbsp;&nbsp;&nbsp;
+<a name="Initial population">Initial 
+population</a></b></p>
+<p class="MsoNormal" style="text-align:justify">&nbsp;&nbsp;&nbsp; 
+The initial population contains individuals whose values have been generated by 
+simple expressions (made of a single terminal). For instance if an individual in 
+the initial population represent the expression </p>
+<p class="MsoNormal" style="text-align:justify"><i>E</i> = <i>x</i><sub>1</sub>,</p>
+<p class="MsoNormal" style="text-align:justify">then this individual is 
+represented as:</p>
+<p class="MsoNormal" style="text-align:justify"><i>C</i> = (<i>x</i><sub>1</sub>,
+<i>x</i><sub>2</sub>, …, <i>x<sub>m</sub></i>)<sup>T</sup></p>
+<p class="MsoNormal" style="text-align:justify">where <i>x<sub>k</sub></i> is 
+the value of the first attribute for the <i>k</i><sup>th</sup> fitness case.</p>
+<p class="MsoNormal" style="text-align:justify">The quality of this individual is </p>
+<p class="MsoNormal" style="text-align:justify">&nbsp;<!--[if gte vml 1]><v:shape
+ id="_x0000_s1026" type="#_x0000_t75" style='position:absolute;margin-left:3.75pt;
+ margin-top:3pt;width:88.5pt;height:42.75pt;z-index:2' o:allowincell="f">
+ <v:imagedata src="About_files/image003.wmz" o:title=""/>
+</v:shape><![endif]--><![if !vml]><span style='mso-ignore:vglayout;position:
+absolute;z-index:2;left:186px;top:1440px;width:118px;height:57px'><img
+width=118 height=57 src="About_files/image004.gif" v:shapes="_x0000_s1026"></span><![endif]></p>
+<p class="MsoNormal" style="text-align:justify">&nbsp;</p>
+<p class="MsoNormal" style="text-align:justify"><b>4.&nbsp;&nbsp;&nbsp; Genetic 
+Operators</b></p>
+<p class="MsoNormal" style="text-align:justify">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+TGP uses two genetic operators: crossover and insertion.</p>
+<p class="MsoNormal" style="text-align:justify"><b>4.1.&nbsp;&nbsp;&nbsp; <a name="Crossover">Crossover</a></b></p>
+<p class="MsoNormal" style="text-align:justify">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+For obtaining new individuals the crossover operator comes into role. For 
+crossover several individuals (the parents) and a function symbol are selected. 
+The offspring is obtained by computing by applying the selected operator for 
+each of the genes of the parents.</p>
+<p class="MsoNormal" style="text-align:justify">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+The number of parents selected for crossover depends on the number of arguments 
+required by the selected function symbol. If the function symbol is a binary 
+operator then two parents have to be selected for crossover. If the function 
+symbol is a unary operator, then a single parent needs to be selected.</p>
+<p class="MsoNormal" style="text-align:justify"><b>Example</b></p>
+<p class="MsoNormal" style="text-align:justify">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+Let us suppose that the + operator is selected. In this case two parents </p>
+<p class="MsoNormal" style="text-align:justify"><i>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; C</i><sub>1</sub> = (<i>p</i><sub>1</sub>,
+<i>p</i><sub>2</sub>, …, <i>p<sub>m</sub></i>)<sup>T</sup>&nbsp; and</p>
+<p class="MsoNormal" style="text-align:justify"><i>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; C</i><sub>2</sub> = (<i>q</i><sub>1</sub>,
+<i>q</i><sub>2</sub>, …, <i>q<sub>m</sub></i>)<sup>T</sup></p>
+<p class="MsoNormal" style="text-align:justify">are selected and the offspring
+<i>O</i> is obtained as follows:</p>
+<p class="MsoNormal" style="text-align:justify"><i>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; O</i> = (<i>p</i><sub>1</sub>+<i>q</i><sub>1</sub>,
+<i>p</i><sub>2</sub>+<i>q</i><sub>2</sub>,…, <i>p<sub>m</sub></i>+<i>q<sub>m</sub></i>)<sup>T</sup>.</p>
+
+<p class="MsoNormal" style="text-align:justify"><b>Example 2</b></p>
+<p class="MsoNormal" style="text-align:justify">Let us suppose that the <i>sin</i> 
+operator is selected. In this case one parent</p>
+<p class="MsoNormal" style="text-align:justify"><i>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+C</i><sub>1</sub> = (<i>p</i><sub>1</sub>, <i>p</i><sub>2</sub>, …, <i>p<sub>m</sub></i>)<sup>T</sup>&nbsp;
+</p>
+<p class="MsoNormal" style="text-align:justify">is selected and the offspring <i>
+O</i> is obtained as follows:</p>
+<p class="MsoNormal" style="text-align:justify"><i>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+O</i> = (<i>sin</i>(<i>p</i><sub>1</sub>), <i>sin</i>(<i>p</i><sub>2</sub>),…,
+<i>sin</i>(<i>p<sub>m</sub></i>))<sup>T</sup>.</p>
+<p class="MsoNormal" style="text-align:justify"><b>4.2.&nbsp;&nbsp;&nbsp; <a name="Insertion">Insertion</a></b></p>
+<p class="MsoNormal" style="text-align:justify">&nbsp;&nbsp;&nbsp; This operator inserts a simple 
+expression (made of a single terminal) in the population. This operator is 
+useful when the population contains individuals representing highly complex 
+expressions that are not anymore able to improve the search. By inserting simple 
+expressions we give a chance to the evolutionary process to choose another 
+direction for evolution. </p>
+<p class="MsoNormal" style="text-align:justify"><b>5.&nbsp;&nbsp;&nbsp; <a name="TGP Algorithm">TGP 
+Algorithm</a></b></p>
+<p class="MsoNormal" style="text-align:justify">&nbsp;&nbsp;&nbsp; Due to the special 
+representation and due to the newly proposed genetic operators, TGP uses a 
+specific algorithm which is given below:</p>
+<p class="MsoNormal" style="text-align:justify">&nbsp;&nbsp;&nbsp; The TGP algorithm starts by 
+creating a random population of individuals. The following steps are repeated 
+until a given number of generations is reached: Two parents are selected using a 
+standard selection procedure. The parents are recombined in order to obtain two 
+offspring. The offspring are considered for mutation. The best offspring <i>O</i> 
+replaces the worst individual <i>W</i> in the current population if <i>O</i> is 
+better than <i>W</i>. </p>
+<p class="MsoNormal" style="margin-top:6.0pt;margin-right:0mm;margin-bottom:6.0pt;
+margin-left:0mm;text-align:justify">&nbsp;&nbsp;&nbsp; The variation operators ensure that the 
+chromosome length is a constant of the search process. The algorithm returns as 
+its answer the best expression evolved along a fixed number of generations.</p>
+<p class="MsoNormal" style="margin-top:6.0pt;margin-right:0mm;margin-bottom:6.0pt;
+margin-left:0mm;text-align:justify">&nbsp;&nbsp;&nbsp; The standard TGP algorithm is outlined 
+below:</p>
+<h4 align="center"><span style="font-size:10.0pt">Standard TGP Algorithm</span></h4>
+<p class="MsoNormal" style="text-align: justify; text-autospace: none; margin-top: 0; margin-bottom: 0">
+<span style="font-family:&quot;Courier New&quot;">S<sub>1</sub>. Randomly create 
+the initial population <i>P</i>(0)</span></p>
+<p class="MsoNormal" style="text-align: justify; text-autospace: none; margin-top: 0; margin-bottom: 0">
+<span style="font-family:&quot;Courier New&quot;">S<sub>2</sub>. <b>for</b> <i>t</i> 
+= 1 <b>to</b> <i>NumberOfGenerations</i> <b>do</b></span></p>
+<p class="MsoNormal" style="text-align: justify; text-autospace: none; margin-top: 0; margin-bottom: 0">
+<span style="font-family:&quot;Courier New&quot;">S<sub>3</sub>. &nbsp; <i>P</i>’(<i>t</i>) 
+= </span><span style="font-family: Symbol">f</span></p>
+<p class="MsoNormal" style="text-align: justify; text-autospace: none; margin-top: 0; margin-bottom: 0">
+<span style="font-family:&quot;Courier New&quot;">S<sub>4</sub>. &nbsp; Copy the best 
+individual from <i>P</i>(<i>t</i>) to <i>P</i>’(<i>t</i>)</span></p>
+<p class="MsoNormal" style="text-align: justify; text-autospace: none; margin-top: 0; margin-bottom: 0">
+<span style="font-family:&quot;Courier New&quot;">S<sub>5</sub>.&nbsp;&nbsp; <b>while </b>
+<i>P</i>’(<i>t</i>) is not filled<b> do</b></span></p>
+<p class="MsoNormal" style="text-align: justify; text-autospace: none; margin-top: 0; margin-bottom: 0">
+<span style="font-family:&quot;Courier New&quot;">S<sub>6</sub>. &nbsp;&nbsp;&nbsp;&nbsp;<b>with</b> 
+a fixed insertion probability <i>p<sub>insert</sub></i> <b>do</b></span></p>
+<p class="MsoNormal" style="text-align: justify; text-autospace: none; margin-top: 0; margin-bottom: 0">
+<span style="font-family:&quot;Courier New&quot;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Randomly select an 
+input vector and copy it to <i>P</i>’(<i>t</i>)</span></p>
+<p class="MsoNormal" style="text-align: justify; text-autospace: none; margin-top: 0; margin-bottom: 0">
+<span style="font-family:&quot;Courier New&quot;">S<sub>7</sub>.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<b>with</b> 
+a crossover probability 1 – <i>p<sub>insert</sub></i> <b>do</b></span></p>
+<p class="MsoNormal" style="text-align: justify; text-autospace: none; margin-top: 0; margin-bottom: 0">
+<span style="font-family:&quot;Courier New&quot;">S<sub>8</sub>.&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;<i>Select</i> 
+an operator.</span></p>
+<p class="MsoNormal" style="text-align: justify; text-autospace: none; margin-top: 0; margin-bottom: 0">
+<span style="font-family:&quot;Courier New&quot;">S<sub>9</sub>.<i>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+Select</i> a number of parents equal to the number of arguments of the selected 
+operator.</span></p>
+<p class="MsoNormal" style="text-align: justify; text-autospace: none; margin-top: 0; margin-bottom: 0">
+<span style="font-family:&quot;Courier New&quot;">S<sub>10</sub>.&nbsp;&nbsp;&nbsp;&nbsp;
+<i>Crossover</i> the selected parents. An offspring <i>offspr</i> is obtained
+</span></p>
+<p class="MsoNormal" style="text-align: justify; text-autospace: none; margin-top: 0; margin-bottom: 0">
+<span style="font-family: Courier New">S<sub>11</sub>.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span><span style="font-family:&quot;Courier New&quot;">Add the offspring o to
+<i>P</i>’(<i>t</i>)</span></p>
+<p class="MsoNormal" style="text-align: justify; text-autospace: none; margin-top: 0; margin-bottom: 0">
+<span style="font-family:&quot;Courier New&quot;">S<sub>12</sub>.&nbsp;&nbsp;<b>endwhile</b></span></p>
+<p class="MsoNormal" style="text-align: justify; text-autospace: none; margin-top: 0; margin-bottom: 0">
+<span style="font-family:&quot;Courier New&quot;">S<sub>13</sub>.&nbsp;&nbsp;<i>P</i>(<i>t</i>+1) 
+= <i>P</i>’(<i>t</i>);</span></p>
+<p style="margin-top: 0; margin-bottom: 0">
+<span lang="DE" style="font-family: Courier New">S</span><sub><span style="font-size: 10.0pt; font-family: Courier New">14</span></sub><span lang="DE" style="font-size: 10.0pt; font-family: Courier New">.
+</span><span lang="DE" style="font-family: Courier New"><b>endfor</b></span></p>
+<p class="MsoNormal" style="text-align:justify"></p>
+
+<!--mstheme--></font><!--msnavigation--></td></tr><!--msnavigation--></table><!--msnavigation--><table border="0" cellpadding="0" cellspacing="0" width="100%"><tr><td><!--mstheme--><font face="trebuchet ms,arial,helvetica">
+
+<center><!--msthemeseparator--><p align="center"><img src="_themes/blends/blesepa.gif" width="600" height="10" alt="horizontal rule"></p>
+<p><small>
+<nobr><A HREF="index.html" TARGET="" STYLE="text-decoration: none;">Home</A></nobr>&nbsp;|&nbsp;<nobr><A HREF="members.htm" TARGET="" STYLE="text-decoration: none;">People</A></nobr>&nbsp;|&nbsp;<nobr>TGP&nbsp;description</nobr>&nbsp;|&nbsp;<nobr><A HREF="papers.htm" TARGET="" STYLE="text-decoration: none;">Papers</A></nobr>&nbsp;|&nbsp;<nobr><A HREF="Source%20Code.htm" TARGET="" STYLE="text-decoration: none;">Source&nbsp;Code</A></nobr>&nbsp;|&nbsp;<nobr><A HREF="Links.htm" TARGET="" STYLE="text-decoration: none;">Links</A></nobr>
+<br>
+<br>
+&nbsp;<br>
+contact: <img border="0" src="email_moltean.jpg" width="227" height="33"><br>
+Last updated:
+miercuri mai 03, 2006. </small>
+</p>
+</center>
+
+<!--mstheme--></font></td></tr><!--msnavigation--></table></body></html>

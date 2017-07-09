@@ -1,0 +1,17 @@
+Books (in Romanian)
+
+Oltean Mihai
+
+1.	Problems Solved in Pascal, Blue Publishing House, Cluj-Napoca, pp. 150, 1995
+
+2.	Solving problems using Turbo Pascal, Computer Libris Agora, Cluj-Napoca, pp. 140, 1996.
+
+3.	Mathematical games programming, Blue Publishing House, pp. 150, 1996.
+
+4.	C++Builder in applications, Blue Publishing House, Cluj-Napoca, pp. 400, 1998.
+
+5.	Advanced programming in Delphi, Blue Publishing House, Cluj-Napoca, pp. 350, 1999.
+
+6.	Algorithms, Design and Implementation, Computer Libris Agora, Cluj-Napoca, pp. 300, 2000.
+
+7.	Programming with C++Builder, Blue Publishing House, Cluj-Napoca, pp. 400, 2001.

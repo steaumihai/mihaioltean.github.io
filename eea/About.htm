@@ -1,0 +1,123 @@
+<html xmlns:v="urn:schemas-microsoft-com:vml" xmlns:o="urn:schemas-microsoft-com:office:office" xmlns="http://www.w3.org/TR/REC-html40">
+
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=windows-1252">
+<meta http-equiv="Content-Language" content="en-us">
+<title>Description</title>
+<meta name="GENERATOR" content="Microsoft FrontPage 5.0">
+<meta name="ProgId" content="FrontPage.Editor.Document">
+<meta name="Microsoft Theme" content="inmotion 0111, default">
+<meta name="Microsoft Border" content="tlb, default">
+</head>
+
+<body background="_themes/inmotion/inmtextb.gif" bgcolor="#FFFFFF" text="#000000" link="#CC6633" vlink="#669933" alink="#FFCC00"><!--msnavigation--><table border="0" cellpadding="0" cellspacing="0" width="100%"><tr><td><!--mstheme--><font face="arial,helvetica">
+
+<center>
+<h1><!--mstheme--><font face="Arial,Helvetica"><!--mstheme--><b><font face="Trebuchet MS" color="#000080">Evolving Evolutionary Algorithms</font><!--mstheme--></font><!--mstheme--></b></h1>
+<!--msthemeseparator--><p align="center"><img src="_themes/inmotion/inmhorsa.gif" width="600" height="10" alt="horizontal rule"></p></center>
+
+<!--mstheme--></font></td></tr><!--msnavigation--></table><!--msnavigation--><table dir="ltr" border="0" cellpadding="0" cellspacing="0" width="100%"><tr><td valign="top" width="1%"><!--mstheme--><font face="arial,helvetica">
+
+<p>
+<a href="index.html"><img src="_derived/home_cmp_blitz000_vbtn.gif" width="140" height="40" border="0" alt="Home"></a><br><a href="members.htm"><img src="_derived/members.htm_cmp_blitz000_vbtn.gif" width="140" height="40" border="0" alt="People"></a><br><img src="_derived/About.htm_cmp_blitz000_vbtn_p.gif" width="140" height="40" border="0" alt="Description"><br><a href="papers.htm"><img src="_derived/papers.htm_cmp_blitz000_vbtn.gif" width="140" height="40" border="0" alt="Papers"></a><br><a href="Source%20Code.htm"><img src="_derived/Source%20Code.htm_cmp_blitz000_vbtn.gif" width="140" height="40" border="0" alt="Source Code"></a><br><a href="Links.htm"><img src="_derived/Links.htm_cmp_blitz000_vbtn.gif" width="140" height="40" border="0" alt="Links"></a>
+</p>
+
+<!--mstheme--></font></td><td valign="top" width="24"></td><!--msnavigation--><td valign="top"><!--mstheme--><font face="arial,helvetica">
+<p>&nbsp;</p>
+<p>&nbsp;&nbsp;&nbsp; Evolutionary Algorithms (EAs) are 
+powerful tools used for solving difficult real-world problems. They have 
+been developed in order to solve some real-world problems that the classical 
+(mathematical) methods failed to successfully tackle. Many of these unsolved 
+problems are (or could be turned into) optimization problems. The solving of an 
+optimization problem means finding solutions that maximize or minimize a 
+criteria function.<br>
+<br>
+&nbsp;&nbsp;&nbsp; Many Evolutionary Algorithms have 
+been proposed for dealing with optimization problems. Many solution 
+representations and search operators have been proposed and tested within a wide 
+range of evolutionary models. There are several natural questions to be answered 
+in all these evolutionary models: <br>
+<br>
+<i>&nbsp;&nbsp;&nbsp; What is the optimal population size?<br>
+<br>
+&nbsp;&nbsp;&nbsp; What is the optimal individual representation?<br>
+<br>
+&nbsp;&nbsp;&nbsp; What are the optimal probabilities for applying specific 
+genetic operators?<br>
+<br>
+&nbsp;&nbsp;&nbsp; What is the optimal number of generations before halting the 
+evolution?<br>
+</i><br>
+&nbsp;&nbsp;&nbsp; A breakthrough arose in 1995 when 
+Wolpert and McReady unveiled their work on <i>No Free Lunch</i> (NFL) theorems 
+for <i>Search</i> and <i>Optimization</i>. The <i>No Free Lunch</i> theorems 
+state that all the black-box algorithms have the same average performance over 
+the entire set of optimization problems. (A black-box algorithm does not take 
+into account any information about the problem or the particular instance being 
+solved.) The magnitude of the NFL results stroke all the efforts for developing 
+a universal black-box optimization algorithm capable of solving all the 
+optimization problems in the best manner.<br>
+<br>
+&nbsp;&nbsp;&nbsp; In their attempt for solving 
+problems, men delegated computers to develop algorithms capable of performing 
+certain tasks. The most prominent effort in this direction is Genetic 
+Programming (GP), an evolutionary technique used for breeding a population of 
+computer programs. Instead of evolving solutions for a particular problem 
+instance, GP is mainly intended for discovering computer programs capable of 
+solving particular classes of optimization problems. (This statement is only 
+partially true since the discovery of computer programs may also be viewed as a 
+technique for solving a particular problem input. For instance, the problem may 
+be here: &quot;Find a computer program that calculates the sum of the elements of an 
+array of integers.&quot;).<br>
+<br>
+&nbsp;&nbsp;&nbsp; There are many such approaches in 
+literature concerning GP. Noticeable effort has been dedicated for evolving 
+deterministic computer programs capable of solving specific problems such as 
+symbolic regression,&nbsp; classification etc.<br>
+<br>
+&nbsp;&nbsp;&nbsp; Instead of evolving such 
+deterministic computer programs we will evolve a full-featured evolutionary 
+algorithm (i.e. the output of our main program will be an EA capable of 
+performing a given task). Thus, we will work with EAs at two levels: </p>
+<p>&nbsp;&nbsp;&nbsp; The first (macro) level consists in a steady-state EA 
+which uses a fixed population size, a fixed mutation probability, a fixed 
+crossover probability etc. </p>
+<p>&nbsp;&nbsp;&nbsp; The second (micro) level consists in the solutions encoded 
+in a chromosome of the first level EA.<br>
+<br>
+&nbsp;&nbsp;&nbsp; The rules employed by the evolved EAs 
+are not preprogrammed. These rules are automatically discovered by the 
+evolution. The evolved EA is a generational one.<br>
+<br>
+&nbsp;&nbsp;&nbsp; This research was motivated by the 
+need of answering several important questions concerning Evolutionary 
+Algorithms. The most important question is </p>
+
+<p> <i>Can Evolutionary Algorithms be 
+automatically synthesized by using only the information about the problem being 
+solved?</i>. </p>
+
+<p>And, if yes, which are the genetic operators that have to be used in 
+conjunction with an EA (for a given problem)? Moreover, we are also interested 
+to find the optimal (or near-optimal) sequence of genetic operations 
+(selections, crossovers and mutations) to be performed during a generation of an 
+Evolutionary Algorithm for a particular problem. For instance, in a standard GA 
+the sequence is the following: selection, recombination and mutation. But, how 
+do we know that scheme is the best for a particular problem (or problem 
+instance)? We better let the evolution to find the answer for us.</p>
+
+<!--mstheme--></font><!--msnavigation--></td></tr><!--msnavigation--></table><!--msnavigation--><table border="0" cellpadding="0" cellspacing="0" width="100%"><tr><td><!--mstheme--><font face="arial,helvetica">
+
+<center><!--msthemeseparator--><p align="center"><img src="_themes/inmotion/inmhorsa.gif" width="600" height="10" alt="horizontal rule"></p>
+<p><small>
+<nobr><A HREF="index.html" TARGET="" STYLE="text-decoration: none;">Home</A></nobr>&nbsp;|&nbsp;<nobr><A HREF="members.htm" TARGET="" STYLE="text-decoration: none;">People</A></nobr>&nbsp;|&nbsp;<nobr>Description</nobr>&nbsp;|&nbsp;<nobr><A HREF="papers.htm" TARGET="" STYLE="text-decoration: none;">Papers</A></nobr>&nbsp;|&nbsp;<nobr><A HREF="Source%20Code.htm" TARGET="" STYLE="text-decoration: none;">Source&nbsp;Code</A></nobr>&nbsp;|&nbsp;<nobr><A HREF="Links.htm" TARGET="" STYLE="text-decoration: none;">Links</A></nobr>
+<br>
+<br>
+&nbsp;<br>
+contact: <img border="0" src="email_moltean.jpg" width="227" height="33"><br>
+Last updated:
+miercuri mai 03, 2006. </small>
+</p>
+</center>
+
+<!--mstheme--></font></td></tr><!--msnavigation--></table></body></html>
