@@ -1,0 +1,630 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN"
+            "http://www.w3.org/TR/REC-html40/loose.dtd">
+<HTML>
+
+<HEAD>
+
+
+<META http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<meta name="keywords" content="Switchable Glasses, Evolvable Hardware, Knapsack problem, light computation, evolvable machines">
+<meta name="description" content="Switchable Glass: A possible medium for Evolvable Hardware">
+<META name="GENERATOR" content="hevea 1.08">
+<STYLE type="text/css">
+.toc{list-style:none;}
+.title{margin:auto;text-align:center}
+.center{text-align:center;margin-left:auto;margin-right:auto;}
+.flushleft{text-align:left;margin-left:0ex;margin-right:auto;}
+.flushright{text-align:right;margin-left:auto;margin-right:0ex;}
+DIV TABLE{margin-left:inherit;margin-right:inherit;}
+PRE{text-align:left;margin-left:0ex;margin-right:auto;}
+BLOCKQUOTE{margin-left:4ex;margin-right:4ex;text-align:left;}
+.part{margin:auto;text-align:center}
+</STYLE>
+<title>Switchable Glass: A possible medium for Evolvable Hardware</title>
+</HEAD>
+
+<BODY >
+<p align="center"><font size="6">Switchable Glass: A possible medium for 
+Evolvable Hardware</font></p>
+<p align="center">Department of Computer Science,<BR>
+Faculty of Mathematics and Computer Science,<BR>
+Babes-Bolyai University, Kogalniceanu 1<BR>
+Cluj-Napoca, 400084, Romania.<BR>
+moltean@cs.ubbcluj.ro
+<BR>
+
+</p>
+
+<TABLE CLASS="title">
+<TR><TD></TD>
+</TR></TABLE>
+<p align="center"><font color="#000000" size="4">
+			<span style="font-family: Times New Roman">NASA conference on 
+Adaptive Hardware Systems, </span></font></p>
+<p align="center"><font color="#000000" size="4">
+			<span style="font-family: Times New Roman">IEEE CS Press, pp 81-87, 
+2006</span></font></p>
+<p align="center"><span style="font-family: Times New Roman"><font size="7">[<a href="oltean-smartglass.pdf">PDF 
+version here</a>]</font></span></p>
+<p>&nbsp;</p>
+<BLOCKQUOTE CLASS="abstract"><B>Abstract: </B><BR>
+<BR>
+	The possibility of using switchable glass (also called smart windows) 
+	technology for Evolvable Hardware tasks is suggested in this paper. 
+	Switchable glass technology basically means controlling the transmission of 
+	light through windows by using electrical power. By applying a variable 
+	voltage to the window we can continuously vary the amount of transmitted 
+	light. Three existing technologies are reviewed in this paper: 
+	Electrochromic Devices, Suspended Particle Devices and Liquid Crystal 
+	Devices. An Evolvable Hardware application for a light-based device is 
+	described. The proposed device can be used for solving an entire class of 
+	problems, instead of one problem only as in the case of other dedicated 
+	hardware.</BLOCKQUOTE>
+<!--TOC section Introduction-->
+
+<H2 CLASS="section"><A NAME="htoc1">1</A>&nbsp;&nbsp;Introduction</H2><!--SEC END -->
+
+Intrinsic Evolvable Hardware (EHW) employs the Darwinian principle of evolution 
+directly into hardware. Several devices have been used so far in this purpose: 
+Field Programmable Gate Array [<A HREF="#Thompson1"><CITE>16</CITE></A>], Field 
+Programmable Transistor Array [<A HREF="#Stoica1"><CITE>15</CITE></A>], Field 
+Programmable Analog Array [<A HREF="#Flockton"><CITE>3</CITE></A>] and Liquid 
+Crystal [<A HREF="#Miller1"><CITE>11</CITE></A><CITE>, </CITE><A HREF="#Miller2"><CITE>
+12</CITE></A>]. <BR>
+<BR>
+In this paper we suggest the use of switchable glass (commercially known as 
+smart windows) for Evolvable Hardware purposes. Because switchable glass affects 
+only the transmitted light, we can used this technology for light-based 
+computations only.<BR>
+<BR>
+In the area of light control, there are three main technologies: Electrochromic 
+Devices, Suspended Particle Devices and Liquid Crystal Devices. Electrochromic 
+Devices technology is based on chemical reactions whereas Suspended Particle 
+Devices technology uses field effects. These technologies are widely used to 
+manufacture smart windows [<A HREF="#LaPointe"><CITE>9</CITE></A>]. These types 
+of glass can be automatically controlled to adjust the amount of light passing 
+through them.<BR>
+<BR>
+Suspended Particle Device refers to rod-like particles suspended in a fluid. 
+With no applied voltage, the particles are randomly oriented and block light 
+(dark state). When a voltage is applied, the particles align with the electric 
+field and let light though (light state). By varying the applied voltage, we can 
+continuously vary the amount of transmitted light.<BR>
+<BR>
+Electrochromic glass becomes translucent when voltage is added and are 
+transparent when voltage is taken away. Like suspended particle devices, 
+electrochromic windows can be adjusted to allow varying levels of visibility.<BR>
+<BR>
+Liquid crystal glasses become transparent when a voltage is added and have an 
+opaque behavior when there is no electrical power applied. However, liquid 
+crystal glass has only 2 states: opaque and transparent with no other degrees of 
+visibility.<BR>
+<BR>
+The paper is structured as follows: The properties of intrisic EHW systems are 
+briefly described in section <A HREF="#Properties">2</A>. Section <A HREF="#overview">
+3</A> reviews the current directions in the field of switchable glasses. A 
+possible EHW application of switchable glass is presented in section <A HREF="#application">
+5</A>. Conclusions and further work directions are given in section <A HREF="#conclusions">
+6</A>.<BR>
+<BR>
+<!--TOC section Properties of EHW devices-->
+
+<H2 CLASS="section"><A NAME="htoc2">2</A>&nbsp;&nbsp;Properties of EHW devices</H2><!--SEC END -->
+
+<A NAME="Properties"></A>
+According to [<A HREF="#Miller2"><CITE>12</CITE></A>] there are several 
+characteristics that a material should have in order to become a possible 
+candidate for EHW tasks:
+<UL CLASS="itemize"><LI CLASS="li-itemize">the material should be configurable 
+	by applying some electrical power or any other source of energy (such as 
+	light),
+<LI CLASS="li-itemize">the material should affect an incident signal (optical or 
+electronic),
+<LI CLASS="li-itemize">the material should be able to be reset to its original 
+state.</UL>
+In this paper we suggest the possibility of using switchable glass as a platform 
+for EHW tasks. This kind of material has all the properties required by the EHW 
+tasks: 
+<UL CLASS="itemize"><LI CLASS="li-itemize">the switchable glass can change its 
+	degree of opaqueness by applying some electrical power,
+<LI CLASS="li-itemize">the switchable glass affects the quantity of light that 
+pass through it,
+<LI CLASS="li-itemize">the switchable glass is able to be reset to its original 
+state by removing the source of power.</UL>
+Because switchable glass affects only the transmitted light, we can used this 
+technology for light-based computations only.<BR>
+<BR>
+<!--TOC section Overview of the switchable glass technology-->
+
+<H2 CLASS="section"><A NAME="htoc3">3</A>&nbsp;&nbsp;Overview of the switchable glass 
+technology</H2><!--SEC END -->
+
+<A NAME="overview"></A>
+Three existing technologies in the field of switchable glasses are briefly 
+described in this section. These technologies are: Suspended-particle devices, 
+Electrochromic devices and Liquid crystal devices.<BR>
+<BR>
+<!--TOC subsection Suspended-particle devices-->
+
+<H3 CLASS="subsection"><A NAME="htoc4">3.1</A>&nbsp;&nbsp;Suspended-particle devices</H3><!--SEC END -->
+
+<A NAME="spd"></A>
+Suspended Particle Devices (SPDs) [<A HREF="#Harary"><CITE>7</CITE></A><CITE>, </CITE><A HREF="#howstuffworks"><CITE>
+19</CITE></A>], also called <I>light valves</I> use either a liquid suspension 
+or a film within which droplets of liquid suspension are distributed. 
+Light-absorbing microscopic particles are dispersed within the liquid 
+suspension. The liquid suspension or film is then enclosed between two glass or 
+plastic plates coated with a transparent conductive material. The mechanism 
+behind SPD is similar to that of the dielectric in a parallel-plate capacitor 
+which means that the atoms of the dielectric are polarized by the electric 
+field. When an electrical voltage is applied to the suspension via the coatings, 
+the particles are forced to align. <BR>
+<BR>
+This allows a range of transparency where light transmission can be rapidly 
+varied to any degree desired depending upon the voltage applied. <BR>
+<BR>
+An example of how SPD works is given in Figure <A HREF="#fig_spd">1</A>.
+<BLOCKQUOTE CLASS="figure"><DIV CLASS="center"><HR WIDTH="80%" SIZE=2></DIV>
+<DIV CLASS="center">figure=Picture1.eps,width=4.1in,height=2.7in</DIV>
+<BR>
+<BR>
+<DIV CLASS="center">Figure 1: The materials within a SPD-based glass (from left 
+	to right): glass or plastic panel, conductive material - used to coat the 
+	panes of glass, Suspended Particle Devices - millions of these black 
+	particles are placed between the two panes of glass, a second glass or 
+	plastic panel. We have kept the glass panels in order to show how this 
+	technology works. When the SPDs are switched on, via the conductive coating, 
+	they line up in a straight line and allow light to flow through. When 
+	switched off the SPDs move back into a random pattern and block light.</DIV><BR>
+<BR>
+
+<A NAME="fig_spd"></A>
+<DIV CLASS="center"><HR WIDTH="80%" SIZE=2></DIV></BLOCKQUOTE>
+The way in which SPD glass works is very simple, if one thinks of SPDs as light 
+valves. In a SPD window, millions of SPDs are placed between two panels of glass 
+or plastic. When electricity comes into contact with the SPDs via the conductive 
+coating, they line up in a straight line and allow light to flow through. Once 
+the electricity is taken away, they move back into a random pattern and block 
+light. When the amount of voltage is decreased, the window darkens until it's 
+completely dark after all electricity is taken away. <BR>
+<BR>
+<!--TOC subsection Electrochromic devices-->
+
+<H3 CLASS="subsection"><A NAME="htoc5">3.2</A>&nbsp;&nbsp;Electrochromic devices</H3><!--SEC END -->
+
+<A NAME="Electrochromic"></A>
+Electrochromic windows [<A HREF="#Granqvist"><CITE>4</CITE></A><CITE>, </CITE><A HREF="#LaPointe"><CITE>
+9</CITE></A><CITE>, </CITE><A HREF="#Mortimer"><CITE>13</CITE></A><CITE>, </CITE><A HREF="#howstuffworks"><CITE>
+19</CITE></A>] are made of special materials that have electrochromic 
+properties. <I>Electrochromic</I> basically describes materials that can change 
+color when energized by an electrical current. Electricity generates a chemical 
+reaction in this material. This reaction (like any chemical reaction) changes 
+the properties of the material. In this particular case, the reaction changes 
+the way the material reflects and absorbs light. In some other electrochromic 
+materials, the change is between different colors. In electrochromic windows, 
+the material changes between colored (reflecting light of some color) and 
+transparent (not reflecting any light). <BR>
+<BR>
+At its most basic level, an electrochromic window needs this sort of 
+electrochromic material and an electrode system to change its chemical state 
+from colored to transparent and back again.<BR>
+<BR>
+Electrochromic glass is made by sandwiching certain materials between two panes 
+of glass. Figure <A HREF="#fig_chromic">2</A> shows the materials inside one 
+basic electrochromic window system and the way in which this system works.
+<BLOCKQUOTE CLASS="figure"><DIV CLASS="center"><HR WIDTH="80%" SIZE=2></DIV>
+<DIV CLASS="center">figure=Picture2.eps,width=5in,height=2.7in</DIV>
+<BR>
+<BR>
+<DIV CLASS="center">Figure 2: The materials within a ECD-based glass (from left 
+	to right): glass or plastic panel, conducting oxide, electrochromic layer, 
+	such as tungsten oxide, ion conductor/electrolyte, ion storage, a second 
+	layer of conducting oxide, a second glass or plastic panel. We have kept the 
+	glass panels in order to show how this technology works. When switched off, 
+	an electrochromic window remains transparent (left side). When switched on, 
+	a low volt of electricity makes the electrochromic window translucent (right 
+	side).</DIV><BR>
+<BR>
+
+<A NAME="fig_chromic"></A>
+<DIV CLASS="center"><HR WIDTH="80%" SIZE=2></DIV></BLOCKQUOTE> 
+In the design shown in Figure <A HREF="#fig_chromic">2</A>, the chemical 
+reaction at work is an oxidation reaction &#8211; a reaction in which molecules in a 
+compound lose an electron. Ions in the sandwiched electrochromic layer are what 
+allow it to change from translucent to transparent. It's these ions that allow 
+it to absorb light. A power source is wired to the two conducting oxide layers, 
+and a voltage drives the ions from the ion storage layer, through the ion 
+conducting layer and into the electrochromic layer. This makes the glass opaque. 
+By shutting off the voltage, the ions are driven out of the electrochromic 
+layers and into the ion storage layer. When the ions leave the electrochromic 
+layer, the window regains its transparency. <BR>
+<BR>
+With an electrochromic smart-window, it only requires electricity to make the 
+initial change in opacity. Maintaining a particular shade does not require 
+constant voltage. One only needs to apply enough voltage to make the change, and 
+then enough to reverse the change.<BR>
+<BR>
+<!--TOC subsection Liquid crystal devices-->
+
+<H3 CLASS="subsection"><A NAME="htoc6">3.3</A>&nbsp;&nbsp;Liquid crystal devices</H3><!--SEC END -->
+
+<A NAME="lcd"></A>
+Polymer Dispersed Liquid Crystals (PDLCs), [<A HREF="#khoo"><CITE>8</CITE></A><CITE>, </CITE><A HREF="#howstuffworks"><CITE>
+19</CITE></A>] or Liquid Crystals Devices (LCDs) are another major application 
+in the field of switchable windows. <BR>
+<BR>
+An example of how LCD works is given in Figure <A HREF="#fig_lcd">3</A>.
+<BLOCKQUOTE CLASS="figure"><DIV CLASS="center"><HR WIDTH="80%" SIZE=2></DIV>
+<DIV CLASS="center">figure=Picture3.eps,width=4.5in,height=2.7in</DIV> 
+<BR>
+<BR>
+<DIV CLASS="center">Figure 3: The materials within a LCD-based glass (from left 
+	to right): glass or plastic panel, interlayer film, liquid crystal film, a 
+	conductive coating, liquid crystal layer, a second conductive layer, a 
+	second liquid crystal film, a second interlayer film, a second glass or 
+	plastic panel. We have kept the glass panels in order to show how this 
+	technology works. When switched off the liquid crystal droplets are randomly 
+	oriented, creating an opaque state. When switched on the liquid crystals 
+	align parallel to the electric field and light passes through, creating a 
+	transparent state.</DIV><BR>
+<BR>
+
+<A NAME="fig_lcd"></A>
+<DIV CLASS="center"><HR WIDTH="80%" SIZE=2></DIV></BLOCKQUOTE>
+In the opaque state, the glass diffuses direct sunlight and eliminates 99 
+percent of the ultraviolet rays.<BR>
+<BR>
+LCDs operate on the principle of electrically controlled light scattering. They 
+consist of liquid crystal droplets surrounded by a polymer mixture sandwiched 
+between two pieces of conducting glass. When no electricity is applied the 
+liquid crystal droplets are randomly oriented, creating an opaque state. When 
+electricity is applied the liquid crystals align parallel to the electric field 
+and light passes through, creating a transparent state.<BR>
+<BR>
+LCD windows can only be in one of the two states: transparent or opaque. There 
+is nothing between these states, regardless how much electrical power is 
+applied.<BR>
+<BR>
+<!--TOC section Advantages and weaknesses-->
+
+<H2 CLASS="section"><A NAME="htoc7">4</A>&nbsp;&nbsp;Advantages and weaknesses</H2><!--SEC END -->
+
+A comparison of the features of the switchable glasses technologies is given in 
+Table <A HREF="#tab_diference">1</A>.<BR>
+<BR>
+An important advantage of Suspended-Particles Devices and Electrochromic Devices 
+is their ability to continuously vary the amount of transmitted light based on 
+continuous variations of the applied electrical power. This feature makes SPDs 
+and ECDs very suitable for a large number of problems whose parameters are 
+real-valued. By contrast, Liquid Crystal Devices are of ON-OFF type: they can 
+have only 2 states.<BR>
+<BR>
+A possible drawback is the speed of performing the changes. As a general remark, 
+the speed is directly connected to the glass surface. A bigger surface requires 
+more time to change its state than a smaller surface. However, for EHW tasks the 
+required surface can be microscopic, which requires less than 1 microsecond to 
+perform a complete cycle (in the case of SPDs). <BR>
+<BR>
+Because ECDs depend on ion injection and chemical reactions, the process is 
+inherently slow. However, SPDs depend on a field effect, thus responding in very 
+short time. As the technology advances we can expect to have smart glass which 
+will respond faster to the applied electrical power.<BR>
+<BR>
+<!--TOC section Applications-->
+
+<H2 CLASS="section"><A NAME="htoc8">5</A>&nbsp;&nbsp;Applications</H2><!--SEC END -->
+
+<A NAME="application"></A>
+In this section we describe an application for solving the 0/1 knapsack problem 
+[<A HREF="#Chvatal"><CITE>2</CITE></A><CITE>, </CITE><A HREF="#Martello"><CITE>
+10</CITE></A>]. For this purpose we have designed a special system which 
+consists in two main parts: 
+<UL CLASS="itemize"><LI CLASS="li-itemize">A computer which runs a standard 
+	Evolutionary Algorithm (EA) with binary encoding and
+<LI CLASS="li-itemize">an evolvable hardware light-based device for computing 
+the fitness of a chromosome.</UL>
+A schematic view of the proposed system is depicted in Figure <A HREF="#fig_knapsack_computer">
+4</A>.
+<BLOCKQUOTE CLASS="figure"><DIV CLASS="center"><HR WIDTH="80%" SIZE=2></DIV>
+<DIV CLASS="center">figure=Picture4.eps,width=4.8in,height=2.8in</DIV>
+<BR>
+<BR>
+<DIV CLASS="center">Figure 4: A schematic view of a light based-computer which 
+	performs a EHW task for solving a knapsack problem with 5 items. The weight 
+	of each item is encoded by the SPD array of glass pieces. The LCD array 
+	encodes the structure of the chromosome (the light is blocked if the 
+	corresponding gene <I>x</I><SUB><I>i</I></SUB> has value 0 and the light is 
+	allowed to pass if the corresponding gene <I>x</I><SUB><I>i</I></SUB> has 
+	value 1). When a source of light is applied, the first two arrays perform <I>
+	x</I><SUB><I>i</I></SUB>*<I>w</I><SUB><I>i</I></SUB> operation. The biconvex 
+	lens will focus all rays into a single spot which is equivalent with 
+	computing the sum <I>x</I><SUB>1</SUB>*<I>w</I><SUB>1</SUB>+...+<I>x</I><SUB><I>n</I></SUB>*<I>w</I><SUB><I>n</I></SUB>. 
+	Finally a solar cell will convert the light into electrical power which will 
+	be sent back to the computer</DIV><BR>
+<BR>
+
+<A NAME="fig_knapsack_computer"></A>
+<DIV CLASS="center"><HR WIDTH="80%" SIZE=2></DIV></BLOCKQUOTE>
+<!--TOC subsection The knapsack problem-->
+
+<H3 CLASS="subsection"><A NAME="htoc9">5.1</A>&nbsp;&nbsp;The knapsack problem</H3><!--SEC END -->
+
+<A NAME="knapsack_problem"></A>
+In this problem we have a set <I>M</I> of <I>n</I> items. Each item has its own 
+weight <I>w</I><SUB><I>i</I></SUB>. We also have a knapsack of capacity <I>C</I>. 
+We have to fill the knapsack using some objects in the set <I>M</I> so that:
+<UL CLASS="itemize"><LI CLASS="li-itemize">the total weight of the objects in 
+	the knapsack does not exceed the given capacity <I>C</I>,
+<LI CLASS="li-itemize">the difference between <I>C</I> and the sum of the 
+weights of the objects in the knapsack is minimal.</UL>
+Without losing the generality we may assume that each weight is a real number 
+between 0 and 1. Otherwise we can scale them to that interval.<BR>
+<BR>
+The knapsack problem belongs to the class of NP-Complete problems [<A HREF="#Chvatal"><CITE>2</CITE></A><CITE>, </CITE><A HREF="#garey"><CITE>
+6</CITE></A>]. No polynomial-time algorithm is known for solving it. 
+Evolutionary algorithms have been extensively used for solving this problem and 
+its countless variants [<A HREF="#Cotta"><CITE>1</CITE></A><CITE>, </CITE><A HREF="#grosan"><CITE>
+5</CITE></A><CITE>, </CITE><A HREF="#zitzler"><CITE>18</CITE></A>].<BR>
+<BR>
+<!--TOC subsection Evolutionary Algorithms for the knapsack problem-->
+
+<H3 CLASS="subsection"><A NAME="htoc10">5.2</A>&nbsp;&nbsp;Evolutionary Algorithms for the 
+knapsack problem</H3><!--SEC END -->
+
+<A NAME="eas_knapsack"></A>
+We use a standard representation of a chromosome: a binary string <I>x</I> of 
+length <I>n</I>. Each position <I>x</I><SUB><I>i</I></SUB> is filled with either 
+1 (meaning that the object is in the knapsack) or 0 (meaning that the object is 
+not in the knapsack). The fitness is equal to the difference, in absolute value, 
+between <I>C</I> and the sum of the objects in the knapsack. If the capacity C 
+is exceeded, the corresponding chromosome will have the fitness equal to &#8734;. The 
+fitness of a chromosome is computed by the EHW device (see section <A HREF="#ehw_device">
+5.3</A>).<BR>
+<BR>
+<!--TOC subsection The EHW device-->
+
+<H3 CLASS="subsection"><A NAME="htoc11">5.3</A>&nbsp;&nbsp;The EHW device</H3><!--SEC END -->
+
+<A NAME="ehw_device"></A>
+The EHW device (used for computing the fitness of a chromosome) consists in 5 
+main parts:
+<UL CLASS="itemize"><LI CLASS="li-itemize">several continuous sources of light. 
+	Their number is equal to <I>n</I> (the number of objects in the set <I>M</I>).<BR>
+<BR>
+<LI CLASS="li-itemize">an array of <I>n</I> LCD cells. Each cell is an 
+reconfigurable LCD glass which lets or does not let the light to pass through. 
+This array has the same structure as the structure of the chromosome whose 
+fitness is computed: 1 - the light is not blocked and 0 - the light is blocked. 
+This array will be reconfigured (by applying a predefined electric power) by the 
+computer everytime when the fitness of a chromosome needs to be computed.<BR>
+<BR>
+<LI CLASS="li-itemize">an array of <I>n</I> SPD cells. Each cell is an SPD glass 
+which allows a variable degree of light to pass through. This array encodes the 
+weights of the given objects. When we have defined the problem (see section <A HREF="#knapsack_problem">
+5.1</A>) we have imposed a restriction that each weight is between 0 and 1. Thus 
+each SPD cell is configured to let <I>w</I><SUB><I>i</I></SUB>*100% of the 
+incoming light to pass through. If <I>w</I><SUB><I>i</I></SUB> = 1 it means that 
+the corresponding glass is fully transparent allowing to pass 100% of the 
+incoming light. When <I>w</I><SUB><I>i</I></SUB> is near to 0 means that the 
+corresponding glass blocks almost all of the incoming light. This array of SPD 
+cells actually encodes the problem to be solved. This is why it should be kept 
+fixed during a run. However, when the problem is changed (i.e. the weights of 
+the objects are changed) we can reconfigure this SPD array too. This feature 
+gives us a great generalization ability.<BR>
+<BR>
+<LI CLASS="li-itemize">The effect of these arrays (LCD and SPD), when a light is 
+applied, is equivalent to performing, for each object, the multiplication <I>x</I><SUB><I>i</I></SUB>*<I>w</I><SUB><I>i</I></SUB>. 
+For computing the sum of the previously generated values we can use a biconvex 
+lens. This lens will focus all rays in a given point also called focal point. 
+The lens is a very important piece of this device, because it can compute a sum 
+of numbers in O(1) time. The conventional devices (electrically powered) can do 
+this operation in O(<I>n</I>) time.<BR>
+<BR>
+<LI CLASS="li-itemize">The light is then captured by a solar cell (photo cell) 
+which transforms it into electric power, which is later sent to computer as a 
+analog signal. The computer will calculate the actual fitness based on the 
+differences between <I>C</I> and the value generated by the EHW device.</UL>
+<!--TOC subsection How the system works?-->
+
+<H3 CLASS="subsection"><A NAME="htoc12">5.4</A>&nbsp;&nbsp;How the system works?</H3><!--SEC END -->
+
+The system works as follows (see also Figure <A HREF="#fig_knapsack_computer">4</A>):
+<UL CLASS="itemize"><LI CLASS="li-itemize">The SPDs cells are reconfigured at 
+	the beginning of the search in order to encode the knapsack problem (i.e. 
+	the weights of the objects). These cells are not reconfigured anymore during 
+	the current run. They are kept fixed until a new knapsack problem will be 
+	solved.<BR>
+<BR>
+<LI CLASS="li-itemize">A computer runs an Evolutionary Algorithm for solving the 
+knapsack problem as described in section <A HREF="#eas_knapsack">5.2</A>.<BR>
+<BR>
+<LI CLASS="li-itemize">When the fitness of a chromosome needs to be computed its 
+structure will be downloaded into the LCD array. This means that the LCD array 
+will be reconfigured (by applying/removing some electrical power to each of its 
+cells) in order to reflect the structure of the chromosome. The light rays will 
+pass through a cell only if the corresponding object is in the knapsack 
+(according to the current chromosome).<BR>
+<BR>
+<LI CLASS="li-itemize">When the light rays will pass the second layer (SPDs 
+array), they will have a power which reflects the degree of opaqueness of each 
+cell (which actually encodes the weight of each object).<BR>
+<BR>
+<LI CLASS="li-itemize">Finally, the light rays are focused by a biconvex lens 
+and the resulting ray will be captured by a solar cell. The signal, which is 
+sent back to the computer, by the solar cell encodes the sum of the weights of 
+the objects in the knapsack.<BR>
+<BR>
+<LI CLASS="li-itemize">The computer calculates the fitness by comparing value <I>
+C</I> with the sum of the objects in the knapsack.</UL>
+<!--TOC subsection Advantages-->
+
+<H3 CLASS="subsection"><A NAME="htoc13">5.5</A>&nbsp;&nbsp;Advantages</H3><!--SEC END -->
+
+Because of its two levels of reconfigurability, this EHW device has an important 
+advantage: it can be used for solving an entire class of knapsack problems, 
+without changing the device. The second array (the array of SPD cells) allows us 
+to reconfigure the weights, thus permitting to encode and solve all knapsack 
+problems which have no more than <I>n</I> objects. However, the maximum number 
+of objects, for a given device, cannot be modified.<BR>
+<BR>
+Another important advantage is given by the use of the biconvex lens. This type 
+of lens allows us to compute the sum <I>x</I><SUB>1</SUB>*<I>w</I><SUB>1</SUB>+<I>x</I><SUB>2</SUB>*<I>w</I><SUB>2</SUB>+...+<I>x</I><SUB><I>n</I></SUB>*<I>w</I><SUB><I>n</I></SUB> 
+in O(1) time by focusing the entire light to a single spot. Note that a standard 
+computer needs O(<I>n</I>) steps to do this operation.
+<BLOCKQUOTE CLASS="table"><DIV CLASS="center"><HR WIDTH="80%" SIZE=2></DIV>
+<BR>
+<BR>
+<DIV CLASS="center">Table 1: The differences between the compared smart glass 
+	technologies. Second column shows when the glass is transparent. <I>Switched 
+	ON</I> means that an electrical current is applied to obtain the transparent 
+	state. Third column shows whether the glass can be kept in other states 
+	between opaque and transparent. Fourth column shows whether glass requires 
+	power in order to maintain its state after an initial electrical power has 
+	been applied for changing the state</DIV><BR>
+<BR>
+
+<A NAME="tab_diference"></A>
+<DIV CLASS="center">
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=1>
+<TR><TD VALIGN=top ALIGN=left>Material</TD>
+<TD VALIGN=top ALIGN=left>When is transparent?</TD>
+<TD VALIGN=top ALIGN=left>Continuous states between opaque and transparent?</TD>
+<TD VALIGN=top ALIGN=left>Requires power to maintain the state?</TD>
+</TR>
+<TR><TD VALIGN=top ALIGN=left>Suspended Particle Devices</TD>
+<TD VALIGN=top ALIGN=left>Switched ON</TD>
+<TD VALIGN=top ALIGN=left>YES</TD>
+<TD VALIGN=top ALIGN=left>YES</TD>
+</TR>
+<TR><TD VALIGN=top ALIGN=left>Electrochromic Devices</TD>
+<TD VALIGN=top ALIGN=left>Switched OFF</TD>
+<TD VALIGN=top ALIGN=left>YES</TD>
+<TD VALIGN=top ALIGN=left>NO</TD>
+</TR>
+<TR><TD VALIGN=top ALIGN=left>Liquid Crystal Devices</TD>
+<TD VALIGN=top ALIGN=left>Switched ON</TD>
+<TD VALIGN=top ALIGN=left>NO</TD>
+<TD VALIGN=top ALIGN=left>YES</TD>
+</TR></TABLE>
+</DIV>
+<DIV CLASS="center"><HR WIDTH="80%" SIZE=2></DIV></BLOCKQUOTE>
+<!--TOC section Conclusion and future work-->
+
+<H2 CLASS="section"><A NAME="htoc14">6</A>&nbsp;&nbsp;Conclusion and future work</H2><!--SEC END -->
+
+<A NAME="conclusions"></A>
+The possibility of using switchable glass for Evolvable Hardware tasks has been 
+suggested in this paper. Three commercially available technologies in the field 
+of smart windows have been reviewed. Strengths and weaknesses of these 
+technologies have been deeply presented.<BR>
+<BR>
+A potential application of these technologies for evolution <I>in materio</I> 
+tasks has been described.<BR>
+<BR>
+Further efforts will be focused on two directions: 
+<UL CLASS="itemize"><LI CLASS="li-itemize">implementing the proposed hardware,
+<LI CLASS="li-itemize">finding new applications which are suitable for this 
+model,
+<LI CLASS="li-itemize">applying the switchable glass to reversible computing [<A HREF="#oltean"><CITE>14</CITE></A>]. 
+This task could be possible because the glass is able to restore its original 
+state after removing the source of energy.</UL>
+<!--TOC section References-->
+
+<H2 CLASS="section">References</H2><!--SEC END -->
+<DL CLASS="list" COMPACT="compact"><DT CLASS="dt-list"><A NAME="Cotta"><FONT COLOR=purple>
+	[1]</FONT></A><DD CLASS="dd-list">
+C. Cotta, J.M. Troya, A hybrid genetic algorithm for the 0-1 multiple knapsack 
+problem, Artificial Neural Nets and Genetic Algorithms, Springer-Verlag, (3) pp. 
+250-254, 1998<BR>
+<BR>
+<DT CLASS="dt-list"><A NAME="Chvatal"><FONT COLOR=purple>[2]</FONT></A><DD CLASS="dd-list">
+V. Chvatal, Hard knapsack problems, Operations Research 28, pp. 1402-1411, 1980<BR>
+<BR>
+<DT CLASS="dt-list"><A NAME="Flockton"><FONT COLOR=purple>[3]</FONT></A><DD CLASS="dd-list">
+S. J. Flockton and K. Sheehan, Intrinsic circuit evolution using programmable 
+analogue arrays, Proceedings of The Second International Conference on Evolvable 
+Systems: From Biology to Hardware, LNCS, vol. 1478, Springer-Verlag, pp. 
+144-153, 1998<BR>
+<BR>
+<DT CLASS="dt-list"><A NAME="Granqvist"><FONT COLOR=purple>[4]</FONT></A><DD CLASS="dd-list">
+C. Granqvist, Handbook of inorganic electrochromic materials, Elsevier Press, 
+Amsterdam; New York, 1995<BR>
+<BR>
+<DT CLASS="dt-list"><A NAME="grosan"><FONT COLOR=purple>[5]</FONT></A><DD CLASS="dd-list">
+C. Grosan, Improving the performance of evolutionary algorithms for the 
+multiobjective 0/1 knapsack problem using epsilon -dominance, IEEE Congress on 
+Evolutionary Computation, pp. 1958-1963, IEEE Press, 2004<BR>
+<BR>
+<DT CLASS="dt-list"><A NAME="garey"><FONT COLOR=purple>[6]</FONT></A><DD CLASS="dd-list">
+M.R. Garey, D.S. Johnson, Computers and Intractability: A Guide to 
+NP-Completeness, Freeman &amp; Co, San Francisco, CA, 1979.<BR>
+<BR>
+<DT CLASS="dt-list"><A NAME="Harary"><FONT COLOR=purple>[7]</FONT></A><DD CLASS="dd-list">
+J. M. Harary, Production and Performance of Suspended Particle Device (SPD) 
+Products, in Proceedings of the 5<SUP><I>th</I></SUP> International Meeting on 
+Electrochromism (IME-5) Golden, Colorado, 2002<BR>
+<BR>
+<DT CLASS="dt-list"><A NAME="khoo"><FONT COLOR=purple>[8]</FONT></A><DD CLASS="dd-list">
+I. C. Khoo, Liquid Crystals: physical properties and non-linear optical 
+phenomena, Wiley, 1995<BR>
+<BR>
+<DT CLASS="dt-list"><A NAME="LaPointe"><FONT COLOR=purple>[9]</FONT></A><DD CLASS="dd-list">
+M. R. LaPointe, G. M. Sottile, 2000 survey of window manufacturers on the 
+subject of switchable glass, Society of Photo-Optical Instrumentation Engineers 
+and Switching Materials, Vol. 4458, pp. 112-119, 2001<BR>
+<BR>
+<DT CLASS="dt-list"><A NAME="Martello"><FONT COLOR=purple>[10]</FONT></A><DD CLASS="dd-list">
+S. Martello, P. Toth, Knapsack problems: Algorithms and Computer 
+Implementations. John Wiley &amp; Sons, 1990 <BR>
+<BR>
+<DT CLASS="dt-list"><A NAME="Miller1"><FONT COLOR=purple>[11]</FONT></A><DD CLASS="dd-list">
+J. Miller and K. Downing, Evolution in materio: Looking Beyond the Silicon Box, 
+Proceedings of the 4<SUP><I>th</I></SUP>
+NASA/DoD Conference On Evolvable Hardware, pp. 167-176, IEEE Computer Society 
+Press, 2002<BR>
+<BR>
+<DT CLASS="dt-list"><A NAME="Miller2"><FONT COLOR=purple>[12]</FONT></A><DD CLASS="dd-list">
+S. Harding, J. Miller, Evolution in materio: Initial Experiments with Liquid 
+Crystal, Proceedings of the 6<SUP><I>th</I></SUP>
+NASA/DoD Conference On Evolvable Hardware, pp. 167-176, IEEE Computer Society 
+Press, 2004<BR>
+<BR>
+<DT CLASS="dt-list"><A NAME="Mortimer"><FONT COLOR=purple>[13]</FONT></A><DD CLASS="dd-list">
+R. Mortimer, Electrochromic materials, Chemical Society Reviews, Vol. 26(3), pp. 
+147 - 156, 1997<BR>
+<BR>
+<DT CLASS="dt-list"><A NAME="oltean"><FONT COLOR=purple>[14]</FONT></A><DD CLASS="dd-list">
+M. Oltean, Evolving reversible circuits for the even-parity problem, EvoHOT 
+workshop, Applications of Evolutionary Computing, F. Rothlauf, (et al.) (Eds.), 
+LNCS 3449, pp. 225-234, Springer-Verlag, Berlin, 2005<BR>
+<BR>
+<DT CLASS="dt-list"><A NAME="Stoica1"><FONT COLOR=purple>[15]</FONT></A><DD CLASS="dd-list">
+A. Stoica, (et al.), Evolution of analogue circuits on Field Programmable 
+Transistor Arrays, Proceedings of the 2<SUP><I>nd</I></SUP> NASA/DoD Workshop on 
+Evolvable Hardware, pp. 99 - 108, IEEE Computer Society Press, 2000<BR>
+<BR>
+<DT CLASS="dt-list"><A NAME="Thompson1"><FONT COLOR=purple>[16]</FONT></A><DD CLASS="dd-list">
+A. Thompson, An evolved circuit, intrinsic in silicon, Proceedings of the 1<SUP><I>st</I></SUP> 
+International Conference on Evolvable Systems: From Biology to Hardware, LNCS, 
+vol. 1259, Springer-Verlag, pp. 390 - 405, 1997<BR>
+<BR>
+<DT CLASS="dt-list"><A NAME="Thompson2"><FONT COLOR=purple>[17]</FONT></A><DD CLASS="dd-list">
+A. Thompson, On the Automatic design of Robust Electronics through Artificial 
+Evolution, Proceedings of the 2<SUP><I>nd</I></SUP> International Conference on 
+Evolvable Systems: From Biology to Hardware, LNCS, vol. 1478, Springer-Verlag, 
+pp. 13 - 24, 1998<BR>
+<BR>
+<DT CLASS="dt-list"><A NAME="zitzler"><FONT COLOR=purple>[18]</FONT></A><DD CLASS="dd-list">
+E. Zitzler, Evolutionary algorithms for multiobjective optimization: Methods and 
+Applications. Ph. D. thesis, Swiss Federal Institute of Technology (ETH) Zurich, 
+Switzerland, 1999<BR>
+<BR>
+<DT CLASS="dt-list"><A NAME="howstuffworks"><FONT COLOR=purple>[19]</FONT></A><DD CLASS="dd-list">
+http://electronics.howstuffworks.com/</DL>
+<!--HTMLFOOT-->
+<!--ENDHTML-->
+<!--FOOTER-->
+<HR SIZE=2><BLOCKQUOTE CLASS="quote"><EM>This document was translated from L<sup>A</sup>T<sub>E</sub>X 
+	by
+</EM><A HREF="http://pauillac.inria.fr/~maranget/hevea/index.html"><EM>H<FONT SIZE=2><sup>E</sup></FONT>V<FONT SIZE=2><sup>E</sup></FONT>A</EM></A><EM>.</EM></BLOCKQUOTE></BODY>
+</HTML>
