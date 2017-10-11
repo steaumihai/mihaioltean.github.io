@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+
+<html>
+
+<body>
+
+<input type = "text" id = "a"/>
+<br>
+<input type = "text" id = "b"/>
+<br>
+<input type = "text" id = "c"/>
+<br>
+<button type = "button" onclick="solve()">Solve</button>
+
+<p id = "x1"></p>
+<p id = "x2"></p>
+<script>
+
+//-------------------------------------------------------
+function compute_delta(coef)
+{
+	return coef.b * coef.b - 4 * coef.a * coef.c;
+}
+//-------------------------------------------------------
+function ec2()
+{
+  this.read = function (){
+			this.a = Number(document.getElementById("a").value);
+			this.b = Number(document.getElementById("b").value);
+			this.c = Number(document.getElementById("c").value);
+			};
+			
+  this.solve = function(){
+  var delta = compute_delta(this);
+	
+	if (delta >= 0){
+		this.x1 = {re:(-this.b + Math.sqrt(delta)) / (2 * this.a), im:0};
+		this.x2 = {re:(-this.b - Math.sqrt(delta)) / (2 * this.a), im:0};
+	}
+	else{
+		this.x1 = {re:(-this.b) / (2 * this.a), im: Math.sqrt(-delta) / (2 * this.a)};
+		this.x2 = {re:(-this.b) / (2 * this.a), im:-Math.sqrt(-delta) / (2 * this.a)};
+	}
+	};
+  this.print = function(){
+	document.getElementById("x1").innerHTML = this.x1.re.toString() + "+" + this.x1.im.toString() + "i";
+	document.getElementById("x2").innerHTML = this.x2.re.toString() + "+" + this.x2.im.toString() + "i";
+  }
+}
+function solve()
+{
+	var e2 = new ec2();
+	e2.read();
+	e2.solve();
+	e2.print();
+}
+//-------------------------------------------------------
+</script>
+
+</body>
+
+</html>
