@@ -20,6 +20,6 @@ function rezolva()
 		x2_re = -b / (2 * a);
 		x2_im = -Math.sqrt(-delta) / (2 * a);
 	}
-	document.getElementById("x1").innerHTML = x1_re + "+" + x1_im;
-	document.getElementById("x2").innerHTML = x2_re + "+" + x2_im;	
+	document.getElementById("x1").innerHTML = x1_re + "+" + x1_im + "i";
+	document.getElementById("x2").innerHTML = x2_re + "+" + x2_im + "i";	
 }
