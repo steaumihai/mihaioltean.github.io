@@ -1,25 +1,40 @@
-function rezolva()
+function citeste()
 {
-	var a = document.getElementById("a").value;
-	var b = document.getElementById("b").value;
-	var c = document.getElementById("c").value;
+	var val_a = document.getElementById("a").value;
+	var val_b = document.getElementById("b").value;
+	var val_c = document.getElementById("c").value;
 	
-	var delta = b * b - 4 * a * c;
+	var coef = {a:val_a, b:val_b, c:val_c};
 	
-	var x1_re, x1_im, x2_re, x2_im;
-	
+	return coef;
+}
+//-------------------------------------
+function rezolva_ec2(coef)
+{
+	var delta = coef.b * coef.b - 4 * coef.a * coef.c;
+	var sol_x1, sol_x2;
 	if (delta >= 0){
-		x1_re = (-b + Math.sqrt(delta)) / (2 * a);
-		x2_re = (-b - Math.sqrt(delta)) / (2 * a);
-		x1_im = 0;
-		x2_im = 0;
+		sol_x1 = {re:(-coef.b + Math.sqrt(delta)) / (2 * coef.a), im:0}
+		sol_x2 = {re:(-coef.b - Math.sqrt(delta)) / (2 * coef.a), im:0};
 	}
 	else{
-		x1_re = -b / (2 * a);
-		x1_im = Math.sqrt(-delta) / (2 * a);
-		x2_re = -b / (2 * a);
-		x2_im = -Math.sqrt(-delta) / (2 * a);
+		sol_x1 = {re:-coef.b / (2 * coef.a), im: Math.sqrt(-delta) / (2 * coef.a)};
+		sol_x2 = {re:-coef.b / (2 * coef.a), im:-Math.sqrt(-delta) / (2 * coef.a)};
 	}
-	document.getElementById("x1").innerHTML = x1_re + "+" + x1_im + "i";
-	document.getElementById("x2").innerHTML = x2_re + "+" + x2_im + "i";	
+	var solutii = {x1:sol_x1, x2:sol_x2};
+	return solutii;
 }
+//-------------------------------------
+function afiseaza_solutie(x, id)
+{
+	document.getElementById(id).innerHTML = x.re + "+" + x.im + "i";
+}
+//-------------------------------------
+function rezolva()
+{
+	var coef = citeste();
+	var solutii = rezolva_ec2(coef);
+	afiseaza_solutie(solutii.x1, "x1");
+	afiseaza_solutie(solutii.x2, "x2");
+}
+//-------------------------------------
