@@ -50,12 +50,12 @@ function deseneaza_patrat_canvas(alpha, gamma, beta)
 	var canvas = document.getElementById("id_canvas");
 	var context = canvas.getContext("2d");
  
+	context.clearRect(0, 0, w, h);
+
 	context.beginPath();
 	var w = canvas.getAttribute("width");
 	var h = canvas.getAttribute("height");
-	
-	context.clearRect(0, 0, w, h);
-	
+		
 	var centru = {x : w / 2, y : h / 2};
 	var latura = 10;
 	var max_deplasare_x = w / 2 - raza;
