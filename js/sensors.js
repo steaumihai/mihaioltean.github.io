@@ -1,11 +1,28 @@
 
-document.getElementById("id_logic_level_version").innerHTML = "Business level version: 2017.11.01.1"; 
+document.getElementById("id_logic_level_version").innerHTML = "Business level version: 2017.11.01.2"; 
 window.addEventListener('deviceorientation', ondeviceorientation);
 window.addEventListener('devicemotion', ondevicemotion);
 
 
 //----------------------------------------
-function deseneaza_cerc(gamma, beta)
+function deseneaza_cerc_svg(gamma, beta)
+{
+	var svg = document.getElementById("id_svg");
+	var w = svg.getAttribute("width");
+	var h = svg.getAttribute("height");
+	
+	var cerc = document.getElementById("id_circle");
+
+	var centru = {x : w / 2, y : h / 2};
+	var raza = cerc.getAttribute("r");
+	var max_deplasare_x = w / 2 - raza;
+	var max_deplasare_y = h / 2 - raza;
+
+	cerc.setAttribute("cx", centru.x + gamma / 90 * max_deplasare_x);
+	cerc.setAttribute("cy", centru.y + beta / 90 * max_deplasare_y);	
+}
+//----------------------------------------
+function deseneaza_cerc_canvas(gamma, beta)
 {
 	var canvas = document.getElementById("id_canvas");
 	var context = canvas.getContext("2d");
@@ -38,7 +55,8 @@ function ondeviceorientation(event)
 	document.getElementById("id_beta").innerHTML = "beta = " + Math.round(beta * 10) / 10;
 	document.getElementById("id_gamma").innerHTML = "gamma = " + Math.round(gamma * 10) / 10;
 	
-	deseneaza_cerc(gamma, beta);
+	deseneaza_cerc_canvas(gamma, beta);
+	deseneaza_cerc_svg(gamma, beta);
 }
 //----------------------------------------
 function ondevicemotion(event) 
@@ -50,6 +68,6 @@ function ondevicemotion(event)
 	var beta = Math.atan(ag.y / ag.z) * 180 / Math.PI;
 	
 	document.getElementById("id_acc_g").innerHTML = "AccG = " + Math.round(ag.x * 10) / 10 + " " + Math.round(ag.y * 10) / 10 + " " + Math.round(ag.z * 10) / 10 + " gamma = " + Math.round(gamma * 10) / 10 + " beta = " + Math.round(beta * 10) / 10;
-	//deseneaza_cerc(gamma, beta);
+	//deseneaza_cerc_canvas(gamma, beta);
 }
 //----------------------------------------
