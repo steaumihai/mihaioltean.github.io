@@ -1,5 +1,5 @@
 
-document.getElementById("id_logic_level_version").innerHTML = "Business level version: 2017.11.01.4"; 
+document.getElementById("id_logic_level_version").innerHTML = "Business level version: 2017.11.01.5"; 
 window.addEventListener('deviceorientation', ondeviceorientation);
 window.addEventListener('devicemotion', ondevicemotion);
 
