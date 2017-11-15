@@ -1,4 +1,4 @@
-document.getElementById("id_logic_level_version").innerHTML = "Business level version: 2017.11.15.0"; 
+document.getElementById("id_logic_level_version").innerHTML = "Business level version: 2017.11.15.1"; 
 
 addEventListener("touchstart", on_touch_start);
 
@@ -11,6 +11,6 @@ function on_touch_start(e)
 		circle.setAttribute("cy", touches[i].pageY);
 		circle.setAttribute("r", 10);
 		var svg = document.getElementById("id_svg");
-		svg.appendElement(circle);
+		svg.appendChild(circle);
 	}
 }
