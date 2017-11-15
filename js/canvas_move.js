@@ -6,6 +6,7 @@ var rect_canvas = canvas.getBoundingClientRect();
 var img = document.getElementById("id_img");
 
 context.drawImage(img, 100, 100, 100, 100);
+var rect_img = img.getBoundingClientRect();
 
 canvas.addEventListener("touchmove", on_touch_move);
 
