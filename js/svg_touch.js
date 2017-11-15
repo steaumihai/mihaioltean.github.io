@@ -1,4 +1,4 @@
-document.getElementById("id_logic_level_version").innerHTML = "Business level version: 2017.11.15.1"; 
+document.getElementById("id_logic_level_version").innerHTML = "Business level version: 2017.11.15.2"; 
 
 addEventListener("touchstart", on_touch_start);
 
