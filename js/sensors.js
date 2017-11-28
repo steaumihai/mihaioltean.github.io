@@ -87,7 +87,7 @@ function ondeviceorientation(event)
 	
 	//deseneaza_cerc_canvas(gamma, beta);
 	// deseneaza_cerc_svg(gamma, beta);
-	deseneaza_patrat_canvas(alpha, gamma, beta);
+	//deseneaza_patrat_canvas(alpha, gamma, beta);
 }
 //----------------------------------------
 function ondevicemotion(event) 
@@ -99,6 +99,6 @@ function ondevicemotion(event)
 	var beta = Math.atan(ag.y / ag.z) * 180 / Math.PI;
 	
 	document.getElementById("id_acc_g").innerHTML = "AccG = " + Math.round(ag.x * 10) / 10 + " " + Math.round(ag.y * 10) / 10 + " " + Math.round(ag.z * 10) / 10 + " gamma = " + Math.round(gamma * 10) / 10 + " beta = " + Math.round(beta * 10) / 10;
-	//deseneaza_cerc_canvas(gamma, beta);
+	deseneaza_cerc_canvas(gamma, beta);
 }
 //----------------------------------------
