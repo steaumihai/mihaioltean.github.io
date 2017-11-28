@@ -21,7 +21,6 @@ function deseneaza_cerc(unghi1, unghi2)
 		ctx.strokeStyle = "#00FF00";
 		ctx.lineWidth = 5;
 		ctx.stroke();
-	}
 }
 //-----------------------------------------------------
 function on_device_orientation(e)
