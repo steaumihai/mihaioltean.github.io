@@ -1,16 +1,14 @@
-document.getElementById("id_business_version").innerHTML = "Business version = 2017.11.27.5";
+document.getElementById("id_business_version").innerHTML = "Business version = 2017.11.28.0";
 
 //window.addEventListener("deviceorientation", on_device_orientation);
 window.addEventListener("devicemotion", on_device_motion);
 
-var terminat_desenare = true;
+var canvas = document.getElementById("id_canvas");
+var ctx = canvas.getContext("2d");
+
 //-----------------------------------------------------
 function deseneaza_cerc(unghi1, unghi2)
 {
-	if (terminat_desenare){
-		terminat_desenare = false;
-		var canvas = document.getElementById("id_canvas");
-		var ctx = canvas.getContext("2d");
 		ctx.clearRect(0, 0, 400, 400);
 		
 		ctx.rect(0, 0, 400, 400);
@@ -23,7 +21,6 @@ function deseneaza_cerc(unghi1, unghi2)
 		ctx.strokeStyle = "#00FF00";
 		ctx.lineWidth = 5;
 		ctx.stroke();
-		terminat_desenare = true;
 	}
 }
 //-----------------------------------------------------
