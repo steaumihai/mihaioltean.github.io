@@ -1,5 +1,5 @@
 
-document.getElementById("id_logic_level_version").innerHTML = "Business level version: 2017.11.29.0"; 
+document.getElementById("id_logic_level_version").innerHTML = "Business level version: 2017.11.29.1"; 
 //window.addEventListener('deviceorientation', ondeviceorientation);
 window.addEventListener('devicemotion', ondevicemotion);
 
@@ -27,10 +27,10 @@ function deseneaza_cerc_canvas(gamma, beta)
 	var canvas = document.getElementById("id_canvas");
 	var context = canvas.getContext("2d");
  
-	context.clearRect(0, 0, w, h);
-
 	var w = canvas.getAttribute("width");
 	var h = canvas.getAttribute("height");
+
+	context.clearRect(0, 0, w, h);
 
 	context.rect(0, 0, w, h);
 	context.stroke();
