@@ -1,4 +1,4 @@
-document.getElementById("id_business_level_version").innerHTML = "Business level version: 2017.11.29.0"; 
+document.getElementById("id_business_level_version").innerHTML = "Business level version: 2017.11.29.1"; 
 
 document.addEventListener("touchstart", on_touch_start);
 
@@ -7,10 +7,14 @@ recognition.lang = "en-US";
 recognition.onresult = on_speech_result;
 recognition.onsoundend = on_sound_end;
 
+var is_listening = false;
 //-----------------------------------------
 function on_touch_start(e)
 {
-	recognition.start();
+	if (!is_listening){
+		recognition.start();
+		is_listening = true;
+	}
 }
 //-----------------------------------------
 function on_speech_result(e)
@@ -21,5 +25,6 @@ function on_speech_result(e)
 function on_sound_end(e)
 {
 	recognition.stop();
+	is_listening = false;
 }
 //-----------------------------------------
