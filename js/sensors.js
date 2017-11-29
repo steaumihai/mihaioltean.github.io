@@ -1,6 +1,6 @@
 
-document.getElementById("id_logic_level_version").innerHTML = "Business level version: 2017.11.01.7"; 
-window.addEventListener('deviceorientation', ondeviceorientation);
+document.getElementById("id_logic_level_version").innerHTML = "Business level version: 2017.11.29.0"; 
+//window.addEventListener('deviceorientation', ondeviceorientation);
 window.addEventListener('devicemotion', ondevicemotion);
 
 
@@ -27,11 +27,15 @@ function deseneaza_cerc_canvas(gamma, beta)
 	var canvas = document.getElementById("id_canvas");
 	var context = canvas.getContext("2d");
  
-	context.beginPath();
+	context.clearRect(0, 0, w, h);
+
 	var w = canvas.getAttribute("width");
 	var h = canvas.getAttribute("height");
+
+	context.rect(0, 0, w, h);
+	context.stroke();
 	
-	context.clearRect(0, 0, w, h);
+	context.beginPath();
 	
 	var centru = {x : w / 2, y : h / 2};
 	var raza = 10;
@@ -98,7 +102,7 @@ function ondevicemotion(event)
 	var gamma = -Math.atan(ag.x / ag.z) * 180 / Math.PI;
 	var beta = Math.atan(ag.y / ag.z) * 180 / Math.PI;
 	
-	document.getElementById("id_acc_g").innerHTML = "AccG = " + Math.round(ag.x * 10) / 10 + " " + Math.round(ag.y * 10) / 10 + " " + Math.round(ag.z * 10) / 10 + " gamma = " + Math.round(gamma * 10) / 10 + " beta = " + Math.round(beta * 10) / 10;
+	//document.getElementById("id_acc_g").innerHTML = "AccG = " + Math.round(ag.x * 10) / 10 + " " + Math.round(ag.y * 10) / 10 + " " + Math.round(ag.z * 10) / 10 + " gamma = " + Math.round(gamma * 10) / 10 + " beta = " + Math.round(beta * 10) / 10;
 	deseneaza_cerc_canvas(gamma, beta);
 }
 //----------------------------------------
