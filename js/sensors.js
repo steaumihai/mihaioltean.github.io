@@ -1,5 +1,5 @@
 
-document.getElementById("id_logic_level_version").innerHTML = "Business level version: 2017.11.29.2"; 
+document.getElementById("id_logic_level_version").innerHTML = "Business level version: 2017.11.29.3"; 
 //window.addEventListener('deviceorientation', ondeviceorientation);
 window.addEventListener('devicemotion', ondevicemotion);
 
@@ -21,8 +21,8 @@ function deseneaza_cerc_canvas()
 
 	context.clearRect(0, 0, w, h);
 
-	context.rect(0, 0, w, h);
-	context.stroke();
+	//context.rect(0, 0, w, h);
+	//context.stroke();
 	
 	context.beginPath();
 	
