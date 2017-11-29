@@ -1,9 +1,10 @@
-document.getElementById("id_business_level_version").innerHTML = "Business level version: 2017.11.29.3"; 
+document.getElementById("id_business_level_version").innerHTML = "Business level version: 2017.11.29.4"; 
 
 document.addEventListener("touchstart", on_touch_start);
 
 var recognition = new webkitSpeechRecognition();
 recognition.lang = "ro-RO";
+recognition.maxAlternatives = 5;
 recognition.onresult = on_speech_result;
 recognition.onsoundend = on_sound_end;
 
@@ -19,7 +20,9 @@ function on_touch_start(e)
 //-----------------------------------------
 function on_speech_result(e)
 {
-	document.getElementById("id_p").innerHTML = e.results[0][0].transcript + "(" + e.results[0][0].confidence + ")";
+	var alternatives = e.results[0];
+	for (var i = 0; i < alternatives.length; i++)
+	document.getElementById("id_p").innerHTML += alternatives[i].transcript + "(" + alternatives.confidence + ")" + "<br>";
 }
 //-----------------------------------------
 function on_sound_end(e)
