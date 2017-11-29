@@ -1,4 +1,4 @@
-
+// this is an example for ondevicemotion
 document.getElementById("id_logic_level_version").innerHTML = "Business level version: 2017.11.29.6"; 
 //window.addEventListener('deviceorientation', ondeviceorientation);
 window.addEventListener('devicemotion', ondevicemotion);
