@@ -1,5 +1,5 @@
 
-document.getElementById("id_logic_level_version").innerHTML = "Business level version: 2017.11.29.5"; 
+document.getElementById("id_logic_level_version").innerHTML = "Business level version: 2017.11.29.6"; 
 //window.addEventListener('deviceorientation', ondeviceorientation);
 window.addEventListener('devicemotion', ondevicemotion);
 
@@ -21,8 +21,7 @@ function deseneaza_cerc_canvas(unghiuri)
 
 	context.clearRect(0, 0, w, h);
 
-	context.rect(0, 0, w, h);
-	context.stroke();
+	context.strokeRect(0, 0, w, h);
 	
 	context.beginPath();
 	
