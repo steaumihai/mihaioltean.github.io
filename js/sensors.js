@@ -1,17 +1,17 @@
 
-document.getElementById("id_logic_level_version").innerHTML = "Business level version: 2017.11.29.4"; 
+document.getElementById("id_logic_level_version").innerHTML = "Business level version: 2017.11.29.5"; 
 //window.addEventListener('deviceorientation', ondeviceorientation);
 window.addEventListener('devicemotion', ondevicemotion);
 
 
-var gamma = 0;
-var beta = 0;
+var unghiuri = {gamma:0, beta:0};
 
-setInterval(deseneaza_cerc_canvas, 40, gamma, beta);
+
+setInterval(deseneaza_cerc_canvas, 40, unghiuri);
 
 
 //----------------------------------------
-function deseneaza_cerc_canvas(gamma, beta)
+function deseneaza_cerc_canvas(unghiuri)
 {
 	var canvas = document.getElementById("id_canvas");
 	var context = canvas.getContext("2d");
@@ -33,7 +33,7 @@ function deseneaza_cerc_canvas(gamma, beta)
  // gamma == 0 -> centru.x
  // gamma == -90 -> 0 + raza
  // gamma == 90 -> w - raza
-	context.arc(centru.x + gamma / 90 * max_deplasare_x, centru.y + beta / 90 * max_deplasare_y, raza, 0, 2 * Math.PI);
+	context.arc(centru.x + unghiuri.gamma / 90 * max_deplasare_x, centru.y + unghiuri.beta / 90 * max_deplasare_y, raza, 0, 2 * Math.PI);
  
 	context.stroke();
 }
@@ -105,8 +105,8 @@ function ondevicemotion(event)
 	document.getElementById("id_acc").innerHTML = "Acc = " + Math.round(event.acceleration.x * 10) / 10 + " " + Math.round(event.acceleration.y * 10) / 10 + " " + Math.round(event.acceleration.z * 10) / 10;
 	
 	var ag = event.accelerationIncludingGravity;
-	gamma = -Math.atan(ag.x / ag.z) * 180 / Math.PI;
-	beta = Math.atan(ag.y / ag.z) * 180 / Math.PI;
+	unghiuri.gamma = -Math.atan(ag.x / ag.z) * 180 / Math.PI;
+	unghiuri.beta = Math.atan(ag.y / ag.z) * 180 / Math.PI;
 	
 	//document.getElementById("id_acc_g").innerHTML = "AccG = " + Math.round(ag.x * 10) / 10 + " " + Math.round(ag.y * 10) / 10 + " " + Math.round(ag.z * 10) / 10 + " gamma = " + Math.round(gamma * 10) / 10 + " beta = " + Math.round(beta * 10) / 10;
 	//deseneaza_cerc_canvas(gamma, beta);
