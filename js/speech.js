@@ -1,4 +1,4 @@
-document.getElementById("id_business_level_version").innerHTML = "Business level version: 2017.11.29.1"; 
+document.getElementById("id_business_level_version").innerHTML = "Business level version: 2017.11.29.2"; 
 
 document.addEventListener("touchstart", on_touch_start);
 
@@ -19,7 +19,7 @@ function on_touch_start(e)
 //-----------------------------------------
 function on_speech_result(e)
 {
-	document.getElementById("id_p").innerHTML = e.results[0][0].transcript;
+	document.getElementById("id_p").innerHTML = e.results[0][0].transcript + "(" + e.results[0][0].confidence + ")";
 }
 //-----------------------------------------
 function on_sound_end(e)
