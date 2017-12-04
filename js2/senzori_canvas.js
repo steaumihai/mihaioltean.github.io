@@ -1,7 +1,7 @@
-document.getElementById("id_business_version").innerHTML = "Business version = 2017.11.28.0";
+document.getElementById("id_business_version").innerHTML = "Business version = 2017.12.04.0"
 
-//window.addEventListener("deviceorientation", on_device_orientation);
-window.addEventListener("devicemotion", on_device_motion);
+window.addEventListener("deviceorientation", on_device_orientation);
+//window.addEventListener("devicemotion", on_device_motion);
 
 var canvas = document.getElementById("id_canvas");
 var ctx = canvas.getContext("2d");
