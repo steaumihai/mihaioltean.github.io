@@ -3,7 +3,7 @@ document.getElementById("id_business_level_version").innerHTML = "Business level
 
 
 
-navigator.geolocation.getCurrentPosition(on_gps_success, on_gps_error);
+navigator.geolocation.watchPosition(on_gps_success, on_gps_error);
 
 //--------------------------------------
 function on_gps_success(p)
