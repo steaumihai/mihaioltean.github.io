@@ -2,12 +2,18 @@ var d = new Date();
 
 document.getElementById("id_business_level_version").innerHTML = 
 		"Business level version:" + 
-		d.getFullYear() + "." + d.getMonth() + 1 + "." + d.getDate() + ".0"; 
+		d.getFullYear() + "." + d.getMonth() + 1 + "." + d.getDate() + ".1"; 
 
-var constraints = {audio:true, video:true};		
+var constraints = {audio:true, video:{facingMode:"environment"}};		
 navigator.mediaDevices.getUserMedia(constraints).then(on_success).catch(on_error);
 
 var video = document.getElementById("id_video");
+video.addEventListener("touchstart", snap);
+video.addEventListener("mousedown", snap);
+
+var canvas = document.getElementById("id_canvas");
+canvas.addEventListener("touchstart", download);
+canvas.addEventListener("mousedown", download);
 //---------------------------------
 function on_success(stream)
 {
@@ -17,5 +23,17 @@ function on_success(stream)
 function on_error(error)
 {
 	alert("Error");
+}
+//---------------------------------
+function snap()
+{
+	var context = canvas.getContext("2d");
+	context.drawImage(video, 0, 0, 640, 480);
+}
+//---------------------------------
+function download()
+{
+	var my_image = canvas.toDataURL("image/png").replace("image/png", "image/octet-stream");
+	window.location.href = my_image;
 }
 //---------------------------------
