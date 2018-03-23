@@ -1,9 +1,8 @@
 <X3D>
  <Scene>
   <Shape>
-   <Text string='"Hello" "world!"'>
-    <FontStyle justify='"MIDDLE" "MIDDLE"'/>
-   </Text>
+		<Box>
+		</Box>
    <Appearance>
     <Material diffuseColor='0.1 0.5 1'/>
    </Appearance>
