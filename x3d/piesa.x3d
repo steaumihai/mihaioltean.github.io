@@ -1,10 +1,9 @@
-<?xml version="1.0" encoding="UTF-8"?>
 <X3D>
-	<shape>
-		<appearance>
-			<material diffuseColor = "1 0 0" ></material>
-		</appearance>
-		<box>
-		</box>
-	</shape>
+	<Shape>
+		<Appearance>
+			<Material diffuseColor = "1 0 0" ></Material>
+		</Appearance>
+		<Box>
+		</Box>
+	</Shape>
 </X3D>
