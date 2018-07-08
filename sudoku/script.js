@@ -1,4 +1,4 @@
-document.getElementById("v1").innerHTML = "v2.7";
+document.getElementById("v1").innerHTML = "v2.8";
 var transformCanvas = document.getElementById('transformCanv');
 transformContext = transformCanvas.getContext('2d');
 tilesContext = document.getElementById("tileCanv").getContext('2d');
@@ -229,7 +229,7 @@ function on_load_image()
 
 	var digit_as_28x28_matrix = [];
 	for (var i = 0; i < 28; i++)
-		for (var j = 0; j < 28; h++) 
+		for (var j = 0; j < 28; j++) 
 			digit_as_28x28_matrix[i * 28 + j] = 0; // fill it with 0
 		
 	
