@@ -1,4 +1,4 @@
-document.getElementById("v1").innerHTML = "v2.17";
+document.getElementById("v1").innerHTML = "v2.18";
 var transformCanvas = document.getElementById('transformCanv');
 transformContext = transformCanvas.getContext('2d');
 tilesContext = document.getElementById("tileCanv").getContext('2d');
@@ -9,8 +9,8 @@ originalPhotoContext = document.getElementById("originalCanv").getContext('2d');
 var linesCanvas = document.getElementById('linesCanv');
 linesContext = linesCanvas.getContext('2d');
 linesContext.fillStyle = "blue";
-tilesContext.fillStyle="green";
-tilesContext.fillRect(0,0,linesCanvas.width,linesCanvas.height);
+//tilesContext.fillStyle = "green";
+//tilesContext.fillRect(0, 0, linesCanvas.width, linesCanvas.height);
 linesContext.fillRect(0, 0, linesCanvas.width, linesCanvas.height);
 
 base_image = new Image();
@@ -49,7 +49,7 @@ function on_load_image()
 	var imageData = CannyJS.canny(transformCanvas);
 	imageData.drawOn(transformCanv);
 
-	var diagonala = parseInt(Math.sqrt(transformCanvas.height * transformCanvas.height + transformCanvas.width * transformCanvas.width)+1);
+	var diagonala = parseInt(Math.sqrt(transformCanvas.height * transformCanvas.height + transformCanvas.width * transformCanvas.width) + 1);
 
 	var accumulator= new Array();
 
@@ -269,6 +269,7 @@ function on_load_image()
 					// send it to ann.js
 					var out_last_layer = [];
 					var class_index = test_ann(digit_as_28x28_matrix, out_last_layer);
+					tilesContext.font = '48px serif';
 					tilesContext.strokeText(class_index.toString(), actualX[cell_col] + safety_margin, actualY[cell_row] + safety_margin);
 				}
 		}
