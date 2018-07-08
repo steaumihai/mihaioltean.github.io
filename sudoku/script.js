@@ -1,4 +1,4 @@
-document.getElementById("v1").innerHTML = "v2.14";
+document.getElementById("v1").innerHTML = "v2.15";
 var transformCanvas = document.getElementById('transformCanv');
 transformContext = transformCanvas.getContext('2d');
 tilesContext = document.getElementById("tileCanv").getContext('2d');
@@ -146,7 +146,7 @@ function on_load_image()
 				x1 = 0;
 
 				if(theta != 0){
-					y1 = ((raza - diagonala/2 - (x1 - linesCanvas.width / 2) * Math.cos(theta / 180.0 * 3.14)) / Math.sin(theta / 180.0 * 3.14) + linesCanvas.height / 2).toFixed(0);
+					y1 = ((raza - diagonala/2 - (x1 - linesCanvas.width / 2) * Math.cos(theta / 180.0 * 3.14)) / Math.sin(theta / 180.0 * 3.14) + linesCanvas.height / 2);
 					totalYs[yss]=y1;
 					yss++;
 				} else {
@@ -159,7 +159,7 @@ function on_load_image()
 				x2 = linesCanvas.width -1;
 
 				if(theta != 0){
-					y2 = ((raza - diagonala/2 - (x2 - linesCanvas.width/2) * Math.cos(theta/180.0*3.14))/ Math.sin(theta/180.0*3.14) + linesCanvas.height/2).toFixed(0);
+					y2 = ((raza - diagonala/2 - (x2 - linesCanvas.width/2) * Math.cos(theta/180.0*3.14))/ Math.sin(theta/180.0*3.14) + linesCanvas.height/2);
 				} else {
 					x2 = (raza - diagonala/2) + linesCanvas.width/2;
 					y2 = linesCanvas.height -1;
