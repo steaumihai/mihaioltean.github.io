@@ -1,4 +1,4 @@
-document.getElementById("v1").innerHTML = "v2.18";
+document.getElementById("v1").innerHTML = "v2.19";
 var transformCanvas = document.getElementById('transformCanv');
 transformContext = transformCanvas.getContext('2d');
 tilesContext = document.getElementById("tileCanv").getContext('2d');
@@ -263,7 +263,7 @@ function on_load_image()
 						for (var col = 0; col < 20; col++){
 							var original_row = row / 19.0 * (bbox.max_row - bbox.min_row);
 							var original_col = col / 19.0 * (bbox.max_col - bbox.min_col);
-							var pixel_data = originalPhotoContext.getImageData(actualX[cell_col] + safety_margin + original_row, actualY[cell_row] + safety_margin + original_col, 1, 1); // I do not like this
+							var pixel_data = originalPhotoContext.getImageData(actualX[cell_col] + safety_margin + bbox.min_col + original_col, actualY[cell_row] + safety_margin + bbox.min_row + original_row, 1, 1); // I do not like this
 							digit_as_28x28_matrix[(row + 4) * 28 + col + 4] = rgb_to_gray(pixel_data.data) / 255.0;
 						}
 					// send it to ann.js
