@@ -1,4 +1,4 @@
-document.getElementById("v1").innerHTML = "v2.11";
+document.getElementById("v1").innerHTML = "v2.12";
 var transformCanvas = document.getElementById('transformCanv');
 transformContext = transformCanvas.getContext('2d');
 tilesContext = document.getElementById("tileCanv").getContext('2d');
@@ -233,15 +233,15 @@ function on_load_image()
 			digit_as_28x28_matrix[i * 28 + j] = 0; // fill it with 0
 		
 	
-	for (var i = 0; i < 9; i++){
-		for (var j = 0; j < 9; j++){
-			var imgData = originalPhotoContext.getImageData( actualX[i] + safety_margin, actualY[i] + safety_margin, estimate_cell_size - 2 * safety_margin, estimate_cell_size - 2 * safety_margin);
+	for (var cell_row = 0; cell_row < 9; cell_row++){
+		for (var cell_col = 0; cell_col < 9; cell_col++){
+			var imgData = originalPhotoContext.getImageData( actualX[cell_col] + safety_margin, actualY[cell_row] + safety_margin, estimate_cell_size - 2 * safety_margin, estimate_cell_size - 2 * safety_margin);
     		//tilesContext.putImageData(imgData, actualX[i], actualY[j]);
 // compute bounding box of digit
 			var bbox = {min_row: estimate_cell_size - 2 * safety_margin, min_col: estimate_cell_size - 2 * safety_margin, max_row:0, max_col: 0};
 			for (var row = 0; row < estimate_cell_size - 2 * safety_margin; row++)
 				for (var col = 0; col < estimate_cell_size - 2 * safety_margin; col++){
-					var pixel_color = originalPhotoContext.getImageData(actualX[i] + safety_margin + col, actualY[i] + safety_margin + row, 1, 1);		
+					var pixel_color = originalPhotoContext.getImageData(actualX[cell_col] + safety_margin + col, actualY[cell_row] + safety_margin + row, 1, 1);		
 					if (pixel_color[0] < 100 && pixel_color[1] < 100 && pixel_color[2] < 100){ // black
 						if (bbox.min_row > row)
 							bbox.min_row = row;
@@ -263,7 +263,7 @@ function on_load_image()
 						for (var col = 0; col < 20; col++){
 							var original_row = row / 19.0 * (bbox.max_row - bbox.min_row);
 							var original_col = col / 19.0 * (bbox.max_col - bbox.min_col);
-							var pixel_data = originalPhotoContext.getImageData(actualX[i] + safety_margin + original_row, actualY[i] + safety_margin + original_col, 1, 1); // I do not like this
+							var pixel_data = originalPhotoContext.getImageData(actualX[cell_col] + safety_margin + original_row, actualY[cell_row] + safety_margin + original_col, 1, 1); // I do not like this
 							digit_as_28x28_matrix[(row + 4) * 28 + col + 4] = rgb_to_gray(pixel_data) / 255.0;
 						}
 					// send it to ann.js
