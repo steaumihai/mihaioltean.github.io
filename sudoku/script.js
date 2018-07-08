@@ -1,4 +1,4 @@
-document.getElementById("v1").innerHTML = "v2.13";
+document.getElementById("v1").innerHTML = "v2.14";
 var transformCanvas = document.getElementById('transformCanv');
 transformContext = transformCanvas.getContext('2d');
 tilesContext = document.getElementById("tileCanv").getContext('2d');
@@ -236,12 +236,13 @@ function on_load_image()
 	for (var cell_row = 0; cell_row < 9; cell_row++){
 		for (var cell_col = 0; cell_col < 9; cell_col++){
 			var imgData = originalPhotoContext.getImageData( actualX[cell_col] + safety_margin, actualY[cell_row] + safety_margin, estimate_cell_size - 2 * safety_margin, estimate_cell_size - 2 * safety_margin);
+			console.log(imgData);
     		//tilesContext.putImageData(imgData, actualX[i], actualY[j]);
 // compute bounding box of digit
 			var bbox = {min_row: estimate_cell_size - 2 * safety_margin, min_col: estimate_cell_size - 2 * safety_margin, max_row:0, max_col: 0};
 			for (var row = 0; row < estimate_cell_size - 2 * safety_margin; row++)
 				for (var col = 0; col < estimate_cell_size - 2 * safety_margin; col++){
-					var pixel_color = originalPhotoContext.getImageData(actualX[cell_col] + safety_margin + col, actualY[cell_row] + safety_margin + row, 1, 1);		
+					var pixel_color = originalPhotoContext.getImageData(actualX[cell_col] + safety_margin + col, actualY[cell_row] + safety_margin + row, 1, 1);
 					if (pixel_color.data[0] < 100 && pixel_color.data[1] < 100 && pixel_color.data[2] < 100){ // black
 						if (bbox.min_row > row)
 							bbox.min_row = row;
@@ -254,7 +255,6 @@ function on_load_image()
 						else
 						if (bbox.max_col < col)
 							bbox.max_col = col;
-							
 					}
 				}
 				if (bbox.min_col < bbox.max_col && bbox.min_row < bbox.max_row){// I have a digit there
