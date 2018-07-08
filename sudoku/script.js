@@ -1,4 +1,4 @@
-document.getElementById("v1").innerHTML = "v2.8";
+document.getElementById("v1").innerHTML = "v2.9";
 var transformCanvas = document.getElementById('transformCanv');
 transformContext = transformCanvas.getContext('2d');
 tilesContext = document.getElementById("tileCanv").getContext('2d');
@@ -268,7 +268,7 @@ function on_load_image()
 					}
 				// send it to ann.js
 				var out_last_layer = [];
-				var class_index = test_ann(input, out_last_layer);
+				var class_index = test_ann(digit_as_28x28_matrix, out_last_layer);
 				tilesContext.fillText(class_index.toString(), 10, 50);
 		}
 	}
