@@ -269,7 +269,7 @@ function on_load_image()
 					// send it to ann.js
 					var out_last_layer = [];
 					var class_index = test_ann(digit_as_28x28_matrix, out_last_layer);
-					tilesContext.font = '48px serif';
+					tilesContext.font = '20px serif';
 					tilesContext.strokeText(class_index.toString(), actualX[cell_col] + safety_margin, actualY[cell_row] + safety_margin);
 				}
 		}
