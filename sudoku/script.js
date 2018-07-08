@@ -1,4 +1,4 @@
-document.getElementById("v1").innerHTML = "v2.9";
+document.getElementById("v1").innerHTML = "v2.10";
 var transformCanvas = document.getElementById('transformCanv');
 transformContext = transformCanvas.getContext('2d');
 tilesContext = document.getElementById("tileCanv").getContext('2d');
