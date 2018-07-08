@@ -1,4 +1,4 @@
-document.getElementById("v1").innerHTML = "v2.10";
+document.getElementById("v1").innerHTML = "v2.11";
 var transformCanvas = document.getElementById('transformCanv');
 transformContext = transformCanvas.getContext('2d');
 tilesContext = document.getElementById("tileCanv").getContext('2d');
@@ -257,19 +257,20 @@ function on_load_image()
 							
 					}
 				}
-				// I have the bounding box; now I have to scale the box to 20x20 as in MNIST
-				for (var row = 0; row < 20; row++)
-					for (var col = 0; col < 20; col++){
-						var original_row = row / 19.0 * (bbox.max_row - bbox.min_row);
-						var original_col = col / 19.0 * (bbox.max_col - bbox.min_col);
-						var pixel_data = originalPhotoContext.getImageData(actualX[i] + safety_margin + original_row, actualY[i] + safety_margin + original_col, 1, 1); // I do not like this
-						digit_as_28x28_matrix[(row + 4) * 28 + col + 4] = rgb_to_gray(pixel_data) / 255.0;
-						
-					}
-				// send it to ann.js
-				var out_last_layer = [];
-				var class_index = test_ann(digit_as_28x28_matrix, out_last_layer);
-				tilesContext.fillText(class_index.toString(), 10, 50);
+				if (bbox.min_col < bbox.max_col && bbox.min_row < bbox.max_row){// I have a digit there
+					// I have the bounding box; now I have to scale the box to 20x20 as in MNIST
+					for (var row = 0; row < 20; row++)
+						for (var col = 0; col < 20; col++){
+							var original_row = row / 19.0 * (bbox.max_row - bbox.min_row);
+							var original_col = col / 19.0 * (bbox.max_col - bbox.min_col);
+							var pixel_data = originalPhotoContext.getImageData(actualX[i] + safety_margin + original_row, actualY[i] + safety_margin + original_col, 1, 1); // I do not like this
+							digit_as_28x28_matrix[(row + 4) * 28 + col + 4] = rgb_to_gray(pixel_data) / 255.0;
+						}
+					// send it to ann.js
+					var out_last_layer = [];
+					var class_index = test_ann(digit_as_28x28_matrix, out_last_layer);
+					tilesContext.fillText(class_index.toString(), 10, 50);
+				}
 		}
 	}
 }
