@@ -1,4 +1,4 @@
-document.getElementById("v1").innerHTML = "v2.15";
+document.getElementById("v1").innerHTML = "v2.16";
 var transformCanvas = document.getElementById('transformCanv');
 transformContext = transformCanvas.getContext('2d');
 tilesContext = document.getElementById("tileCanv").getContext('2d');
@@ -146,11 +146,11 @@ function on_load_image()
 				x1 = 0;
 
 				if(theta != 0){
-					y1 = ((raza - diagonala/2 - (x1 - linesCanvas.width / 2) * Math.cos(theta / 180.0 * 3.14)) / Math.sin(theta / 180.0 * 3.14) + linesCanvas.height / 2);
+					y1 = Math.floor((raza - diagonala / 2 - (x1 - linesCanvas.width / 2) * Math.cos(theta / 180.0 * 3.14)) / Math.sin(theta / 180.0 * 3.14) + linesCanvas.height / 2);
 					totalYs[yss]=y1;
 					yss++;
 				} else {
-					x1 = (raza - diagonala/2) + linesCanvas.width/2;
+					x1 = (raza - diagonala / 2) + linesCanvas.width / 2;
 					totalXs[xss]=x1;
 					xss++;
 					y1 = 0;
@@ -159,9 +159,9 @@ function on_load_image()
 				x2 = linesCanvas.width -1;
 
 				if(theta != 0){
-					y2 = ((raza - diagonala/2 - (x2 - linesCanvas.width/2) * Math.cos(theta/180.0*3.14))/ Math.sin(theta/180.0*3.14) + linesCanvas.height/2);
+					y2 = Math.floor((raza - diagonala/2 - (x2 - linesCanvas.width / 2) * Math.cos(theta / 180.0*3.14)) / Math.sin(theta / 180.0*3.14) + linesCanvas.height / 2);
 				} else {
-					x2 = (raza - diagonala/2) + linesCanvas.width/2;
+					x2 = (raza - diagonala / 2) + linesCanvas.width / 2;
 					y2 = linesCanvas.height -1;
 				}
 
@@ -170,7 +170,7 @@ function on_load_image()
 					var test = totalYs[itt1 - 1];
 					var res = Math.abs(y1 - test);
 					console.log(res);
-					if(itt1==0){
+					if (itt1 == 0){
 						linesContext.beginPath();
 						linesContext.strokeStyle="#FF0000";
 						linesContext.moveTo(x1, y1);
@@ -179,7 +179,7 @@ function on_load_image()
 						actualY[actItt1]=y1;
 						actItt1++;
 					} else {
-						if(Math.abs(y1 - test) > 7){
+						if (Math.abs(y1 - test) > 7){
 							linesContext.beginPath();
 							linesContext.strokeStyle="#FF0000";
 							linesContext.moveTo(x1, y1);
@@ -197,7 +197,7 @@ function on_load_image()
 					var test = totalXs[itt2-1];
 					var res = Math.abs(x1 - test);
 					// console.log(res);
-					if(itt2==0){
+					if(itt2 == 0){
 						linesContext.beginPath();
 						linesContext.strokeStyle="#000000";
 						linesContext.moveTo(x1, y1);
@@ -236,7 +236,7 @@ function on_load_image()
 	for (var cell_row = 0; cell_row < 9; cell_row++){
 		for (var cell_col = 0; cell_col < 9; cell_col++){
 			var imgData = originalPhotoContext.getImageData( actualX[cell_col] + safety_margin, actualY[cell_row] + safety_margin, estimate_cell_size - 2 * safety_margin, estimate_cell_size - 2 * safety_margin);
-			console.log(imgData);
+			//console.log(imgData);
     		//tilesContext.putImageData(imgData, actualX[i], actualY[j]);
 // compute bounding box of digit
 			var bbox = {min_row: estimate_cell_size - 2 * safety_margin, min_col: estimate_cell_size - 2 * safety_margin, max_row:0, max_col: 0};
