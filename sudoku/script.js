@@ -224,7 +224,7 @@ function on_load_image()
 	console.log(actualY);
 	console.log(actualX);
 	
-	var safety_margin = 5; // ignore pixels closer to margin than this value
+	var safety_margin = 6; // ignore pixels closer to margin than this value
 	var estimate_cell_size = actualX[1] - actualX[0];
 
 	var digit_as_28x28_matrix = [];
