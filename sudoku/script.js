@@ -1,4 +1,4 @@
-document.getElementById("v1").innerHTML = "v2.12";
+document.getElementById("v1").innerHTML = "v2.13";
 var transformCanvas = document.getElementById('transformCanv');
 transformContext = transformCanvas.getContext('2d');
 tilesContext = document.getElementById("tileCanv").getContext('2d');
@@ -242,7 +242,7 @@ function on_load_image()
 			for (var row = 0; row < estimate_cell_size - 2 * safety_margin; row++)
 				for (var col = 0; col < estimate_cell_size - 2 * safety_margin; col++){
 					var pixel_color = originalPhotoContext.getImageData(actualX[cell_col] + safety_margin + col, actualY[cell_row] + safety_margin + row, 1, 1);		
-					if (pixel_color[0] < 100 && pixel_color[1] < 100 && pixel_color[2] < 100){ // black
+					if (pixel_color.data[0] < 100 && pixel_color.data[1] < 100 && pixel_color.data[2] < 100){ // black
 						if (bbox.min_row > row)
 							bbox.min_row = row;
 						else
@@ -264,7 +264,7 @@ function on_load_image()
 							var original_row = row / 19.0 * (bbox.max_row - bbox.min_row);
 							var original_col = col / 19.0 * (bbox.max_col - bbox.min_col);
 							var pixel_data = originalPhotoContext.getImageData(actualX[cell_col] + safety_margin + original_row, actualY[cell_row] + safety_margin + original_col, 1, 1); // I do not like this
-							digit_as_28x28_matrix[(row + 4) * 28 + col + 4] = rgb_to_gray(pixel_data) / 255.0;
+							digit_as_28x28_matrix[(row + 4) * 28 + col + 4] = rgb_to_gray(pixel_data.data) / 255.0;
 						}
 					// send it to ann.js
 					var out_last_layer = [];
