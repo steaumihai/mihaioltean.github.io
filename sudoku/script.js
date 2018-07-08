@@ -1,4 +1,4 @@
-document.getElementById("v1").innerHTML = "v2.21";
+document.getElementById("v1").innerHTML = "v2.22";
 var transformCanvas = document.getElementById('transformCanv');
 transformContext = transformCanvas.getContext('2d');
 tilesContext = document.getElementById("tileCanv").getContext('2d');
@@ -147,11 +147,11 @@ function on_load_image()
 
 				if(theta != 0){
 					y1 = Math.floor((raza - diagonala / 2 - (x1 - linesCanvas.width / 2) * Math.cos(theta / 180.0 * 3.14)) / Math.sin(theta / 180.0 * 3.14) + linesCanvas.height / 2);
-					totalYs[yss]=y1;
+					totalYs[yss] = y1;
 					yss++;
 				} else {
 					x1 = (raza - diagonala / 2) + linesCanvas.width / 2;
-					totalXs[xss]=x1;
+					totalXs[xss] = x1;
 					xss++;
 					y1 = 0;
 				}
@@ -166,7 +166,7 @@ function on_load_image()
 				}
 
 				// console.log(x1, y1, x2, y2);
-				if(x1==0){
+				if(x1 == 0){
 					var test = totalYs[itt1 - 1];
 					var res = Math.abs(y1 - test);
 					console.log(res);
@@ -185,7 +185,7 @@ function on_load_image()
 							linesContext.moveTo(x1, y1);
 							linesContext.lineTo(x2, y2);
 							linesContext.stroke();
-							actualY[actItt1]=y1;
+							actualY[actItt1] = y1;
 							actItt1++;
 						}
 
@@ -194,7 +194,7 @@ function on_load_image()
 					
 				}else{
 					// console.log(x1+"/"+totalXs[itt-1]);
-					var test = totalXs[itt2-1];
+					var test = totalXs[itt2 - 1];
 					var res = Math.abs(x1 - test);
 					// console.log(res);
 					if(itt2 == 0){
@@ -227,18 +227,17 @@ function on_load_image()
 	var safety_margin = 6; // ignore pixels closer to margin than this value
 	var estimate_cell_size = actualX[1] - actualX[0];
 
+	// create matrix for ANN
 	var digit_as_28x28_matrix = [];
 	for (var i = 0; i < 28; i++)
 		for (var j = 0; j < 28; j++) 
 			digit_as_28x28_matrix[i * 28 + j] = 0; // fill it with 0
 		
-	
+	// take each cell, 
 	for (var cell_row = 0; cell_row < 9; cell_row++){
 		for (var cell_col = 0; cell_col < 9; cell_col++){
 			var imgData = originalPhotoContext.getImageData( actualX[cell_col] + safety_margin, actualY[cell_row] + safety_margin, estimate_cell_size - 2 * safety_margin, estimate_cell_size - 2 * safety_margin);
-			//console.log(imgData);
-    		//tilesContext.putImageData(imgData, actualX[i], actualY[j]);
-// compute bounding box of digit
+			// compute bounding box of digit
 			var bbox = {min_row: estimate_cell_size - 2 * safety_margin, min_col: estimate_cell_size - 2 * safety_margin, max_row:0, max_col: 0};
 			for (var row = 0; row < estimate_cell_size - 2 * safety_margin; row++)
 				for (var col = 0; col < estimate_cell_size - 2 * safety_margin; col++){
@@ -273,7 +272,7 @@ function on_load_image()
 							imageData.data[(row + 4) * 28 * 4 + (col + 4) * 4 + 3] = 255;
 						}
 					
-					// send it to ann.js
+					// send it to ANN
 					var out_last_layer = [];
 					var class_index = test_ann(digit_as_28x28_matrix, out_last_layer);
 					//tilesContext.font = '20px serif';
