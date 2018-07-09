@@ -1,10 +1,9 @@
-document.getElementById("v1").innerHTML = "v2.30";
+document.getElementById("v1").innerHTML = "v2.31";
 var transformCanvas = document.getElementById('transformCanv');
 transformContext = transformCanvas.getContext('2d');
 tilesContext = document.getElementById("tileCanv").getContext('2d');
 originalPhotoContext = document.getElementById("originalCanv").getContext('2d');
-
-
+context_28x28 = document.getElementById("canvas_28x28").getContext('2d');
 
 var linesCanvas = document.getElementById('linesCanv');
 linesContext = linesCanvas.getContext('2d');
@@ -218,7 +217,7 @@ function on_load_image()
 				}
 				if (bbox.min_col < bbox.max_col && bbox.min_row < bbox.max_row){// I have a digit there
 					// I have the bounding box; now I have to scale the box to 20x20 as in MNIST
-					//var imageData = new ImageData(28, 28);
+					var imageData = new ImageData(28, 28);
 					
 					for (var row = 0; row < 20; row++)
 						for (var col = 0; col < 20; col++){
@@ -226,10 +225,10 @@ function on_load_image()
 							var original_col = col / 19.0 * (bbox.max_col - bbox.min_col);
 							var pixel_data = originalPhotoContext.getImageData(actualX[cell_col] + safety_margin + bbox.min_col + original_col, actualY[cell_row] + safety_margin + bbox.min_row + original_row, 1, 1); // I do not like this
 							digit_as_28x28_matrix[(row + 4) * 28 + col + 4] = rgb_to_gray(pixel_data.data) / 255.0;
-							//imageData.data[(row + 4) * 28 * 4 + (col + 4) * 4] = digit_as_28x28_matrix[(row + 4) * 28 + col + 4] * 255;
-							//imageData.data[(row + 4) * 28 * 4 + (col + 4) * 4 + 1] = digit_as_28x28_matrix[(row + 4) * 28 + col + 4] * 255;
-							//imageData.data[(row + 4) * 28 * 4 + (col + 4) * 4 + 2] = digit_as_28x28_matrix[(row + 4) * 28 + col + 4] * 255;
-							//imageData.data[(row + 4) * 28 * 4 + (col + 4) * 4 + 3] = 255;
+							imageData.data[(row + 4) * 28 * 4 + (col + 4) * 4] = digit_as_28x28_matrix[(row + 4) * 28 + col + 4] * 255;
+							imageData.data[(row + 4) * 28 * 4 + (col + 4) * 4 + 1] = digit_as_28x28_matrix[(row + 4) * 28 + col + 4] * 255;
+							imageData.data[(row + 4) * 28 * 4 + (col + 4) * 4 + 2] = digit_as_28x28_matrix[(row + 4) * 28 + col + 4] * 255;
+							imageData.data[(row + 4) * 28 * 4 + (col + 4) * 4 + 3] = 255;
 						}
 					
 					// send it to ANN
@@ -239,7 +238,7 @@ function on_load_image()
 					tilesContext.font = '20px serif';
 					tilesContext.strokeText(class_index.toString(), actualX[cell_col] + safety_margin, actualY[cell_row] + safety_margin);
 					
-					//tilesContext.putImageData(imageData, actualX[cell_col] + safety_margin, actualY[cell_row] + safety_margin);
+					context_28x28.putImageData(imageData, actualX[cell_col] + safety_margin, actualY[cell_row] + safety_margin);
 				}
 				else// no digit found there
 				recognized_digits[cell_row][cell_col] = -1;
