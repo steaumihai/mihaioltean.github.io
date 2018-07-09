@@ -1,4 +1,4 @@
-document.getElementById("v1").innerHTML = "v2.24";
+document.getElementById("v1").innerHTML = "v2.25";
 var transformCanvas = document.getElementById('transformCanv');
 transformContext = transformCanvas.getContext('2d');
 tilesContext = document.getElementById("tileCanv").getContext('2d');
@@ -140,7 +140,7 @@ function on_load_image()
 				if(theta != 0){
 					x1 = 0;
 					y1 = Math.floor((raza - diagonala / 2 - (x1 - linesCanvas.width / 2) * Math.cos(theta / 180.0 * 3.14)) / Math.sin(theta / 180.0 * 3.14) + linesCanvas.height / 2);
-					if (yss == 0 || yss > 0 && actualY[yss - 1] - y1 > 7){
+					if (yss == 0 || yss > 0 && (actualY[yss - 1] - y1) > 7){
 						actualY[yss] = y1;
 						yss++;
 					}
@@ -149,7 +149,7 @@ function on_load_image()
 				} 
 				else {
 					x1 = (raza - diagonala / 2) + linesCanvas.width / 2;
-					if (xss == 0 || yss > 0 && actualX[xss - 1] - x1 > 7){
+					if (xss == 0 || xss > 0 && (actualX[xss - 1] - x1) > 7){
 						actualX[xss] = x1;
 						xss++;
 					}
