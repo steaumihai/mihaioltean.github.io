@@ -1,4 +1,4 @@
-document.getElementById("v1").innerHTML = "v2.23";
+document.getElementById("v1").innerHTML = "v2.24";
 var transformCanvas = document.getElementById('transformCanv');
 transformContext = transformCanvas.getContext('2d');
 tilesContext = document.getElementById("tileCanv").getContext('2d');
@@ -149,8 +149,12 @@ function on_load_image()
 				} 
 				else {
 					x1 = (raza - diagonala / 2) + linesCanvas.width / 2;
-					actualX[xss] = x1;
-					xss++;
+					if (xss == 0 || yss > 0 && actualX[xss - 1] - x1 > 7){
+						actualX[xss] = x1;
+						xss++;
+					}
+					else
+						actualX[xss - 1] = x1;
 					y1 = 0;
 				}
 
@@ -164,8 +168,8 @@ function on_load_image()
 					y2 = linesCanvas.height -1;
 				}
 				
-						linesContext.moveTo(x1, y1);
-						linesContext.lineTo(x2, y2);
+				linesContext.moveTo(x1, y1);
+				linesContext.lineTo(x2, y2);
 				
 			}
 		}
