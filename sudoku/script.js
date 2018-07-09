@@ -1,4 +1,4 @@
-document.getElementById("v1").innerHTML = "v2.31";
+document.getElementById("v1").innerHTML = "v2.32";
 var transformCanvas = document.getElementById('transformCanv');
 transformContext = transformCanvas.getContext('2d');
 tilesContext = document.getElementById("tileCanv").getContext('2d');
@@ -219,10 +219,19 @@ function on_load_image()
 					// I have the bounding box; now I have to scale the box to 20x20 as in MNIST
 					var imageData = new ImageData(28, 28);
 					
-					for (var row = 0; row < 20; row++)
-						for (var col = 0; col < 20; col++){
-							var original_row = row / 19.0 * (bbox.max_row - bbox.min_row);
-							var original_col = col / 19.0 * (bbox.max_col - bbox.min_col);
+					var max_row_scaled = 20;
+					var max_col_scaled = 20;
+					
+					if (bbox.max_col - bbox.min_col > bbox.max_row - bbox.min_row)
+						max_row_scaled = (bbox.max_row - bbox.min_row) /  bbox.max_col - bbox.min_col * 20;
+					else
+						if (bbox.max_col - bbox.min_col < bbox.max_row - bbox.min_row)
+							max_col_scaled = (bbox.max_col - bbox.min_col) /  bbox.max_row - bbox.min_row * 20;
+					
+					for (var row = 0; row < max_row_scaled; row++)
+						for (var col = 0; col < max_col_scaled; col++){
+							var original_row = row / (max_row_scaled - 1) * (bbox.max_row - bbox.min_row);
+							var original_col = col / (max_col_scaled - 1) * (bbox.max_col - bbox.min_col);
 							var pixel_data = originalPhotoContext.getImageData(actualX[cell_col] + safety_margin + bbox.min_col + original_col, actualY[cell_row] + safety_margin + bbox.min_row + original_row, 1, 1); // I do not like this
 							digit_as_28x28_matrix[(row + 4) * 28 + col + 4] = rgb_to_gray(pixel_data.data) / 255.0;
 							imageData.data[(row + 4) * 28 * 4 + (col + 4) * 4] = digit_as_28x28_matrix[(row + 4) * 28 + col + 4] * 255;
