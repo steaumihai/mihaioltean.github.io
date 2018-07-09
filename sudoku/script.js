@@ -1,4 +1,4 @@
-document.getElementById("v1").innerHTML = "v2.41";
+document.getElementById("v1").innerHTML = "v2.42";
 var transformCanvas = document.getElementById('transformCanv');
 transformContext = transformCanvas.getContext('2d');
 tilesContext = document.getElementById("tileCanv").getContext('2d');
@@ -116,9 +116,6 @@ function on_load_image()
 	// console.log(uniquearray.sort());
 
 
-	var vertical = new Array;
-	var horizontal = new Array
-
 	var prag = 100;
 
 	var xss=0;
@@ -132,14 +129,14 @@ function on_load_image()
 	
 	for (var raza = 0; raza < diagonala; raza++){
 		for (var theta = 0; theta < 180; theta++){
-			if(accumulator[raza][theta] > prag){
+			if (accumulator[raza][theta] > prag){
 
 				var x1, y1, x2, y2, test2;
 				
 				if(theta != 0){
 					x1 = 0;
 					y1 = Math.floor((raza - diagonala / 2 - (x1 - linesCanvas.width / 2) * Math.cos(theta / 180.0 * 3.14)) / Math.sin(theta / 180.0 * 3.14) + linesCanvas.height / 2);
-					if (yss == 0 || yss > 0 && y1 - actualY[yss - 1] > 7){
+					if (yss == 0 || yss > 0 && y1 - actualY[yss - 1] > 7){ // overwrite previous if current one is too close
 						actualY[yss] = y1;
 						yss++;
 					}
@@ -148,7 +145,7 @@ function on_load_image()
 				} 
 				else {
 					x1 = (raza - diagonala / 2) + linesCanvas.width / 2;
-					if (xss == 0 || xss > 0 && x1 - actualX[xss - 1] > 7){
+					if (xss == 0 || xss > 0 && x1 - actualX[xss - 1] > 7){// overwrite previous if current one is too close
 						actualX[xss] = x1;
 						xss++;
 					}
@@ -217,44 +214,30 @@ function on_load_image()
 				}
 				if (bbox.min_col < bbox.max_col && bbox.min_row < bbox.max_row){// I have a digit there
 					// I have the bounding box; now I have to scale the box to 20x20 as in MNIST
-					var imageData = new ImageData(28, 28);
-// corners
-						imageData.data[0] = 0;
-						imageData.data[1] = 0;
-						imageData.data[2] = 0;
-						imageData.data[3] = 255;
-// corners
-						imageData.data[27 * 4] = 0;
-						imageData.data[27 * 4 + 1] = 0;
-						imageData.data[27 * 4 + 2] = 0;
-						imageData.data[27 * 4 + 3] = 255;
-// corners
-						imageData.data[28 * 27 * 4] = 0;
-						imageData.data[28 * 27 * 4 + 1] = 0;
-						imageData.data[28 * 27 * 4 + 2] = 0;
-						imageData.data[28 * 27 * 4 + 3] = 255;
-// corners
-						imageData.data[28 * 27 * 4 + 27 * 4] = 0;
-						imageData.data[28 * 27 * 4 + 27 * 4 + 1] = 0;
-						imageData.data[28 * 27 * 4 + 27 * 4 + 2] = 0;
-						imageData.data[28 * 27 * 4 + 27 * 4 + 3] = 255;
+					var imageData = new ImageData(28, 28); // scaled digit ; for DEBUG only
 					
-					var max_row_scaled = 20;
+					var max_row_scaled = 20; // this is maximal size that the scaled cell can have
 					var max_col_scaled = 20;
 					
-					if (bbox.max_col - bbox.min_col > bbox.max_row - bbox.min_row)
+					if (bbox.max_col - bbox.min_col > bbox.max_row - bbox.min_row) // if bounding box is not square I must scale the box but aspect ratio must remain unchanged
 						max_row_scaled = (bbox.max_row - bbox.min_row) /  (bbox.max_col - bbox.min_col + 1) * 20;
 					else
 						if (bbox.max_col - bbox.min_col < bbox.max_row - bbox.min_row)
 							max_col_scaled = (bbox.max_col - bbox.min_col) /  (bbox.max_row - bbox.min_row + 1) * 20;
-					
+					// take each position from the 20x20 matrix
 					for (var row = 0; row < max_row_scaled; row++)
 						for (var col = 0; col < max_col_scaled; col++){
+							// interpolation step
+							// compute from which row and col from the original image I will take the color
 							var original_row = row / (max_row_scaled - 1) * (bbox.max_row - bbox.min_row + 1);
 							var original_col = col / (max_col_scaled - 1) * (bbox.max_col - bbox.min_col + 1);
+							
+							// start from: actualX[cell_col] + safety_margin + bbox.min_col
 							var pixel_data = originalPhotoContext.getImageData(actualX[cell_col] + safety_margin + bbox.min_col + original_col, actualY[cell_row] + safety_margin + bbox.min_row + original_row, 1, 1); // I do not like this
 							var index_in_28x28_matrix = Math.floor((row + 4 + (20 - max_row_scaled ) / 2) * 28 + col + 4 + (20 - max_col_scaled) / 2);
 							digit_as_28x28_matrix[index_in_28x28_matrix] = rgb_to_gray(pixel_data.data) / 255.0;
+							
+							// I also put the color in imageData matrix for debug purposes only
 							var index_in_image_data_matrix = Math.floor((row + 4 + (20 - max_row_scaled) / 2) * 28 * 4 + (col + 4 + (20 - max_col_scaled) / 2) * 4);
 							imageData.data[index_in_image_data_matrix]     = digit_as_28x28_matrix[index_in_28x28_matrix] * 255;
 							imageData.data[index_in_image_data_matrix + 1] = digit_as_28x28_matrix[index_in_28x28_matrix] * 255;
@@ -266,9 +249,10 @@ function on_load_image()
 					var out_last_layer = [];
 					var class_index = test_ann(digit_as_28x28_matrix, out_last_layer);
 					recognized_digits[cell_row][cell_col] = class_index;
+					// print digit on canvas
 					tilesContext.font = '20px serif';
 					tilesContext.strokeText(class_index.toString(), actualX[cell_col] + safety_margin, actualY[cell_row] + safety_margin);
-					
+					// display matrix on canvas
 					context_28x28.putImageData(imageData, actualX[cell_col] + safety_margin, actualY[cell_row] + safety_margin);
 				}
 				else// no digit found there
