@@ -1,4 +1,4 @@
-document.getElementById("v1").innerHTML = "v2.35";
+document.getElementById("v1").innerHTML = "v2.36";
 var transformCanvas = document.getElementById('transformCanv');
 transformContext = transformCanvas.getContext('2d');
 tilesContext = document.getElementById("tileCanv").getContext('2d');
@@ -229,15 +229,15 @@ function on_load_image()
 						imageData.data[27 * 4 + 2] = 0;
 						imageData.data[27 * 4 + 3] = 255;
 // corners
-						imageData.data[28 * 27] = 0;
-						imageData.data[28 * 27 + 1] = 0;
-						imageData.data[28 * 27 + 2] = 0;
-						imageData.data[28 * 27 + 3] = 255;
+						imageData.data[28 * 27 * 4] = 0;
+						imageData.data[28 * 27 * 4 + 1] = 0;
+						imageData.data[28 * 27 * 4 + 2] = 0;
+						imageData.data[28 * 27 * 4 + 3] = 255;
 // corners
-						imageData.data[28 * 27 + 27 * 4] = 0;
-						imageData.data[28 * 27 + 27 * 4 + 1] = 0;
-						imageData.data[28 * 27 + 27 * 4 + 2] = 0;
-						imageData.data[28 * 27 + 27 * 4 + 3] = 255;
+						imageData.data[28 * 27 * 4 + 27 * 4] = 0;
+						imageData.data[28 * 27 * 4 + 27 * 4 + 1] = 0;
+						imageData.data[28 * 27 * 4 + 27 * 4 + 2] = 0;
+						imageData.data[28 * 27 * 4 + 27 * 4 + 3] = 255;
 					
 					var max_row_scaled = 20;
 					var max_col_scaled = 20;
