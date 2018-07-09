@@ -1,4 +1,4 @@
-document.getElementById("v1").innerHTML = "v2.33";
+document.getElementById("v1").innerHTML = "v2.34";
 var transformCanvas = document.getElementById('transformCanv');
 transformContext = transformCanvas.getContext('2d');
 tilesContext = document.getElementById("tileCanv").getContext('2d');
@@ -223,15 +223,15 @@ function on_load_image()
 					var max_col_scaled = 20;
 					
 					if (bbox.max_col - bbox.min_col > bbox.max_row - bbox.min_row)
-						max_row_scaled = (bbox.max_row - bbox.min_row) /  (bbox.max_col - bbox.min_col) * 20;
+						max_row_scaled = (bbox.max_row - bbox.min_row) /  (bbox.max_col - bbox.min_col + 1) * 20;
 					else
 						if (bbox.max_col - bbox.min_col < bbox.max_row - bbox.min_row)
-							max_col_scaled = (bbox.max_col - bbox.min_col) /  (bbox.max_row - bbox.min_row) * 20;
+							max_col_scaled = (bbox.max_col - bbox.min_col) /  (bbox.max_row - bbox.min_row + 1) * 20;
 					
 					for (var row = 0; row < max_row_scaled; row++)
 						for (var col = 0; col < max_col_scaled; col++){
-							var original_row = row / (max_row_scaled - 1) * (bbox.max_row - bbox.min_row);
-							var original_col = col / (max_col_scaled - 1) * (bbox.max_col - bbox.min_col);
+							var original_row = row / (max_row_scaled - 1) * (bbox.max_row - bbox.min_row + 1);
+							var original_col = col / (max_col_scaled - 1) * (bbox.max_col - bbox.min_col + 1);
 							var pixel_data = originalPhotoContext.getImageData(actualX[cell_col] + safety_margin + bbox.min_col + original_col, actualY[cell_row] + safety_margin + bbox.min_row + original_row, 1, 1); // I do not like this
 							digit_as_28x28_matrix[(row + 4) * 28 + col + 4] = rgb_to_gray(pixel_data.data) / 255.0;
 							imageData.data[(row + 4) * 28 * 4 + (col + 4) * 4] = digit_as_28x28_matrix[(row + 4) * 28 + col + 4] * 255;
