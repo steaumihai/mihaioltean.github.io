@@ -13,7 +13,7 @@ linesContext.fillStyle = "blue";
 linesContext.fillRect(0, 0, linesCanvas.width, linesCanvas.height);
 
 base_image = new Image();
-base_image.src = 'sudoku2.png';
+base_image.src = 'sudoku.png';
 base_image.onload = on_load_image;
 
 //---------------------------------------------------------------
