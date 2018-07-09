@@ -1,4 +1,4 @@
-document.getElementById("v1").innerHTML = "v2.39";
+document.getElementById("v1").innerHTML = "v2.40";
 var transformCanvas = document.getElementById('transformCanv');
 transformContext = transformCanvas.getContext('2d');
 tilesContext = document.getElementById("tileCanv").getContext('2d');
@@ -19,7 +19,7 @@ base_image.onload = on_load_image;
 //---------------------------------------------------------------
 function rgb_to_gray(rgb_array) 
 {
-    return 0.299 * rgb_array[0] + 0.587 * rgb_array[1] + 0.114 * rgb_array[2];
+    return 0.299 * (255 - rgb_array[0]) + 0.587 * (255 - rgb_array[1]) + 0.114 * (255 - rgb_array[2]);
 }
 //---------------------------------------------------------------
 function on_load_image()
