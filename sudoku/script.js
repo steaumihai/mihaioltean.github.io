@@ -1,4 +1,4 @@
-document.getElementById("v1").innerHTML = "v2.28";
+document.getElementById("v1").innerHTML = "v2.29";
 var transformCanvas = document.getElementById('transformCanv');
 transformContext = transformCanvas.getContext('2d');
 tilesContext = document.getElementById("tileCanv").getContext('2d');
@@ -189,6 +189,10 @@ function on_load_image()
 		for (var j = 0; j < 28; j++) 
 			digit_as_28x28_matrix[i * 28 + j] = 0; // fill it with 0
 		
+	var recognized_digits = [];
+	for (var i = 0; i < 9; i++)
+		recognized_digits[i] = new Array(9);
+	
 	// take each cell, 
 	for (var cell_row = 0; cell_row < 9; cell_row++){
 		for (var cell_col = 0; cell_col < 9; cell_col++){
@@ -231,10 +235,14 @@ function on_load_image()
 					// send it to ANN
 					var out_last_layer = [];
 					var class_index = test_ann(digit_as_28x28_matrix, out_last_layer);
+					recognized_digits[cell_row][cell_col] = class_index;
 					tilesContext.font = '20px serif';
 					tilesContext.strokeText(class_index.toString(), actualX[cell_col] + safety_margin, actualY[cell_row] + safety_margin);
+					
 					//tilesContext.putImageData(imageData, actualX[cell_col] + safety_margin, actualY[cell_row] + safety_margin);
 				}
+				else// no digit found there
+				recognized_digits[cell_row][cell_col] = -1;
 		}
 	}
 }
