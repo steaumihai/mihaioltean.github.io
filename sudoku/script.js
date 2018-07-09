@@ -1,4 +1,4 @@
-document.getElementById("v1").innerHTML = "v2.40";
+document.getElementById("v1").innerHTML = "v2.41";
 var transformCanvas = document.getElementById('transformCanv');
 transformContext = transformCanvas.getContext('2d');
 tilesContext = document.getElementById("tileCanv").getContext('2d');
@@ -253,11 +253,13 @@ function on_load_image()
 							var original_row = row / (max_row_scaled - 1) * (bbox.max_row - bbox.min_row + 1);
 							var original_col = col / (max_col_scaled - 1) * (bbox.max_col - bbox.min_col + 1);
 							var pixel_data = originalPhotoContext.getImageData(actualX[cell_col] + safety_margin + bbox.min_col + original_col, actualY[cell_row] + safety_margin + bbox.min_row + original_row, 1, 1); // I do not like this
-							digit_as_28x28_matrix[(row + 4 + (20 - max_row_scaled ) / 2) * 28 + col + 4 + (20 - max_col_scaled) / 2] = rgb_to_gray(pixel_data.data) / 255.0;
-							imageData.data[(row + 4 + (20 - max_row_scaled) / 2) * 28 * 4 + (col + 4 + (20 - max_col_scaled) / 2) * 4]     = digit_as_28x28_matrix[(row + 4 + (20 - max_row_scaled) / 2) * 28 + col + 4 + (20 - max_col_scaled) / 2] * 255;
-							imageData.data[(row + 4 + (20 - max_row_scaled) / 2) * 28 * 4 + (col + 4 + (20 - max_col_scaled) / 2) * 4 + 1] = digit_as_28x28_matrix[(row + 4 + (20 - max_row_scaled) / 2) * 28 + col + 4 + (20 - max_col_scaled) / 2] * 255;
-							imageData.data[(row + 4 + (20 - max_row_scaled) / 2) * 28 * 4 + (col + 4 + (20 - max_col_scaled) / 2) * 4 + 2] = digit_as_28x28_matrix[(row + 4 + (20 - max_row_scaled) / 2) * 28 + col + 4 + (20 - max_col_scaled) / 2] * 255;
-							imageData.data[(row + 4 + (20 - max_row_scaled) / 2) * 28 * 4 + (col + 4 + (20 - max_col_scaled) / 2) * 4 + 3] = 255;
+							var index_in_28x28_matrix = Math.floor((row + 4 + (20 - max_row_scaled ) / 2) * 28 + col + 4 + (20 - max_col_scaled) / 2);
+							digit_as_28x28_matrix[index_in_28x28_matrix] = rgb_to_gray(pixel_data.data) / 255.0;
+							var index_in_image_data_matrix = Math.floor((row + 4 + (20 - max_row_scaled) / 2) * 28 * 4 + (col + 4 + (20 - max_col_scaled) / 2) * 4);
+							imageData.data[index_in_image_data_matrix]     = digit_as_28x28_matrix[index_in_28x28_matrix] * 255;
+							imageData.data[index_in_image_data_matrix + 1] = digit_as_28x28_matrix[index_in_28x28_matrix] * 255;
+							imageData.data[index_in_image_data_matrix + 2] = digit_as_28x28_matrix[index_in_28x28_matrix] * 255;
+							imageData.data[index_in_image_data_matrix + 3] = 255;
 						}
 					
 					// send it to ANN
