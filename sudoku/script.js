@@ -1,4 +1,4 @@
-document.getElementById("v1").innerHTML = "v2.32";
+document.getElementById("v1").innerHTML = "v2.33";
 var transformCanvas = document.getElementById('transformCanv');
 transformContext = transformCanvas.getContext('2d');
 tilesContext = document.getElementById("tileCanv").getContext('2d');
@@ -223,10 +223,10 @@ function on_load_image()
 					var max_col_scaled = 20;
 					
 					if (bbox.max_col - bbox.min_col > bbox.max_row - bbox.min_row)
-						max_row_scaled = (bbox.max_row - bbox.min_row) /  bbox.max_col - bbox.min_col * 20;
+						max_row_scaled = (bbox.max_row - bbox.min_row) /  (bbox.max_col - bbox.min_col) * 20;
 					else
 						if (bbox.max_col - bbox.min_col < bbox.max_row - bbox.min_row)
-							max_col_scaled = (bbox.max_col - bbox.min_col) /  bbox.max_row - bbox.min_row * 20;
+							max_col_scaled = (bbox.max_col - bbox.min_col) /  (bbox.max_row - bbox.min_row) * 20;
 					
 					for (var row = 0; row < max_row_scaled; row++)
 						for (var col = 0; col < max_col_scaled; col++){
