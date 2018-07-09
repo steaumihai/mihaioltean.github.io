@@ -1,4 +1,4 @@
-document.getElementById("v1").innerHTML = "v2.22";
+document.getElementById("v1").innerHTML = "v2.23";
 var transformCanvas = document.getElementById('transformCanv');
 transformContext = transformCanvas.getContext('2d');
 tilesContext = document.getElementById("tileCanv").getContext('2d');
@@ -120,107 +120,59 @@ function on_load_image()
 	var vertical = new Array;
 	var horizontal = new Array
 
-	//toti x
-	var totalXs = new Array;
-	//toti y
-	var totalYs = new Array;
-
 	var prag = 100;
 
 	var xss=0;
 	var yss=0;
-	var itt1=0;
-	var itt2=0;
-	var actItt1=0;
-	var actItt2=0;
-
 
 	var actualX = new Array;
 	var actualY = new Array;
+
+	linesContext.beginPath();
+	linesContext.strokeStyle="#FF0000";
+	
 	for (var raza = 0; raza < diagonala; raza++){
 		for (var theta = 0; theta < 180; theta++){
 			if(accumulator[raza][theta] > prag){
 
+				var x1, y1, x2, y2, test2;
 				
-				var x1,y1,x2,y2,test2;
-				x1 = 0;
-
 				if(theta != 0){
+					x1 = 0;
 					y1 = Math.floor((raza - diagonala / 2 - (x1 - linesCanvas.width / 2) * Math.cos(theta / 180.0 * 3.14)) / Math.sin(theta / 180.0 * 3.14) + linesCanvas.height / 2);
-					totalYs[yss] = y1;
-					yss++;
-				} else {
+					if (yss == 0 || yss > 0 && actualY[yss - 1] - y1 > 7){
+						actualY[yss] = y1;
+						yss++;
+					}
+					else
+						actualY[yss - 1] = y1;
+				} 
+				else {
 					x1 = (raza - diagonala / 2) + linesCanvas.width / 2;
-					totalXs[xss] = x1;
+					actualX[xss] = x1;
 					xss++;
 					y1 = 0;
 				}
 
-				x2 = linesCanvas.width -1;
 
 				if(theta != 0){
+					x2 = linesCanvas.width -1;
 					y2 = Math.floor((raza - diagonala/2 - (x2 - linesCanvas.width / 2) * Math.cos(theta / 180.0*3.14)) / Math.sin(theta / 180.0*3.14) + linesCanvas.height / 2);
-				} else {
+				} 
+				else {
 					x2 = (raza - diagonala / 2) + linesCanvas.width / 2;
 					y2 = linesCanvas.height -1;
 				}
-
-				// console.log(x1, y1, x2, y2);
-				if(x1 == 0){
-					var test = totalYs[itt1 - 1];
-					var res = Math.abs(y1 - test);
-					console.log(res);
-					if (itt1 == 0){
-						linesContext.beginPath();
-						linesContext.strokeStyle="#FF0000";
+				
 						linesContext.moveTo(x1, y1);
 						linesContext.lineTo(x2, y2);
-						linesContext.stroke();
-						actualY[actItt1]=y1;
-						actItt1++;
-					} else {
-						if (Math.abs(y1 - test) > 7){
-							linesContext.beginPath();
-							linesContext.strokeStyle="#FF0000";
-							linesContext.moveTo(x1, y1);
-							linesContext.lineTo(x2, y2);
-							linesContext.stroke();
-							actualY[actItt1] = y1;
-							actItt1++;
-						}
-
-					}
-					itt1++;
-					
-				}else{
-					// console.log(x1+"/"+totalXs[itt-1]);
-					var test = totalXs[itt2 - 1];
-					var res = Math.abs(x1 - test);
-					// console.log(res);
-					if(itt2 == 0){
-						linesContext.beginPath();
-						linesContext.strokeStyle="#000000";
-						linesContext.moveTo(x1, y1);
-						linesContext.lineTo(x2, y2);
-						linesContext.stroke();
-						actualX[actItt2]=x1;
-						actItt2++;
-					} else{
-						if(Math.abs(x1 - test) > 7){
-							linesContext.beginPath();
-							linesContext.strokeStyle="#000000";
-							linesContext.moveTo(x1, y1);
-							linesContext.lineTo(x2, y2);
-							linesContext.stroke();
-							actualX[actItt2]=x1;
-							actItt2++;
-						}
-					}
-					itt2++;
-				}
+				
 			}
 		}
 	}
+
+	linesContext.stroke();
+
 	console.log(actualY);
 	console.log(actualX);
 	
