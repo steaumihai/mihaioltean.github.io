@@ -1,4 +1,4 @@
-document.getElementById("v1").innerHTML = "v2.34";
+document.getElementById("v1").innerHTML = "v2.35";
 var transformCanvas = document.getElementById('transformCanv');
 transformContext = transformCanvas.getContext('2d');
 tilesContext = document.getElementById("tileCanv").getContext('2d');
@@ -218,6 +218,26 @@ function on_load_image()
 				if (bbox.min_col < bbox.max_col && bbox.min_row < bbox.max_row){// I have a digit there
 					// I have the bounding box; now I have to scale the box to 20x20 as in MNIST
 					var imageData = new ImageData(28, 28);
+// corners
+						imageData.data[0] = 0;
+						imageData.data[1] = 0;
+						imageData.data[2] = 0;
+						imageData.data[3] = 255;
+// corners
+						imageData.data[27 * 4] = 0;
+						imageData.data[27 * 4 + 1] = 0;
+						imageData.data[27 * 4 + 2] = 0;
+						imageData.data[27 * 4 + 3] = 255;
+// corners
+						imageData.data[28 * 27] = 0;
+						imageData.data[28 * 27 + 1] = 0;
+						imageData.data[28 * 27 + 2] = 0;
+						imageData.data[28 * 27 + 3] = 255;
+// corners
+						imageData.data[28 * 27 + 27 * 4] = 0;
+						imageData.data[28 * 27 + 27 * 4 + 1] = 0;
+						imageData.data[28 * 27 + 27 * 4 + 2] = 0;
+						imageData.data[28 * 27 + 27 * 4 + 3] = 255;
 					
 					var max_row_scaled = 20;
 					var max_col_scaled = 20;
