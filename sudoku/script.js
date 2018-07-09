@@ -1,4 +1,4 @@
-document.getElementById("v1").innerHTML = "v2.29";
+document.getElementById("v1").innerHTML = "v2.30";
 var transformCanvas = document.getElementById('transformCanv');
 transformContext = transformCanvas.getContext('2d');
 tilesContext = document.getElementById("tileCanv").getContext('2d');
@@ -14,7 +14,7 @@ linesContext.fillStyle = "blue";
 linesContext.fillRect(0, 0, linesCanvas.width, linesCanvas.height);
 
 base_image = new Image();
-base_image.src = 'sudoku.png';
+base_image.src = 'sudoku2.png';
 base_image.onload = on_load_image;
 
 //---------------------------------------------------------------
