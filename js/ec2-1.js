@@ -1,4 +1,4 @@
-document.getElementById("id_business_version").innerHTML = "Bussiness version: 2018.10.12.3";
+document.getElementById("id_business_version").innerHTML = "Bussiness version: 2018.10.12.4";
 //-------------------------------
 function read_data()
 {
@@ -14,7 +14,7 @@ function compute_delta(coef)
 	return coef.b * coef.b - 4 * coef.a * coef.c;	
 }
 //-------------------------------
-function solve(coef)
+function solve2(coef)
 {
 	var delta = compute_delta(coef);
 	var x1_re, x1_im, x2_re, x2_im;
@@ -45,6 +45,6 @@ function print_solutions(solutions)
 function solve()
 {
 	var coef = read_data();
-	var solutions = solve(coef);
+	var solutions = solve2(coef);
 	print_solutions(solutions);
 }
