@@ -1,3 +1,3 @@
 # mihaioltean.github.io
 
-my personal website and _some web apps_
+My personal website and _some www apps_
