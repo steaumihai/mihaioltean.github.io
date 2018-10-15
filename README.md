@@ -1,2 +1,3 @@
 # mihaioltean.github.io
-personal website & web apps
+
+my personal website and some web apps
