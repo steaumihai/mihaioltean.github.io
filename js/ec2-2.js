@@ -1,12 +1,12 @@
-document.getElementById("id_business_version").innerHTML = "Bussiness version: 2018.10.19.1";
+document.getElementById("id_business_version").innerHTML = "Bussiness version: 2018.10.19.2";
 
 
 function EC2()
 {
 	this.read_data = function(){
 		this.a = document.getElementById("id_a").value;
-		this.b = document.getElementById("id_a").value;
-		this.c = document.getElementById("id_a").value;
+		this.b = document.getElementById("id_b").value;
+		this.c = document.getElementById("id_c").value;
 	};
 	this.solve2 = function(){
 		var delta = this.b * this.b - 4 * this.a * this.c;
