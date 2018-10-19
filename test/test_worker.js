@@ -5,9 +5,13 @@ function start_worker()
 	// Requires script name as input
 		var myWorker = new Worker("worker.js");
 
+		for (var i = 1e7; i < 1e9; i++)
+			if (is_prime(i)){
+				document.getElementById("id_main").innerHTML += i + " ";
+		}
 
 		myWorker.onmessage = function(e) {
-			console.log('Message received from worker: ' + e.data);
+			document.getElementById("id_worker").innerHTML += e.data + " ";
 		};
 	}
 }

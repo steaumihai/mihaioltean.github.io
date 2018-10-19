@@ -7,6 +7,7 @@
 }
 
 //------------------------------------------------
+/*
 function is_prime(n)
 {
 	for (var i = 2; i * i <= n; i++)
@@ -14,10 +15,12 @@ function is_prime(n)
 			return false;
 	return true;
 }
+*/
 //------------------------------------------------
 for (var i = 1e7; i < 1e9; i++)
 	if (is_prime(i)){
-		console.log(i + " ");
+		//console.log(i + " ");
+		postMessage(i);
 	}
 	
 postMessage("game over");
