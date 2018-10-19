@@ -15,7 +15,7 @@ function is_prime(n)
 	return true;
 }
 //------------------------------------------------
-for (var i = 2; i < 1000000; i++)
+for (var i = 1e7; i < 1e9; i++)
 	if (is_prime(i)){
 		console.log(i + " ");
 	}
