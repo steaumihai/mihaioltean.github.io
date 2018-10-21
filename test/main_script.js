@@ -23,7 +23,8 @@ function start_worker()
 		myWorker = new Worker("worker.js");
 		myWorker.onmessage = function(e) {
 			document.getElementById("id_worker").innerHTML += e.data + " ";
-		};	
+		};
+		document.getElementById("id_stop_button").disabled = false;
 
 		var canvas = document.getElementById("id_canvas");
 		var ctx = canvas.getContext("2d");
