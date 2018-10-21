@@ -1,13 +1,9 @@
 //------------------------------------------------
 onmessage = function(e) {
-  console.log('Message received from main script');
-  var workerResult = 'Result: ' + (e.data[0]);
-  console.log('Posting message back to main script');
-  postMessage(workerResult);
+  //var workerResult = 'Result: ' + (e.data[0]);
 }
 
 //------------------------------------------------
-
 function is_prime(n)
 {
 	for (var i = 2; i * i <= n; i++)
@@ -23,5 +19,5 @@ for (var i = 1e9; i < 1e10; i++)
 		postMessage(i);
 	}
 	
-postMessage("game over");
+postMessage("worker over");
 //------------------------------------------------
