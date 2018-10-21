@@ -30,7 +30,7 @@ function start_worker()
 		var ctx = canvas.getContext("2d");
 		
 		var position = {angle:0, old_angle:0};
-		setInterval(draw_circle, 100, ctx, position, 0.1, canvas.width, canvas.height);
+		interval_id = setInterval(draw_circle, 100, ctx, position, 0.1, canvas.width, canvas.height);
 	}
 }
 //-------------------------------------------------
@@ -38,5 +38,6 @@ function stop_worker()
 {
 	myWorker.terminate();	
 	document.getElementById("id_stop_button").disabled = true;
+	clearInterval(interval_id);
 }
 //-------------------------------------------------
