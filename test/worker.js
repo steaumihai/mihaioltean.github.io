@@ -25,7 +25,7 @@ function compute_primes(start)
 				postMessage(i);
 			}
 		}
-		start.number += 10000;
+		start.number += 1000;
 		if (start.number >= 1e12)
 			postMessage("stopped");
 		else
