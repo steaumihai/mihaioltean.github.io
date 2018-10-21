@@ -13,7 +13,7 @@ function is_prime(n)
 }
 
 //------------------------------------------------
-for (var i = 1e9; i < 1e10; i++)
+for (var i = 1e11; i < 1e12; i++)
 	if (is_prime(i)){
 		//console.log(i + " ");
 		postMessage(i);
