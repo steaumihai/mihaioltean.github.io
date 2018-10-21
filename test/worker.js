@@ -19,17 +19,18 @@ function compute_primes(start)
 	if (stopped){
 		postMessage("stopped");
 	}
-			
-	for (var i = start.number; i < start.number + 10000; i++){
-		if (is_prime(i)){
-			postMessage(i);
+	else{		
+		for (var i = start.number; i < start.number + 10000; i++){
+			if (is_prime(i)){
+				postMessage(i);
+			}
 		}
+		start.number += 10000;
+		if (start.number >= 1e12)
+			postMessage("stopped");
+		else
+			setTimeout(compute_primes, 100, start_number);
 	}
-	start.number += 10000;
-	if (start.number >= 1e12)
-		postMessage("stopped");
-	else
-		setTimeout(compute_primes, 100, start_number);
 }
 //------------------------------------------------
 var start_number = {number:1e11};
