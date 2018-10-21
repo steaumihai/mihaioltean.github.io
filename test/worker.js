@@ -29,10 +29,10 @@ function compute_primes(start)
 		if (start.number >= 1e12)
 			postMessage("stopped");
 		else
-			setTimeout(compute_primes, 100, start_number);
+			setTimeout(compute_primes, 10, start_number);
 	}
 }
 //------------------------------------------------
 var start_number = {number:1e11};
 
-id_timer_worker = setTimeout(compute_primes, 100, start_number);
+id_timer_worker = setTimeout(compute_primes, 10, start_number);
