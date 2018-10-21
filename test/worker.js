@@ -32,6 +32,6 @@ function compute_primes(start)
 		postMessage("stopped");
 }
 //------------------------------------------------
-var start = {number:1e11};
+var start_number = {number:1e11};
 
-id_timer_worker = setTimeout(compute_primes, 10, start);
+id_timer_worker = self.setTimeout(compute_primes, 10, start_number);
