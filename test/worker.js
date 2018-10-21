@@ -20,7 +20,7 @@ function compute_primes(start)
 		postMessage("stopped");
 	}
 	else{		
-		for (var i = start.number; i < start.number + 10000; i++){
+		for (var i = start.number; i < start.number + 1000; i++){
 			if (is_prime(i)){
 				postMessage(i);
 			}
