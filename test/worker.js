@@ -23,7 +23,6 @@ function compute_primes(start)
 			
 	for (var i = start.number; i < start.number + 10000; i++){
 		if (is_prime(i)){
-			//console.log(i + " ");
 			postMessage(i);
 		}
 	}

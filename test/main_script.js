@@ -3,13 +3,16 @@ document.getElementById("id_stop_button").addEventListener("click", stop_worker)
 //-------------------------------------------------
 function draw_circle(ctx, position, step, w, h)
 {
+	// clear surface
 		ctx.clearRect(0, 0, w, h); 
 		
+		// draw circle
 		ctx.beginPath();
 		ctx.strokeStyle = "#000000";
 		ctx.arc(Math.cos(position.angle) * 50 + 200, Math.sin(position.angle) * 50 + 200, 50, 0, 2 * Math.PI);
 		ctx.stroke();
 		
+		// update next angle
 		position.old_angle = position.angle;
 		position.angle += step;
 		if (position.angle > 2 * Math.PI)
@@ -18,8 +21,7 @@ function draw_circle(ctx, position, step, w, h)
 //----------------------------------------------------
 function start_worker()
 {
-	if (window.Worker) { // Check if Browser supports the Worker api.
-	// Requires script name as input
+	if (window.Worker) {
 		myWorker = new Worker("worker.js");
 		myWorker.onmessage = function(e) {
 			document.getElementById("id_worker").innerHTML = e.data;
@@ -39,9 +41,7 @@ function start_worker()
 }
 //-------------------------------------------------
 function stop_worker()
-{
-	//myWorker.terminate();	
-	myWorker.postMessage("stop");
-	
+{	
+	myWorker.postMessage("stop");	
 }
 //-------------------------------------------------
