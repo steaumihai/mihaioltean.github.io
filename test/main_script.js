@@ -27,10 +27,12 @@ function start_worker()
 			document.getElementById("id_worker").innerHTML = e.data;
 			if (e.data == "stopped"){
 				document.getElementById("id_stop_button").disabled = true;
+				document.getElementById("id_start_button").disabled = false;
 				clearInterval(interval_id);
 			}
 		};
 		document.getElementById("id_stop_button").disabled = false;
+		document.getElementById("id_start_button").disabled = true;
 
 		var canvas = document.getElementById("id_canvas");
 		var ctx = canvas.getContext("2d");
