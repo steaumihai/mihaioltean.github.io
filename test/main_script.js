@@ -22,8 +22,8 @@ function start_worker()
 	// Requires script name as input
 		myWorker = new Worker("worker.js");
 		myWorker.onmessage = function(e) {
-			document.getElementById("id_worker").innerHTML += e.data + " ";
-			if (e.data == "stopped"){
+			document.getElementById("id_worker").innerHTML = e.data;
+			if (e.data[0] == "stopped"){
 				document.getElementById("id_stop_button").disabled = true;
 				clearInterval(interval_id);
 			}
