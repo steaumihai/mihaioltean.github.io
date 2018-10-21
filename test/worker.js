@@ -1,7 +1,7 @@
 var stopped = false;
 //------------------------------------------------
 onmessage = function(e) {
-  if (e.data[0] == "stop"){
+  if (e.data == "stop"){
 	  stopped = true;
   }
 }
