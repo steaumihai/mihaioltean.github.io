@@ -1,4 +1,5 @@
-document.getElementById("id_button").addEventListener("click", start_worker);
+document.getElementById("id_start_button").addEventListener("click", start_worker);
+document.getElementById("id_stop_button").addEventListener("click", stop_worker);
 //-------------------------------------------------
 function draw_circle(ctx, position, step, w, h)
 {
@@ -19,7 +20,7 @@ function start_worker()
 {
 	if (window.Worker) { // Check if Browser supports the Worker api.
 	// Requires script name as input
-		var myWorker = new Worker("worker.js");
+		myWorker = new Worker("worker.js");
 		myWorker.onmessage = function(e) {
 			document.getElementById("id_worker").innerHTML += e.data + " ";
 		};	
@@ -32,4 +33,8 @@ function start_worker()
 	}
 }
 //-------------------------------------------------
-
+function stop_worker()
+{
+	myWorker.terminate();	
+}
+//-------------------------------------------------
