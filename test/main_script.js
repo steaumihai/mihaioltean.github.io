@@ -37,5 +37,6 @@ function start_worker()
 function stop_worker()
 {
 	myWorker.terminate();	
+	document.getElementById("id_stop_button").disabled = true;
 }
 //-------------------------------------------------
