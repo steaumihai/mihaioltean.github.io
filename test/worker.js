@@ -1,8 +1,10 @@
+var stopped = false;
 //------------------------------------------------
 onmessage = function(e) {
-  var workerResult = 'Result: ' + (e.data[0]);
+  if (e.data[0] == "stop"){
+	  stopped = true;
+  }
 }
-
 //------------------------------------------------
 function is_prime(n)
 {
@@ -11,14 +13,14 @@ function is_prime(n)
 			return false;
 	return true;
 }
-
 //------------------------------------------------
 for (var i = 1e11; i < 1e12; i++){
-	
+	if (stopped)
+		break;
 	if (is_prime(i)){
 		//console.log(i + " ");
 		postMessage(i);
 	}
 }
-postMessage("worker over");
+postMessage("stopped");
 //------------------------------------------------

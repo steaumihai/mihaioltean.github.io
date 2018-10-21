@@ -23,6 +23,10 @@ function start_worker()
 		myWorker = new Worker("worker.js");
 		myWorker.onmessage = function(e) {
 			document.getElementById("id_worker").innerHTML += e.data + " ";
+			if (e.data == "stopped"){
+				document.getElementById("id_stop_button").disabled = true;
+				clearInterval(interval_id);
+			}
 		};
 		document.getElementById("id_stop_button").disabled = false;
 
@@ -36,8 +40,8 @@ function start_worker()
 //-------------------------------------------------
 function stop_worker()
 {
-	myWorker.terminate();	
-	document.getElementById("id_stop_button").disabled = true;
-	clearInterval(interval_id);
+	//myWorker.terminate();	
+	myWorker.postMessage("stop");
+	
 }
 //-------------------------------------------------
