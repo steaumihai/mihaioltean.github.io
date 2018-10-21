@@ -22,8 +22,7 @@ function start_worker()
 		var myWorker = new Worker("worker.js");
 		myWorker.onmessage = function(e) {
 			document.getElementById("id_worker").innerHTML += e.data + " ";
-		};
-		
+		};	
 
 		var canvas = document.getElementById("id_canvas");
 		var ctx = canvas.getContext("2d");
