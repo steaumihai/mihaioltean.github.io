@@ -34,4 +34,4 @@ function compute_primes(start)
 //------------------------------------------------
 var start_number = {number:1e11};
 
-id_timer_worker = self.setTimeout(compute_primes, 10, start_number);
+id_timer_worker = self.setTimeout(compute_primes, 100, start_number);
