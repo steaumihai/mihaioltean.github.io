@@ -14,13 +14,24 @@ function is_prime(n)
 	return true;
 }
 //------------------------------------------------
-for (var i = 1e11; i < 1e12; i++){
-	if (stopped)
-		break;
-	if (is_prime(i)){
-		//console.log(i + " ");
-		postMessage(i);
+function compute_primes(start)
+{
+	if (stopped){
+		clearTimeout(id_timer_worker);
+		postMessage("stopped");
 	}
+			
+	for (var i = start.number; i < start.number + 10000; i++){
+		if (is_prime(i)){
+			//console.log(i + " ");
+			postMessage(i);
+		}
+	}
+	start.number += 10000;
+	if (start.number >= 1e12)
+		postMessage("stopped");
 }
-postMessage("stopped");
 //------------------------------------------------
+var start = {number:1e11};
+
+id_timer_worker = setTimeout(compute_primes, 10, start);
