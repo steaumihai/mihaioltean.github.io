@@ -1,6 +1,6 @@
 # mihaioltean.github.io
 
-## Aplicatii web
+### Aplicatii web
 
 **My personal website** and _some www apps_
 
