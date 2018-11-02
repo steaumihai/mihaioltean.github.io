@@ -1,6 +1,7 @@
-document.getElementById("id_business_version").innerHTML = "Bussiness version: 2018.11.02.2";
+document.getElementById("id_business_version").innerHTML = "Bussiness version: 2018.11.02.3";
 window.addEventListener("deviceorientation", on_device_orientation);
-
+window.addEventListener("devicemotion", on_device_motion);
+//--------------------------------------------
 function on_device_orientation(e)
 {
 	document.getElementById("id_z").innerHTML = e.alpha;
@@ -19,3 +20,12 @@ function on_device_orientation(e)
 				0, 2 * Math.PI);
 	context.stroke();
 }
+
+//----------------------------------------------
+function on_device_motion(e)
+{
+	document.getElementById("id_acc_z").innerHTML = e.accelerationIncludingGravity.z;
+	document.getElementById("id_acc_x").innerHTML = e.accelerationIncludingGravity.x;
+	document.getElementById("id_acc_y").innerHTML = e.accelerationIncludingGravity.y;	
+}
+//----------------------------------------------
