@@ -1,4 +1,4 @@
-
+var stopped = false;
 //-------------------------------
 function is_prime(n)
 {
@@ -8,8 +8,8 @@ function is_prime(n)
 	return true;	
 }
 //-------------------------------
-for (var i = 1e11; i < 1e12; i++)
-	if (is_prime(i))
-		postMessage(i);
+for (var i = 1e11; i < 1e12 && !stopped; i++)
+		if (is_prime(i))
+			postMessage(i);
 	
 postMessage("done");	
