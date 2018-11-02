@@ -14,8 +14,21 @@ function is_prime(n)
 	return true;	
 }
 //-------------------------------
-for (var i = 1e11; i < 1e12 && !stopped; i++)
-		if (is_prime(i))
-			postMessage(i);
+function calcul_prime(start_value)
+{
+	if (stopped)
+		;
+	else{
+		for (var i = start_value; i < start_value + 1000; i++)
+			if (is_prime(i))
+				postMessage(i);
+		start_value += 1000;	
+	}
+	if (start_value < 1e12)
+		setTimeout(calcul_prime, 1, start_value);
+	else
+		postMessage("done");	
 	
-postMessage("done");	
+}
+//-------------------------------
+calcul_prime(1e11);
